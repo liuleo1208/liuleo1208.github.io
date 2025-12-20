@@ -2,259 +2,495 @@
 <html lang="zh-Hant">
 <head>
   <meta charset="UTF-8" />
-  <title>野酌 YAKUO｜Forest Open-Air Bar</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>野酌 YAKUO｜露天森林系酒吧</title>
+  <meta name="description" content="野酌 YAKUO｜露天森林系酒吧。樹影、暖光、木桌與晚風——讓夜回歸自然。" />
+
+  <!-- Open Graph（分享縮圖） -->
+  <meta property="og:title" content="野酌 YAKUO｜露天森林系酒吧" />
+  <meta property="og:description" content="樹影、暖光、木桌與晚風——讓夜回歸自然。" />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=1600&q=80" />
+  <meta name="theme-color" content="#0f1411" />
 
   <style>
-    :root {
-      --bg: #0f1411;
-      --panel: rgba(20, 26, 22, 0.78);
-      --text: #eaeaea;
-      --muted: #9fa6a0;
+    :root{
+      --bg:#0f1411;
+      --bg2:#121916;
+      --panel: rgba(16,20,18,.72);
+      --line: rgba(255,255,255,.10);
+      --text: rgba(255,255,255,.92);
+      --muted: rgba(255,255,255,.70);
+      --subtle: rgba(255,255,255,.52);
       --accent: #8fae9b;
-      --line: rgba(255,255,255,0.08);
+      --shadow: 0 22px 70px rgba(0,0,0,.55);
+      --radius: 20px;
     }
 
-    * { box-sizing: border-box; }
-
-    body {
-      margin: 0;
-      font-family: -apple-system, BlinkMacSystemFont, "Noto Sans TC", sans-serif;
-      background: var(--bg);
-      color: var(--text);
-      line-height: 1.8;
+    *{ box-sizing:border-box; }
+    html{ scroll-behavior:smooth; }
+    body{
+      margin:0;
+      font-family:-apple-system, BlinkMacSystemFont, "Noto Sans TC", "PingFang TC", "Microsoft JhengHei", sans-serif;
+      color:var(--text);
+      background:
+        radial-gradient(900px 520px at 40% -120px, rgba(143,174,155,.18), transparent 65%),
+        linear-gradient(180deg, var(--bg) 0%, var(--bg2) 100%);
+      letter-spacing:.2px;
+      line-height:1.85;
     }
+    a{ color:inherit; text-decoration:none; }
+    .wrap{ max-width:1100px; margin:0 auto; padding:0 18px; }
 
-    a { color: inherit; text-decoration: none; }
-
-    header {
-      position: fixed;
-      top: 0;
-      width: 100%;
-      z-index: 10;
-      background: rgba(10,14,12,0.6);
-      backdrop-filter: blur(10px);
-      border-bottom: 1px solid var(--line);
+    /* Top Nav */
+    .nav{
+      position:sticky; top:0; z-index:50;
+      background:rgba(12,16,14,.62);
+      backdrop-filter: blur(14px);
+      border-bottom:1px solid var(--line);
     }
-
-    .nav {
-      max-width: 1100px;
-      margin: auto;
-      padding: 14px 20px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
+    .nav .wrap{
+      display:flex; align-items:center; justify-content:space-between;
+      padding:14px 18px;
     }
-
-    .nav .logo {
-      letter-spacing: 2px;
-      font-weight: 600;
+    .brand{
+      display:flex; align-items:baseline; gap:12px;
+      font-weight:700;
+      letter-spacing:6px;
     }
-
-    .nav .menu a {
-      margin-left: 20px;
-      font-size: 14px;
-      color: var(--muted);
+    .brand small{
+      font-weight:500;
+      letter-spacing:3px;
+      color:var(--subtle);
     }
-
-    section {
-      max-width: 1100px;
-      margin: auto;
-      padding: 90px 20px;
+    .menu a{
+      display:inline-block;
+      margin-left:10px;
+      padding:8px 12px;
+      border-radius:999px;
+      border:1px solid rgba(255,255,255,.12);
+      font-size:12px;
+      color:var(--muted);
+    }
+    .menu a.primary{
+      background: rgba(143,174,155,.18);
+      border-color: rgba(143,174,155,.48);
+      color: #fff;
     }
 
     /* Hero */
-    .hero {
-      min-height: 100vh;
+    .hero{
+      min-height: 92vh;
+      display:flex;
+      align-items:center;
+      padding: 54px 0 36px;
       background:
-        linear-gradient(rgba(0,0,0,.45), rgba(0,0,0,.75)),
-        url("hero-forest.jpg") center / cover no-repeat;
-      display: flex;
-      align-items: center;
+        linear-gradient(180deg, rgba(10,14,12,.30), rgba(10,14,12,.78)),
+        url("https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=2400&q=80")
+        center / cover no-repeat;
+    }
+    .hero-inner{
+      width:100%;
+      display:grid;
+      grid-template-columns: 1.05fr .95fr;
+      gap:18px;
+      align-items:stretch;
+    }
+    @media(max-width:900px){
+      .hero{ min-height:auto; padding: 76px 0 40px; }
+      .hero-inner{ grid-template-columns: 1fr; }
     }
 
-    .hero-box {
-      background: var(--panel);
-      padding: 50px;
-      border-radius: 18px;
-      max-width: 620px;
-      box-shadow: 0 30px 80px rgba(0,0,0,.55);
+    .card{
+      border-radius: var(--radius);
+      background: rgba(14,18,16,.72);
+      border: 1px solid rgba(255,255,255,.10);
+      box-shadow: var(--shadow);
+      overflow:hidden;
     }
+    .pad{ padding: 28px; }
 
-    .hero small {
-      letter-spacing: 3px;
+    .eyebrow{
+      letter-spacing: 5px;
+      font-size:12px;
       color: var(--muted);
+      margin:0 0 10px;
+    }
+    h1{
+      margin: 0 0 10px;
+      font-size: 46px;
+      letter-spacing: 10px;
+    }
+    @media(max-width:420px){ h1{ font-size: 38px; } }
+
+    .subtitle{
+      margin: 0 0 18px;
+      color: rgba(255,255,255,.82);
+      font-size: 16px;
     }
 
-    .hero h1 {
-      font-size: 48px;
-      margin: 12px 0;
+    blockquote{
+      margin: 0;
+      padding: 16px 16px;
+      border-left: 2px solid rgba(143,174,155,.7);
+      background: rgba(255,255,255,.03);
+      border-radius: 12px;
+      color: rgba(255,255,255,.88);
+    }
+    blockquote span{
+      display:block;
+      margin-top:8px;
+      color: var(--subtle);
+      letter-spacing: 3px;
     }
 
-    .hero p {
-      color: #d7ddd9;
-      margin-bottom: 26px;
+    .hero-actions{
+      margin-top: 18px;
+      display:flex;
+      flex-wrap:wrap;
+      gap:10px;
     }
-
-    .btns a {
-      display: inline-block;
-      margin-right: 12px;
-      padding: 10px 22px;
+    .btn{
+      display:inline-block;
+      padding: 11px 18px;
       border-radius: 999px;
-      border: 1px solid var(--accent);
-      font-size: 14px;
+      border: 1px solid rgba(255,255,255,.14);
+      font-size: 13px;
+      letter-spacing: 2px;
+      color: rgba(255,255,255,.86);
+      background: rgba(255,255,255,.03);
+    }
+    .btn.primary{
+      background: rgba(143,174,155,.18);
+      border-color: rgba(143,174,155,.55);
+      color: #fff;
+    }
+    .btn.outline{
+      border-color: rgba(143,174,155,.45);
+      color: #fff;
     }
 
-    .btn-primary {
-      background: var(--accent);
-      color: #0f1411;
+    /* Side photo card (subtle, not “camping”) */
+    .hero-photo{
+      min-height: 420px;
+      background:
+        linear-gradient(180deg, rgba(0,0,0,.18), rgba(0,0,0,.70)),
+        url("https://images.unsplash.com/photo-1528605248644-14dd04022da1?auto=format&fit=crop&w=2200&q=80")
+        center / cover no-repeat;
     }
 
-    /* Block */
-    .block {
-      background: var(--panel);
+    /* Sections */
+    section.block{
+      padding: 54px 0;
+    }
+    .title{
+      letter-spacing: 6px;
+      font-size: 13px;
+      color: var(--muted);
+      margin: 0 0 14px;
+    }
+    .panel{
+      border-radius: var(--radius);
+      border: 1px solid rgba(255,255,255,.10);
+      background: rgba(255,255,255,.03);
+      box-shadow: 0 18px 60px rgba(0,0,0,.35);
+      padding: 26px;
+    }
+
+    /* Feature Cards */
+    .features{
+      display:grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 14px;
+      margin-top: 14px;
+    }
+    @media(max-width:900px){
+      .features{ grid-template-columns: 1fr; }
+    }
+    .feature{
       border-radius: 18px;
-      padding: 40px;
-      margin-bottom: 40px;
-      box-shadow: 0 20px 60px rgba(0,0,0,.4);
+      border: 1px solid rgba(255,255,255,.10);
+      background: rgba(255,255,255,.03);
+      padding: 18px;
     }
-
-    h2 {
-      margin-top: 0;
+    .feature h3{
+      margin: 0 0 8px;
+      font-size: 16px;
       letter-spacing: 2px;
     }
-
-    .muted {
+    .feature p{
+      margin: 0;
       color: var(--muted);
     }
 
     /* Gallery */
-    .gallery {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-      gap: 18px;
+    .gallery{
+      display:grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+      margin-top: 16px;
+    }
+    @media(max-width:900px){
+      .gallery{ grid-template-columns: 1fr; }
+    }
+    .g{
+      position:relative;
+      height: 240px;
+      border-radius: 18px;
+      overflow:hidden;
+      background-size: cover;
+      background-position: center;
+      border: 1px solid rgba(255,255,255,.10);
+    }
+    .g::after{
+      content:"";
+      position:absolute; inset:0;
+      background: linear-gradient(180deg, rgba(0,0,0,.12), rgba(0,0,0,.70));
+    }
+    .g span{
+      position:absolute;
+      left: 16px;
+      bottom: 14px;
+      z-index:1;
+      font-size: 12px;
+      letter-spacing: 3px;
+      color: rgba(255,255,255,.92);
     }
 
-    .gallery img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      border-radius: 14px;
+    /* Plan */
+    .plan{
+      display:grid;
+      grid-template-columns: 1fr;
+      gap: 12px;
+      margin-top: 12px;
     }
-
-    footer {
-      text-align: center;
-      padding: 60px 20px;
+    .price{
+      display:flex;
+      align-items:baseline;
+      gap:12px;
+      margin: 8px 0 6px;
+    }
+    .price b{
+      font-size: 34px;
+      letter-spacing: 1px;
+    }
+    .price span{
+      color: var(--subtle);
+      letter-spacing: 2px;
+      font-size: 13px;
+    }
+    .list{
+      margin: 10px 0 0;
+      padding-left: 18px;
       color: var(--muted);
-      border-top: 1px solid var(--line);
+    }
+    .divider-quote{
+      margin-top: 18px;
+      padding-top: 18px;
+      border-top: 1px solid rgba(255,255,255,.08);
+      color: rgba(255,255,255,.82);
+    }
+    .divider-quote em{
+      color: var(--subtle);
+      font-style: normal;
+      letter-spacing: 3px;
     }
 
-    @media (max-width: 600px) {
-      .hero h1 { font-size: 36px; }
-      .hero-box { padding: 32px; }
+    /* Reserve */
+    .reserve-actions{
+      display:flex;
+      flex-wrap:wrap;
+      gap:10px;
+      margin-top: 12px;
+    }
+    .hint{
+      margin-top: 10px;
+      color: var(--subtle);
+      font-size: 13px;
+    }
+
+    /* Footer */
+    footer{
+      padding: 42px 0 54px;
+      border-top: 1px solid rgba(255,255,255,.08);
+      color: var(--subtle);
+      text-align:center;
+    }
+    footer b{
+      color: rgba(255,255,255,.85);
+      letter-spacing: 3px;
     }
   </style>
 </head>
 
 <body>
-
-<header>
   <div class="nav">
-    <div class="logo">野酌 YAKUO</div>
-    <div class="menu">
-      <a href="#about">關於</a>
-      <a href="#plan">方案</a>
-      <a href="#info">營業資訊</a>
-      <a href="#reserve">訂位</a>
+    <div class="wrap">
+      <div class="brand">
+        野酌 <small>YAKUO</small>
+      </div>
+      <div class="menu">
+        <a href="#about">關於</a>
+        <a href="#plan">方案</a>
+        <a href="#gallery">氛圍</a>
+        <a href="#info">資訊</a>
+        <a href="#reserve" class="primary">訂位</a>
+      </div>
     </div>
   </div>
-</header>
 
-<section class="hero">
-  <div class="hero-box">
-    <small>OPEN-AIR BAR</small>
-    <h1>野酌</h1>
-    <p>
-      露天森林系酒吧。<br>
-      樹影、暖光、木桌與晚風——讓夜回歸自然
-    </p>
-    <p class="muted">
-      不吵、不趕，剛剛好的放鬆。<br>— YAKUO
-    </p>
-    <div class="btns">
-      <a href="#plan" class="btn-primary">方案</a>
-      <a href="#info">營業資訊</a>
-      <a href="#reserve">訂位</a>
+  <!-- Hero -->
+  <header class="hero">
+    <div class="wrap hero-inner">
+      <div class="card">
+        <div class="pad">
+          <p class="eyebrow">OPEN-AIR BAR</p>
+          <h1>野酌</h1>
+          <p class="subtitle">
+            露天森林系酒吧。<br>
+            樹影、暖光、木桌與晚風——讓夜回歸自然
+          </p>
+
+          <blockquote>
+            不吵、不趕，剛剛好的放鬆。
+            <span>— YAKUO</span>
+          </blockquote>
+
+          <div class="hero-actions">
+            <a class="btn primary" href="#plan">方案</a>
+            <a class="btn" href="#info">營業資訊</a>
+            <a class="btn outline" href="#reserve">訂位</a>
+          </div>
+
+          <p class="hint">Forest · Night · Slow Drink</p>
+        </div>
+      </div>
+
+      <div class="card hero-photo" aria-label="野酌 氛圍照片"></div>
     </div>
-  </div>
-</section>
+  </header>
 
-<section id="about">
-  <div class="block">
-    <h2>關於野酌</h2>
-    <p>
-      野酌，是把城市的夜晚，變成森夜留給自己。<br><br>
-      我們選擇露天空間、自然材質與低干擾的聲音，
-      讓人在夜風裡坐下來，慢慢說話、慢慢喝酒。<br><br>
-      在這裡，時間不是用來趕的，<br>
-      而是用來待著。
-    </p>
-  </div>
-</section>
+  <!-- About -->
+  <section class="block" id="about">
+    <div class="wrap">
+      <div class="title">關於野酌</div>
+      <div class="panel">
+        <p style="margin:0;">
+          野酌，是把城市的夜晚，變成森夜留給自己。<br><br>
+          我們選擇露天空間、自然材質與低干擾的聲音，
+          讓人在夜風裡坐下來，慢慢說話、慢慢喝酒。<br><br>
+          在這裡，時間不是用來趕的，<br>
+          而是用來待著。
+        </p>
+      </div>
 
-<section>
-  <div class="block">
-    <h2>空間氣氛</h2>
-    <div class="gallery">
-      <img src="forest-1.jpg" alt="森林露天座位">
-      <img src="forest-2.jpg" alt="夜間暖光">
-      <img src="forest-3.jpg" alt="木質與燈串">
-      <img src="forest-4.jpg" alt="露天夜晚">
+      <div class="features">
+        <div class="feature">
+          <h3>林間暖光</h3>
+          <p>低亮度燈光與木質調，像樹下的微光，不刺眼，也不喧嘩。</p>
+        </div>
+        <div class="feature">
+          <h3>自然距離</h3>
+          <p>座位之間保留呼吸感，讓聊天更自在，也更真實。</p>
+        </div>
+        <div class="feature">
+          <h3>露天夜風</h3>
+          <p>沒有牆的包圍，夜風、氣味與聲音自然流動。</p>
+        </div>
+      </div>
     </div>
-  </div>
-</section>
+  </section>
 
-<section id="plan">
-  <div class="block">
-    <h2>方案</h2>
-    <p>
-      990 元｜所有酒款暢飲<br>
-      2 小時久坐、慢聊<br>
-      （每日品項依現場公告）<br><br>
-      續酌每小時 390<br>
-      主題夜 / 駐唱（不定期）<br><br>
-      不刻意熱鬧，用音樂陪伴夜晚的節奏。
-    </p>
-  </div>
-</section>
+  <!-- Gallery -->
+  <section class="block" id="gallery">
+    <div class="wrap">
+      <div class="title">氛圍</div>
+      <div class="gallery">
+        <div class="g" style="background-image:url('https://images.unsplash.com/photo-1528605248644-14dd04022da1?auto=format&fit=crop&w=1600&q=80');">
+          <span>林間夜坐</span>
+        </div>
+        <div class="g" style="background-image:url('https://images.unsplash.com/photo-1504754524776-8f4f37790ca0?auto=format&fit=crop&w=1600&q=80');">
+          <span>暖光木桌</span>
+        </div>
+        <div class="g" style="background-image:url('https://images.unsplash.com/photo-1514933651103-005eec06c04b?auto=format&fit=crop&w=1600&q=80');">
+          <span>露天微醺</span>
+        </div>
+      </div>
 
-<section id="info">
-  <div class="block">
-    <h2>營業資訊</h2>
-    <p>
-      地點：<br>
-      （填寫實際地址）<br><br>
-      營業時間：<br>
-      18:00 – 02:00<br>
-      （實際營業日依公告）
-    </p>
-  </div>
-</section>
+      <div class="divider-quote">
+        燈光藏在樹影裡，<br>
+        音樂留在背景中。<br><br>
+        適合久坐、久聊，<br>
+        <em>不適合趕時間。</em>
+      </div>
+    </div>
+  </section>
 
-<section id="reserve">
-  <div class="block">
-    <h2>訂位</h2>
-    <p class="muted">
-      請透過 LINE / Instagram 私訊預約<br>
-      或來電洽詢（未來可接線上訂位系統）
-    </p>
-  </div>
-</section>
+  <!-- Plan -->
+  <section class="block" id="plan">
+    <div class="wrap">
+      <div class="title">方案</div>
+      <div class="panel plan">
+        <div class="price">
+          <b>990</b><span>元｜所有酒款暢飲</span>
+        </div>
+        <div style="color:var(--muted);">
+          2 小時久坐、慢聊（每日品項依現場公告）
+        </div>
 
-<footer>
-  野酌 YAKUO<br>
-  Forest Open-Air Bar
-</footer>
+        <ul class="list">
+          <li>續酌每小時 390</li>
+          <li>主題夜 / 駐唱（不定期）</li>
+          <li>不刻意熱鬧，用音樂陪伴夜晚的節奏</li>
+        </ul>
+      </div>
+    </div>
+  </section>
 
+  <!-- Info -->
+  <section class="block" id="info">
+    <div class="wrap">
+      <div class="title">營業資訊</div>
+      <div class="panel">
+        <p style="margin:0;color:var(--muted);">
+          <b style="color:rgba(255,255,255,.88);">地點</b><br>
+          （填寫實際地址）<br><br>
+
+          <b style="color:rgba(255,255,255,.88);">營業時間</b><br>
+          18:00 – 02:00<br>
+          （實際營業日依公告）
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Reserve -->
+  <section class="block" id="reserve">
+    <div class="wrap">
+      <div class="title">訂位</div>
+      <div class="panel">
+        <p style="margin:0;color:var(--muted);">
+          目前先用「私訊訂位」最穩（投資者也會覺得務實）。<br>
+          你把下面其中一個方式填上就能上線：
+        </p>
+
+        <div class="reserve-actions">
+          <!-- 把 # 換成你的連結：LINE / IG / Google表單 -->
+          <a class="btn primary" href="#" target="_blank" rel="noopener">LINE 訂位</a>
+          <a class="btn" href="#" target="_blank" rel="noopener">IG 私訊</a>
+          <a class="btn outline" href="#" target="_blank" rel="noopener">訂位表單</a>
+        </div>
+
+        <div class="hint">
+          小提醒：如果你還沒要放連結，先留著也沒關係；之後把 # 換成網址即可。
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <b>野酌 YAKUO</b><br>
+    Forest Open-Air Bar
+  </footer>
 </body>
 </html>
