@@ -1,119 +1,273 @@
 <!DOCTYPE html>
 <html lang="zh-Hant">
 <head>
-<meta charset="UTF-8">
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>野酌 YAKUO｜露天酒吧</title>
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="野酌 YAKUO｜森林系露天酒吧。暖光、木桌、夜風與微醺，讓夜晚慢下來。" />
 <style>
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, "Noto Sans TC", sans-serif;
-  background-color: #0f1411;
-  color: #eaeaea;
-  line-height: 1.8;
+:root{
+  --bg:#0b0f0d;
+  --bg2:#0f1512;
+  --text:rgba(255,255,255,.92);
+  --muted:rgba(255,255,255,.68);
+  --subtle:rgba(255,255,255,.52);
+  --line:rgba(255,255,255,.10);
+  --card:rgba(255,255,255,.04);
+  --accent:#8fb59f;
+  --shadow:0 18px 60px rgba(0,0,0,.55);
+  --radius:18px;
 }
-section {
-  padding: 80px 20px;
-  max-width: 900px;
-  margin: auto;
+*{box-sizing:border-box}
+html,body{height:100%}
+body{
+  margin:0;
+  font-family:-apple-system,BlinkMacSystemFont,"Noto Sans TC","PingFang TC","Microsoft JhengHei",sans-serif;
+  color:var(--text);
+  background:
+    radial-gradient(980px 440px at 50% -160px, rgba(143,181,159,.22), transparent 65%),
+    radial-gradient(900px 520px at 12% 10%, rgba(255,255,255,.06), transparent 55%),
+    linear-gradient(180deg, var(--bg) 0%, var(--bg2) 100%);
+  letter-spacing:.4px;
 }
-.hero {
-  text-align: center;
-  padding-top: 120px;
+a{color:inherit;text-decoration:none}
+.wrap{max-width:1080px;margin:0 auto;padding:0 18px}
+
+/* Top bar */
+.nav{
+  position:sticky;top:0;z-index:50;
+  backdrop-filter:blur(14px);
+  background:rgba(11,15,13,.62);
+  border-bottom:1px solid rgba(255,255,255,.08);
 }
-.hero h1 {
-  font-size: 48px;
-  letter-spacing: 6px;
+.nav .wrap{
+  display:flex;align-items:center;justify-content:space-between;
+  padding:14px 18px;
 }
-.hero p {
-  opacity: 0.8;
+.brand{display:flex;gap:10px;align-items:baseline}
+.brand b{letter-spacing:6px;font-size:14px}
+.brand span{color:var(--subtle);font-size:12px;letter-spacing:3px}
+.menu{display:flex;gap:10px;flex-wrap:wrap;justify-content:flex-end}
+.pill{
+  display:inline-flex;align-items:center;justify-content:center;
+  padding:10px 12px;border-radius:999px;
+  border:1px solid rgba(255,255,255,.10);
+  background:rgba(255,255,255,.03);
+  color:var(--muted);
+  font-size:12px;letter-spacing:2px;
 }
-.btn {
-  display: inline-block;
-  margin-top: 30px;
-  padding: 14px 36px;
-  border: 1px solid #eaeaea;
-  color: #eaeaea;
-  text-decoration: none;
+.pill:hover{transform:translateY(-1px)}
+
+/* Hero */
+.hero{padding:72px 0 30px}
+.hero-grid{
+  display:grid;grid-template-columns:1.1fr .9fr;gap:18px;align-items:stretch;
 }
-.btn:hover {
-  background: #eaeaea;
-  color: #0f1411;
+@media (max-width:900px){.hero-grid{grid-template-columns:1fr}}
+.card{
+  border:1px solid rgba(255,255,255,.10);
+  background:linear-gradient(180deg, rgba(255,255,255,.05), rgba(255,255,255,.025));
+  border-radius:22px;
+  box-shadow:var(--shadow);
+  overflow:hidden;
+  position:relative;
 }
-h2 {
-  border-left: 4px solid #6b7d6e;
-  padding-left: 12px;
-  margin-bottom: 20px;
+.pad{padding:24px 22px}
+.kicker{color:var(--muted);font-size:12px;letter-spacing:5px}
+h1{margin:10px 0 10px;font-size:44px;letter-spacing:10px}
+@media (max-width:900px){h1{font-size:38px;letter-spacing:8px}}
+.lead{margin:0;color:var(--muted);font-size:15px;line-height:1.95}
+.cta{display:flex;gap:10px;flex-wrap:wrap;margin-top:18px}
+.btn{
+  display:inline-flex;align-items:center;justify-content:center;
+  padding:12px 16px;border-radius:14px;
+  border:1px solid rgba(255,255,255,.12);
+  background:rgba(255,255,255,.03);
+  font-size:13px;letter-spacing:2px;
 }
-footer {
-  text-align: center;
-  padding: 40px;
-  font-size: 14px;
-  opacity: 0.6;
+.btn.primary{
+  background:rgba(143,181,159,.14);
+  border-color:rgba(143,181,159,.38);
 }
+.btn:hover{transform:translateY(-1px)}
+.hero-photo{
+  min-height:100%;
+  background:
+    linear-gradient(180deg, rgba(0,0,0,.10), rgba(0,0,0,.62)),
+    url("https://images.unsplash.com/photo-1519677100203-a0e668c92439?auto=format&fit=crop&w=1800&q=80");
+  background-size:cover;background-position:center;
+}
+.hero-photo:after{
+  content:"";position:absolute;inset:0;
+  background:radial-gradient(520px 240px at 70% 30%, rgba(143,181,159,.18), transparent 60%);
+  pointer-events:none;
+}
+.hr{height:1px;background:rgba(255,255,255,.08);margin:18px 0}
+
+/* Sections */
+.section{padding:34px 0}
+.title{display:flex;align-items:center;gap:12px;margin:0 0 14px}
+.title i{
+  width:10px;height:10px;border-radius:999px;
+  background:rgba(143,181,159,.78);
+  box-shadow:0 0 22px rgba(143,181,159,.35);
+}
+.title h2{margin:0;font-size:16px;letter-spacing:6px}
+.sub{margin:0 0 18px;color:var(--muted);font-size:13px;line-height:1.9}
+
+.grid{display:grid;gap:14px}
+.cols-3{grid-template-columns:repeat(3,1fr)}
+.cols-2{grid-template-columns:repeat(2,1fr)}
+@media (max-width:900px){.cols-3,.cols-2{grid-template-columns:1fr}}
+
+.box{
+  border:1px solid rgba(255,255,255,.10);
+  background:rgba(255,255,255,.03);
+  border-radius:var(--radius);
+  padding:18px;
+}
+.box b{letter-spacing:2px}
+.box p{margin:10px 0 0;color:var(--muted);font-size:13px;line-height:1.9}
+
+.quote{
+  font-size:16px;line-height:2.0;color:rgba(255,255,255,.86);
+}
+.quote small{display:block;margin-top:10px;color:var(--subtle);letter-spacing:3px}
+
+/* Gallery */
+.gallery{
+  display:grid;
+  grid-template-columns: 1.1fr .9fr .9fr;
+  grid-auto-rows: 210px;
+  gap:12px;
+}
+@media (max-width:900px){.gallery{grid-template-columns:1fr;grid-auto-rows:220px}}
+.g{
+  border-radius:18px;border:1px solid rgba(255,255,255,.10);
+  overflow:hidden;position:relative;
+  background-size:cover;background-position:center;
+}
+.g:after{content:"";position:absolute;inset:0;background:linear-gradient(180deg, rgba(0,0,0,.12), rgba(0,0,0,.60))}
+.g span{position:absolute;left:14px;bottom:12px;z-index:2;font-size:12px;color:rgba(255,255,255,.78);letter-spacing:3px}
+
+/* Footer */
+.footer{padding:44px 0 56px;color:var(--subtle);text-align:center;font-size:12px;letter-spacing:3px}
+.small{color:var(--subtle);font-size:12px;line-height:1.8}
 </style>
 </head>
 
 <body>
 
-<section class="hero">
-  <h1>野酌</h1>
-  <p>在城市邊緣，替夜晚留一杯酒</p>
-  <a href="#about" class="btn">了解野酌</a>
-</section>
+<div class="nav">
+  <div class="wrap">
+    <div class="brand">
+      <b>野酌</b><span>YAKUO</span>
+    </div>
+    <div class="menu">
+      <a class="pill" href="#about">關於</a>
+      <a class="pill" href="#plan">方案</a>
+      <a class="pill" href="#gallery">氛圍</a>
+      <a class="pill" href="#info">資訊</a>
+    </div>
+  </div>
+</div>
 
-<section id="about">
-  <h2>關於野酌</h2>
-  <p>
-    野酌是一間露天風格酒吧，沒有過度裝飾，<br>
-    只有夜風、木桌、燈串與剛好的微醺。<br><br>
-    我們相信，喝酒不是為了熱鬧，<br>
-    而是讓人慢下來。
-  </p>
-</section>
+<div class="wrap hero">
+  <div class="hero-grid">
+    <div class="card">
+      <div class="pad">
+        <div class="kicker">OPEN-AIR BAR</div>
+        <h1>野酌</h1>
+        <p class="lead">
+          森林系露天酒吧。<br/>
+          暖光、木桌、夜風與微醺——讓夜晚慢下來。
+        </p>
+        <div class="cta">
+          <a class="btn primary" href="#plan">看主打方案</a>
+          <a class="btn" href="#info">營業資訊</a>
+        </div>
+      </div>
+      <div class="hr"></div>
+      <div class="pad">
+        <div class="quote">
+          「不吵、不趕時間，剛剛好的放鬆。」
+          <small>— YAKUO</small>
+        </div>
+      </div>
+    </div>
 
-<section>
-  <h2>營業方式</h2>
-  <p>
-    ・露天座位 / 森林系氛圍<br>
-    ・每桌獨立空間，可自由聊天<br>
-    ・輕音樂 / 投影播放 / 無干擾社交
-  </p>
-</section>
+    <div class="card hero-photo" aria-label="野酌氛圍照"></div>
+  </div>
+</div>
 
-<section>
-  <h2>主打方案</h2>
-  <p>
-    🍺 990 暢飲方案<br>
-    ・指定酒款無限暢飲<br>
-    ・適合朋友聚會 / 慢聊整晚<br><br>
-    🔥 主題夜活動<br>
-    ・野酌夜聊<br>
-    ・駐唱 / 特別企劃
-  </p>
-</section>
+<div class="wrap section" id="about">
+  <div class="title"><i></i><h2>關於野酌</h2></div>
+  <p class="sub">如果你喜歡露天的空氣、舒服的聊天距離、以及剛好的音樂與酒，野酌就是你會想常來的地方。</p>
 
-<section>
-  <h2>營業資訊</h2>
-  <p>
-    📍 地點：＿＿＿＿＿＿＿<br>
-    🕗 時間：18:00 – 02:00<br>
-    📅 營業日：週＿＿～週＿＿
-  </p>
-</section>
+  <div class="grid cols-3">
+    <div class="box">
+      <b>暖光氛圍</b>
+      <p>低亮度燈串與木質調，拍照好看、坐著也舒服。</p>
+    </div>
+    <div class="box">
+      <b>微醺慢聊</b>
+      <p>不追求吵鬧，讓每一次聚會都更像在旅行。</p>
+    </div>
+    <div class="box">
+      <b>戶外空氣</b>
+      <p>露天空間更放鬆，夜風就是最好的背景音。</p>
+    </div>
+  </div>
+</div>
 
-<section>
-  <h2>聯絡 / 訂位</h2>
-  <p>
-    IG：@________<br>
-    LINE：________<br>
-    私訊即可訂位
-  </p>
-</section>
+<div class="wrap section" id="plan">
+  <div class="title"><i></i><h2>主打方案</h2></div>
+  <p class="sub">你可以先用這份文案上線；之後要改成你實際菜單/價格，我再幫你調整成最順的版本。</p>
 
-<footer>
+  <div class="grid cols-2">
+    <div class="box">
+      <b>🍺 990 暢飲（主打）</b>
+      <p>指定酒款暢飲，適合朋友聚會、慢聊整晚。<br/>（品項可依現場公告）</p>
+    </div>
+    <div class="box">
+      <b>🔥 主題夜 / 駐唱（不定期）</b>
+      <p>用音樂與企劃做節奏，讓每次來都有新鮮感。</p>
+    </div>
+  </div>
+</div>
+
+<div class="wrap section" id="gallery">
+  <div class="title"><i></i><h2>現場氛圍</h2></div>
+  <p class="sub">我先替你挑了「質感高、符合森野露天酒吧」的照片做示意；你有實拍後我幫你換上去更強。</p>
+
+  <div class="gallery">
+    <div class="g" style="background-image:url('https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=1800&q=80');"><span>WARM LIGHT</span></div>
+    <div class="g" style="background-image:url('https://images.unsplash.com/photo-1525268323446-0505b6fe7778?auto=format&fit=crop&w=1800&q=80');"><span>WOOD TABLE</span></div>
+    <div class="g" style="background-image:url('https://images.unsplash.com/photo-1514933651103-005eec06c04b?auto=format&fit=crop&w=1800&q=80');"><span>NIGHT MOOD</span></div>
+  </div>
+</div>
+
+<div class="wrap section" id="info">
+  <div class="title"><i></i><h2>營業資訊</h2></div>
+  <p class="sub">先留空位，上線後你隨時可以回來改（我也可以幫你排版成更專業）。</p>
+
+  <div class="grid cols-2">
+    <div class="box">
+      <b>📍 地點</b>
+      <p>＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿</p>
+      <p class="small">（之後可加 Google 地圖連結）</p>
+    </div>
+    <div class="box">
+      <b>🕗 營業時間</b>
+      <p>18:00 – 02:00<br/>週＿＿～週＿＿</p>
+      <p class="small">（如遇包場/活動，以公告為準）</p>
+    </div>
+  </div>
+</div>
+
+<div class="wrap footer">
   野酌 YAKUO © All Rights Reserved
-</footer>
+</div>
 
 </body>
 </html>
