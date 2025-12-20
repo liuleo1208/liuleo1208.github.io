@@ -4,63 +4,62 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>野酌 YAKUO｜露天森林系酒吧</title>
-<meta name="description" content="野酌 YAKUO｜露天森林系酒吧。樹影、暖光、木桌與晚風——讓夜晚回歸自然。" />
+<meta name="description" content="野酌 YAKUO｜露天森林系酒吧。暖光、木桌、夜風與微醺，讓夜晚慢下來。" />
 
 <!-- 分享用 -->
 <meta property="og:title" content="野酌 YAKUO｜露天森林系酒吧" />
-<meta property="og:description" content="樹影、暖光、木桌與晚風——讓夜晚回歸自然。" />
+<meta property="og:description" content="暖光、木桌、夜風與微醺，讓夜晚慢下來。" />
 <meta property="og:type" content="website" />
 <meta property="og:url" content="https://liuleo1208.github.io" />
-<meta property="og:image" content="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=1600&q=80" />
+<meta property="og:image" content="https://images.unsplash.com/photo-1525268323446-0505b6fe7778?auto=format&fit=crop&w=1600&q=80" />
 <meta name="theme-color" content="#0b0f0d" />
 
 <style>
 :root{
-  --bg:#0b0f0d;
-  --bg2:#0f1512;
+  --bg:#0c100e;
+  --bg2:#121916;
   --text:rgba(255,255,255,.92);
-  --muted:rgba(255,255,255,.70);
+  --muted:rgba(255,255,255,.68);
   --subtle:rgba(255,255,255,.52);
   --accent:#8fb59f;
   --shadow:0 18px 60px rgba(0,0,0,.55);
 }
-
 *{box-sizing:border-box}
-html,body{height:100%}
 html{scroll-behavior:smooth}
-
 body{
   margin:0;
   font-family:-apple-system,BlinkMacSystemFont,"Noto Sans TC","PingFang TC","Microsoft JhengHei",sans-serif;
   color:var(--text);
-  background:
-    radial-gradient(980px 440px at 50% -160px, rgba(143,181,159,.22), transparent 65%),
-    linear-gradient(180deg, var(--bg) 0%, var(--bg2) 100%);
+  background:linear-gradient(180deg,var(--bg),var(--bg2));
   letter-spacing:.4px;
 }
-
 a{color:inherit;text-decoration:none}
-.wrap{max-width:1100px;margin:0 auto;padding:0 18px}
+.wrap{max-width:1080px;margin:0 auto;padding:0 18px}
 
-/* 導覽 */
+/* Nav */
 .nav{
-  position:sticky;top:0;z-index:50;
-  backdrop-filter:blur(14px);
-  background:rgba(11,15,13,.62);
+  position:sticky;top:0;z-index:10;
+  backdrop-filter:blur(12px);
+  background:rgba(12,16,14,.7);
   border-bottom:1px solid rgba(255,255,255,.08);
 }
 .nav .wrap{
   display:flex;justify-content:space-between;align-items:center;
-  padding:14px 18px;
+  padding:14px 0;
 }
-.brand b{letter-spacing:6px}
+.brand{letter-spacing:6px;font-size:14px}
 .menu a{
   margin-left:10px;
-  padding:8px 12px;
-  border:1px solid rgba(255,255,255,.12);
+  padding:8px 14px;
   border-radius:999px;
+  border:1px solid rgba(255,255,255,.14);
   font-size:12px;
   color:var(--muted);
+}
+.menu a.primary{
+  background:rgba(143,181,159,.16);
+  border-color:rgba(143,181,159,.45);
+  color:#fff;
 }
 
 /* Hero */
@@ -73,66 +72,51 @@ a{color:inherit;text-decoration:none}
 @media(max-width:900px){.hero-grid{grid-template-columns:1fr}}
 
 .card{
-  border:1px solid rgba(255,255,255,.10);
   border-radius:22px;
-  background:rgba(255,255,255,.03);
+  background:rgba(255,255,255,.04);
   box-shadow:var(--shadow);
   overflow:hidden;
 }
-.pad{padding:24px}
+.pad{padding:26px}
 
 h1{
   font-size:44px;
   letter-spacing:10px;
   margin:10px 0;
 }
-.lead{
-  color:var(--muted);
-  line-height:1.9;
-}
+.lead{color:var(--muted);line-height:1.9}
 
 .hero-photo{
   min-height:420px;
   background:
-    linear-gradient(180deg, rgba(0,0,0,.15), rgba(0,0,0,.65)),
-    url("https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=1800&q=80");
+    linear-gradient(180deg, rgba(0,0,0,.25), rgba(0,0,0,.75)),
+    url("https://images.unsplash.com/photo-1525268323446-0505b6fe7778?auto=format&fit=crop&w=1800&q=80");
   background-size:cover;
   background-position:center;
 }
 
-.quote{
-  margin-top:20px;
-  font-size:16px;
-  line-height:2;
+/* Buttons */
+.cta{
+  margin-top:18px;
 }
-.quote small{
-  display:block;
-  color:var(--subtle);
-  margin-top:6px;
+.btn{
+  display:inline-block;
+  margin-right:10px;
+  padding:12px 18px;
+  border-radius:14px;
+  border:1px solid rgba(255,255,255,.18);
+  font-size:13px;
+  letter-spacing:2px;
+}
+.btn.primary{
+  background:rgba(143,181,159,.18);
+  border-color:rgba(143,181,159,.45);
 }
 
 /* Section */
 .section{padding:48px 0}
-.title{
-  margin-bottom:18px;
-  font-size:16px;
-  letter-spacing:6px;
-}
+.title{letter-spacing:6px;margin-bottom:16px}
 .sub{color:var(--muted);line-height:1.9}
-
-.grid{
-  display:grid;
-  gap:16px;
-}
-.cols-3{grid-template-columns:repeat(3,1fr)}
-@media(max-width:900px){.cols-3{grid-template-columns:1fr}}
-
-.box{
-  border:1px solid rgba(255,255,255,.10);
-  border-radius:18px;
-  padding:18px;
-  background:rgba(255,255,255,.03);
-}
 
 /* Gallery */
 .gallery{
@@ -141,7 +125,6 @@ h1{
   gap:12px;
 }
 @media(max-width:900px){.gallery{grid-template-columns:1fr}}
-
 .g{
   height:220px;
   border-radius:18px;
@@ -149,15 +132,14 @@ h1{
   background-position:center;
   position:relative;
 }
-.g::after{
+.g:after{
   content:"";
   position:absolute;inset:0;
-  background:linear-gradient(180deg, rgba(0,0,0,.15), rgba(0,0,0,.65));
+  background:linear-gradient(180deg, rgba(0,0,0,.2), rgba(0,0,0,.75));
 }
 .g span{
   position:absolute;
-  left:14px;
-  bottom:12px;
+  left:14px;bottom:12px;
   font-size:12px;
   letter-spacing:3px;
 }
@@ -176,12 +158,12 @@ h1{
 
 <div class="nav">
   <div class="wrap">
-    <div class="brand"><b>野酌</b></div>
+    <div class="brand">野酌</div>
     <div class="menu">
       <a href="#about">關於</a>
-      <a href="#plan">方案</a>
       <a href="#gallery">氛圍</a>
       <a href="#info">資訊</a>
+      <a href="#reserve" class="primary">訂位</a>
     </div>
   </div>
 </div>
@@ -194,12 +176,17 @@ h1{
         <h1>野酌</h1>
         <p class="lead">
           露天森林系酒吧。<br/>
-          樹影、暖光、木桌與晚風——讓夜晚回歸自然。
+          暖光、木桌、夜風與微醺，讓夜晚慢下來。
         </p>
 
-        <div class="quote">
-          「不吵、不趕，剛剛好的放鬆。」
-          <small>— YAKUO</small>
+        <div class="cta">
+          <a class="btn primary" href="#reserve">訂位</a>
+          <a class="btn" href="#info">營業資訊</a>
+        </div>
+
+        <div style="margin-top:20px;line-height:2">
+          「不吵、不趕，剛剛好的放鬆。」<br/>
+          <span style="color:var(--subtle)">— YAKUO</span>
         </div>
       </div>
     </div>
@@ -211,9 +198,9 @@ h1{
 <div class="wrap section" id="about">
   <div class="title">關於野酌</div>
   <p class="sub">
-    野酌，是把城市的夜晚，變成一段屬於自己的森夜。<br/>
-    在夜風裡坐下來，慢慢說話、慢慢喝酒。<br/>
-    時間不是用來趕的，而是用來待著。
+    野酌，是把城市的夜晚留給自己。<br/>
+    半露天空間、自然材質與低干擾的聲音，<br/>
+    適合久坐、慢聊，不適合趕時間。
   </p>
 </div>
 
@@ -221,16 +208,24 @@ h1{
   <div class="title">現場氛圍</div>
 
   <div class="gallery">
-    <div class="g" style="background-image:url('https://images.unsplash.com/photo-1441974231531-c6227db76b6e?auto=format&fit=crop&w=1600&q=80');">
-      <span>樹影暖光</span>
+    <div class="g" style="background-image:url('https://images.unsplash.com/photo-1514933651103-005eec06c04b?auto=format&fit=crop&w=1600&q=80');">
+      <span>暖光木桌</span>
     </div>
-    <div class="g" style="background-image:url('https://images.unsplash.com/photo-1470770841072-f978cf4d019e?auto=format&fit=crop&w=1600&q=80');">
-      <span>林間夜坐</span>
+    <div class="g" style="background-image:url('https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=1600&q=80');">
+      <span>露天座位</span>
     </div>
-    <div class="g" style="background-image:url('https://images.unsplash.com/photo-1501785888041-af3ef285b470?auto=format&fit=crop&w=1600&q=80');">
-      <span>露天微醺</span>
+    <div class="g" style="background-image:url('https://images.unsplash.com/photo-1543007630-9710e4a00a20?auto=format&fit=crop&w=1600&q=80');">
+      <span>夜晚微醺</span>
     </div>
   </div>
+</div>
+
+<div class="wrap section" id="reserve">
+  <div class="title">訂位</div>
+  <p class="sub">
+    目前採 <b>現場候位</b>。<br/>
+    若有包場／活動需求，請私訊洽詢。（可後續開放線上訂位）
+  </p>
 </div>
 
 <div class="wrap section" id="info">
