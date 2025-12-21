@@ -1,4 +1,243 @@
-<!doctype html>
+<!doctype html><!doctype html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>一頁工事｜一頁式網站設計</title>
+<meta name="description" content="一頁工事，專門替你把一頁網站做好。乾淨白色系，森林感，高質感，能成交。">
+
+<style>
+:root{
+  --bg:#fafafa;
+  --panel:#ffffff;
+  --text:#1c1c1c;
+  --muted:#6f6f6f;
+  --green:#2f5d50;
+  --line:#e6e6e6;
+  --max:1100px;
+}
+*{box-sizing:border-box}
+body{
+  margin:0;
+  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",
+  "PingFang TC","Noto Sans TC","Microsoft JhengHei",sans-serif;
+  color:var(--text);
+  line-height:1.7;
+  background:
+    linear-gradient(rgba(250,250,250,.94),rgba(250,250,250,.94)),
+    url("https://images.unsplash.com/photo-1501785888041-af3ef285b470?auto=format&fit=crop&w=1800&q=60");
+  background-size:cover;
+  background-position:center;
+}
+a{text-decoration:none;color:inherit}
+.wrap{max-width:var(--max);margin:0 auto;padding:0 24px}
+
+/* Top */
+.top{
+  position:sticky;top:0;z-index:10;
+  background:rgba(250,250,250,.9);
+  backdrop-filter:blur(8px);
+  border-bottom:1px solid var(--line);
+}
+.top .inner{
+  display:flex;align-items:center;justify-content:space-between;
+  padding:14px 0;
+}
+.brand{font-weight:700;letter-spacing:.5px}
+.nav{display:none;gap:20px;color:var(--muted);font-size:14px}
+.nav a:hover{color:var(--green)}
+.btn{
+  padding:12px 26px;
+  border-radius:999px;
+  font-weight:600;
+  background:var(--green);
+  color:#fff;
+}
+
+/* Hero */
+.hero{
+  padding:140px 0 120px;
+}
+.hero-grid{
+  display:grid;
+  grid-template-columns:1.2fr .8fr;
+  gap:72px;
+  align-items:center;
+}
+h1{
+  font-size:clamp(44px,7vw,86px);
+  font-weight:600;
+  margin:0 0 24px;
+}
+.hero p{
+  color:var(--muted);
+  max-width:420px;
+  margin-bottom:36px;
+  font-size:16px;
+}
+.hero img{
+  width:100%;
+  border-radius:18px;
+  opacity:.92;
+}
+
+/* Section */
+section{
+  padding:120px 0;
+  background:var(--bg);
+}
+h2{
+  font-size:28px;
+  font-weight:500;
+  margin-bottom:24px;
+}
+p{color:var(--muted);max-width:520px}
+.grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+  gap:48px;
+  margin-top:48px;
+}
+.item h3{
+  font-size:16px;
+  font-weight:600;
+  margin-bottom:10px;
+}
+.item p{margin:0}
+
+/* Pricing */
+.pricing{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
+  gap:32px;
+  margin-top:48px;
+}
+.price{
+  background:var(--panel);
+  padding:32px;
+  border-radius:18px;
+  border:1px solid var(--line);
+}
+.price b{display:block;margin-bottom:12px}
+.money{font-size:22px;font-weight:700}
+
+/* Contact */
+.contact{
+  background:
+    linear-gradient(rgba(250,250,250,.95),rgba(250,250,250,.95)),
+    url("https://images.unsplash.com/photo-1441974231531-c6227db76b6e?auto=format&fit=crop&w=1800&q=60");
+  background-size:cover;
+}
+footer{
+  padding:60px 0;
+  text-align:center;
+  font-size:13px;
+  color:var(--muted);
+}
+
+/* Responsive */
+@media(max-width:860px){
+  .hero-grid{grid-template-columns:1fr}
+  .nav{display:none}
+}
+@media(min-width:860px){
+  .nav{display:flex}
+}
+</style>
+</head>
+
+<body>
+
+<div class="top">
+  <div class="wrap inner">
+    <div class="brand">一頁工事</div>
+    <nav class="nav">
+      <a href="#work">我們在做什麼</a>
+      <a href="#pricing">方案</a>
+      <a href="#contact">聯絡</a>
+    </nav>
+    <a class="btn" href="#contact">立即詢問</a>
+  </div>
+</div>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="wrap hero-grid">
+    <div>
+      <h1>一頁工事</h1>
+      <p>
+        專門替你，把一頁網站做好。<br>
+        乾淨、安靜、讓客人放心私訊你。
+      </p>
+      <a class="btn" href="#contact">我想做一頁官網</a>
+    </div>
+    <img src="https://images.unsplash.com/photo-1470770841072-f978cf4d019e?auto=format&fit=crop&w=900&q=60">
+  </div>
+</div>
+
+<!-- WORK -->
+<section id="work">
+  <div class="wrap">
+    <h2>我們在做什麼</h2>
+    <p>把你的品牌、服務與聯絡方式，用一頁整理好，讓人一看就懂。</p>
+
+    <div class="grid">
+      <div class="item">
+        <h3>內容收斂</h3>
+        <p>只留下真正重要的。</p>
+      </div>
+      <div class="item">
+        <h3>手機優先</h3>
+        <p>大多數客人，用手機看你。</p>
+      </div>
+      <div class="item">
+        <h3>安心感</h3>
+        <p>讓人放心聯絡你。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PRICING -->
+<section id="pricing">
+  <div class="wrap">
+    <h2>方案</h2>
+    <div class="pricing">
+      <div class="price">
+        <b>入門</b>
+        <div class="money">NT$ 6,800 – 12,000</div>
+        <p>快速上線，一頁搞定。</p>
+      </div>
+      <div class="price">
+        <b>商用</b>
+        <div class="money">NT$ 15,000 – 28,000</div>
+        <p>文案與結構一起優化。</p>
+      </div>
+      <div class="price">
+        <b>全包</b>
+        <div class="money">NT$ 35,000+</div>
+        <p>什麼都不用想，交給我們。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact" class="contact">
+  <div class="wrap">
+    <h2>聯絡</h2>
+    <p>把需求丟給我，我會幫你判斷怎麼做最適合。</p>
+    <br>
+    <a class="btn" href="https://line.me/">用 Line 聯絡我</a>
+  </div>
+</section>
+
+<footer>
+  © 一頁工事
+</footer>
+
+</body>
+</html>
 <html lang="zh-Hant">
 <head>
   <meta charset="utf-8" />
