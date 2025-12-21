@@ -4,199 +4,464 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>一頁工事｜一頁式網站設計</title>
-  <meta name="description" content="一頁工事，專門替你把一頁網站做好。" />
+  <meta name="description" content="一頁工事，專門替你把一頁網站做好。高質感、能成交、最容易被私訊的一頁式官網。" />
+  <meta name="robots" content="index,follow" />
 
   <style>
     :root{
       --bg:#111111;
+      --panel:#141414;
       --text:#eaeaea;
       --muted:#8a8a8a;
+      --line:rgba(255,255,255,.08);
       --accent:#ffffff;
       --max:1100px;
     }
-
     *{box-sizing:border-box}
     body{
       margin:0;
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI",
-                   "PingFang TC","Noto Sans TC","Microsoft JhengHei", sans-serif;
+      font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang TC","Noto Sans TC","Microsoft JhengHei",sans-serif;
       background:var(--bg);
       color:var(--text);
       line-height:1.7;
       letter-spacing:.2px;
     }
+    a{color:inherit;text-decoration:none}
+    .wrap{max-width:var(--max);margin:0 auto;padding:0 24px}
 
-    .wrap{
-      max-width:var(--max);
-      margin:0 auto;
-      padding:0 24px;
+    /* Top */
+    .top{
+      position:sticky; top:0; z-index:50;
+      background:rgba(17,17,17,.72);
+      backdrop-filter: blur(10px);
+      border-bottom:1px solid var(--line);
+    }
+    .top .inner{
+      display:flex; align-items:center; justify-content:space-between;
+      padding:14px 0;
+    }
+    .brand{display:flex; gap:12px; align-items:center}
+    .mark{
+      width:34px;height:34px;border:1px solid var(--line);
+      display:grid;place-items:center;
+      background:rgba(255,255,255,.02);
+      font-weight:700;
+    }
+    .brand b{font-weight:650}
+    .brand small{display:block;color:var(--muted);font-size:12px;margin-top:2px}
+    .nav{display:none; gap:16px; color:var(--muted); font-size:14px}
+    .nav a{padding:6px 8px;border-radius:10px}
+    .nav a:hover{background:rgba(255,255,255,.04);color:var(--text)}
+
+    /* Buttons */
+    .btn{
+      display:inline-flex; align-items:center; justify-content:center;
+      padding:12px 18px;
+      border:1px solid var(--line);
+      background:transparent;
+      color:var(--text);
+      font-weight:600;
+      transition:.18s;
+      gap:10px;
+      white-space:nowrap;
+    }
+    .btn:hover{background:rgba(255,255,255,.06)}
+    .btn.primary{
+      background:var(--accent);
+      color:var(--bg);
+      border-color:transparent;
+    }
+    .btn.primary:hover{
+      background:transparent;
+      color:var(--accent);
+      border-color:var(--accent);
     }
 
     /* Hero */
     .hero{
-      min-height:90vh;
+      min-height:88vh;
       display:flex;
       align-items:center;
+      border-bottom:1px solid var(--line);
     }
-
     h1{
-      font-size:clamp(42px,8vw,88px);
+      font-size:clamp(44px,8vw,92px);
       font-weight:600;
-      margin:0 0 24px;
+      margin:0 0 18px;
       letter-spacing:-1px;
     }
-
     .subtitle{
       font-size:16px;
       color:var(--muted);
-      max-width:420px;
-      margin-bottom:40px;
+      max-width:520px;
+      margin:0 0 28px;
     }
-
-    .btn{
-      display:inline-block;
-      padding:14px 28px;
-      border:1px solid var(--accent);
-      color:var(--bg);
-      background:var(--accent);
-      text-decoration:none;
-      font-weight:600;
-      transition:.2s;
+    .hero-row{display:flex; gap:12px; flex-wrap:wrap}
+    .micro{
+      margin-top:18px;
+      color:var(--muted);
+      font-size:13px;
+      max-width:560px;
     }
-    .btn:hover{
-      background:transparent;
-      color:var(--accent);
-    }
+    .micro b{color:var(--text);font-weight:650}
 
     section{
-      padding:140px 0;
-      border-top:1px solid rgba(255,255,255,.06);
+      padding:120px 0;
+      border-top:1px solid var(--line);
     }
-
-    h2{
-      font-size:28px;
-      font-weight:500;
-      margin:0 0 24px;
-    }
-
-    p{
-      margin:0;
-      color:var(--muted);
-      max-width:520px;
-    }
+    h2{font-size:28px;font-weight:500;margin:0 0 18px}
+    p{margin:0;color:var(--muted);max-width:560px}
 
     .grid-3{
       display:grid;
       grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
-      gap:48px;
-      margin-top:48px;
+      gap:42px;
+      margin-top:40px;
+    }
+    .item{
+      padding-top:6px;
+    }
+    .item h3{margin:0 0 10px;font-size:16px;font-weight:650}
+    .item p{margin:0}
+
+    /* Proof */
+    .proof{
+      display:grid;
+      grid-template-columns:1fr;
+      gap:16px;
+      margin-top:34px;
+    }
+    .proof-card{
+      border:1px solid var(--line);
+      background:rgba(255,255,255,.02);
+      padding:18px;
+    }
+    .proof-card b{display:block;margin-bottom:8px}
+    .proof-card small{color:var(--muted)}
+    .pill{
+      display:inline-block;
+      padding:6px 10px;
+      border:1px solid var(--line);
+      color:var(--muted);
+      font-size:12px;
+      margin:10px 8px 0 0;
     }
 
-    .item h3{
-      font-size:18px;
-      font-weight:500;
-      margin-bottom:12px;
+    /* Pricing */
+    .pricing{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
+      gap:16px;
+      margin-top:34px;
+    }
+    .price{
+      border:1px solid var(--line);
+      background:rgba(255,255,255,.02);
+      padding:18px;
+    }
+    .price .tag{color:var(--muted);font-size:12px}
+    .price h3{margin:10px 0 8px;font-size:16px}
+    .money{font-size:22px;font-weight:750;margin:0 0 12px;color:var(--text)}
+    .ul{margin:0;padding-left:18px;color:var(--muted)}
+    .ul li{margin:8px 0}
+
+    /* Quick form */
+    .form{
+      border:1px solid var(--line);
+      background:rgba(255,255,255,.02);
+      padding:18px;
+      margin-top:28px;
+      max-width:720px;
+    }
+    label{display:block;color:var(--muted);font-size:13px;margin:14px 0 8px}
+    input, textarea, select{
+      width:100%;
+      padding:12px 12px;
+      background:transparent;
+      border:1px solid var(--line);
+      color:var(--text);
+      outline:none;
+      font-size:14px;
+    }
+    textarea{min-height:110px;resize:vertical}
+    .form-row{display:grid;grid-template-columns:1fr;gap:12px}
+    .hint{color:var(--muted);font-size:12px;margin-top:10px}
+
+    /* Floating CTA */
+    .float{
+      position:fixed;
+      right:16px;
+      bottom:16px;
+      z-index:99;
+      display:flex;
+      gap:10px;
+      flex-direction:column;
+    }
+    .float .btn{
+      border-color:rgba(255,255,255,.18);
+      background:rgba(17,17,17,.75);
+      backdrop-filter: blur(10px);
+    }
+    .float .btn.primary{
+      background:var(--accent);
+      color:var(--bg);
     }
 
     footer{
-      padding:80px 0;
-      border-top:1px solid rgba(255,255,255,.06);
+      padding:76px 0;
+      border-top:1px solid var(--line);
       color:var(--muted);
-      font-size:14px;
+      font-size:13px;
     }
 
-    @media(max-width:768px){
-      section{padding:96px 0;}
+    @media (min-width: 860px){
+      .nav{display:flex}
+      .proof{grid-template-columns:repeat(3,1fr)}
+      .form-row{grid-template-columns:1fr 1fr}
+      section{padding:130px 0}
     }
   </style>
 </head>
 
 <body>
 
-<!-- HERO -->
-<div class="hero">
-  <div class="wrap">
-    <h1>一頁工事</h1>
-    <div class="subtitle">
-      專門替你，把一頁網站做好。<br>
-      不多、不吵、剛剛好。
-    </div>
-    <a class="btn" href="#contact">我想做一頁官網</a>
-  </div>
-</div>
+  <!-- TOP -->
+  <div class="top">
+    <div class="wrap inner">
+      <a class="brand" href="#top" aria-label="回到首頁">
+        <div class="mark">一</div>
+        <div>
+          <b>一頁工事</b>
+          <small>One-page website studio</small>
+        </div>
+      </a>
 
-<!-- WHAT -->
-<section>
-  <div class="wrap">
-    <h2>我們在做什麼</h2>
-    <p>
-      把你的服務、品牌與重點，<br>
-      濃縮成一頁，讓客人看懂、願意聯絡你。
-    </p>
-  </div>
-</section>
+      <nav class="nav" aria-label="導覽">
+        <a href="#work">我們做什麼</a>
+        <a href="#proof">案例</a>
+        <a href="#pricing">方案</a>
+        <a href="#contact">聯絡</a>
+      </nav>
 
-<!-- WHO -->
-<section>
-  <div class="wrap">
-    <h2>適合誰</h2>
-    <div class="grid-3">
-      <div class="item">
-        <h3>創業者</h3>
-        <p>需要一個正式但不複雜的入口。</p>
-      </div>
-      <div class="item">
-        <h3>店家</h3>
-        <p>想要比 IG 更像官網的存在。</p>
-      </div>
-      <div class="item">
-        <h3>接案者</h3>
-        <p>需要讓客戶快速理解你在做什麼。</p>
-      </div>
+      <a class="btn primary" id="topCta" href="#contact">立即詢問</a>
     </div>
   </div>
-</section>
 
-<!-- PROCESS -->
-<section>
-  <div class="wrap">
-    <h2>流程</h2>
-    <div class="grid-3">
-      <div class="item">
-        <h3>整理</h3>
-        <p>把你想說的話，變成客人聽得懂的。</p>
+  <!-- HERO -->
+  <div class="hero" id="top">
+    <div class="wrap">
+      <h1>一頁工事</h1>
+      <div class="subtitle">
+        專門替你，把一頁網站做好。<br>
+        <b style="color:var(--text);font-weight:650;">高質感、能成交、最容易被私訊。</b>
       </div>
-      <div class="item">
-        <h3>設計</h3>
-        <p>手機優先、視覺節制、閱讀順。</p>
+
+      <div class="hero-row">
+        <a class="btn primary" href="#contact">我想做一頁官網</a>
+        <a class="btn" href="#pricing">先看方案</a>
+        <a class="btn" href="#proof">看案例</a>
       </div>
-      <div class="item">
-        <h3>上線</h3>
-        <p>快速交付，能直接使用。</p>
+
+      <div class="micro">
+        你不需要很多頁，你只需要客人一眼看懂你在做什麼，然後 <b>按下聯絡</b>。
       </div>
     </div>
   </div>
-</section>
 
-<!-- CONTACT -->
-<section id="contact">
-  <div class="wrap">
-    <h2>聯絡</h2>
-    <p>
-      如果你想做一頁官網，<br>
-      把需求丟給我就好。
-    </p>
-    <br><br>
-    <!-- 換成你自己的 -->
-    <a class="btn" href="https://line.me/">Line 聯絡</a>
-  </div>
-</section>
+  <!-- WORK -->
+  <section id="work">
+    <div class="wrap">
+      <h2>我們做什麼</h2>
+      <p>
+        我們把你的服務、品牌重點、聯絡方式，<br>
+        用一頁整理好，讓客人看懂、願意找你。
+      </p>
 
-<footer>
-  <div class="wrap">
-    © 一頁工事
+      <div class="grid-3">
+        <div class="item">
+          <h3>內容收斂</h3>
+          <p>把你想講的話，整理成客人看得懂的順序。</p>
+        </div>
+        <div class="item">
+          <h3>手機優先</h3>
+          <p>大多數客人用手機看，你的網站要先為手機而生。</p>
+        </div>
+        <div class="item">
+          <h3>引導聯絡</h3>
+          <p>CTA、版面與段落都為「讓人私訊」服務。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROOF -->
+  <section id="proof">
+    <div class="wrap">
+      <h2>案例（先放佔位，之後換你的）</h2>
+      <p>就算你現在還沒有很多案例，也可以先用「類型案例」呈現你會做什麼。</p>
+
+      <div class="proof">
+        <div class="proof-card">
+          <b>餐酒館 / 店家入口頁</b>
+          <small>方案、活動、地點、訂位、一鍵 Line</small>
+          <div>
+            <span class="pill">重點清楚</span>
+            <span class="pill">一鍵詢問</span>
+          </div>
+        </div>
+        <div class="proof-card">
+          <b>個人接案 / 作品展示頁</b>
+          <small>自介、服務、案例、報價、表單</small>
+          <div>
+            <span class="pill">信任感</span>
+            <span class="pill">可成交</span>
+          </div>
+        </div>
+        <div class="proof-card">
+          <b>品牌新品 / 宣傳頁</b>
+          <small>主打、優勢、FAQ、購買/聯絡</small>
+          <div>
+            <span class="pill">轉換導向</span>
+            <span class="pill">短而有力</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PRICING -->
+  <section id="pricing">
+    <div class="wrap">
+      <h2>方案（讓客人不敢亂殺價的寫法）</h2>
+      <p>你要的是「價差合理」與「看起來值得」。這裡我用區間式，讓你更好收錢。</p>
+
+      <div class="pricing">
+        <div class="price">
+          <div class="tag">入門｜快速上線</div>
+          <h3>適合：剛起步 / 需要正式入口</h3>
+          <div class="money">NT$ 6,800 – 12,000</div>
+          <ul class="ul">
+            <li>一頁式版面（手機優先）</li>
+            <li>基礎內容整理</li>
+            <li>協助上線</li>
+          </ul>
+        </div>
+
+        <div class="price" style="border-color:rgba(255,255,255,.18);background:rgba(255,255,255,.04);">
+          <div class="tag">主力｜最容易成交</div>
+          <h3>適合：店家 / 對外正式</h3>
+          <div class="money">NT$ 15,000 – 28,000</div>
+          <ul class="ul">
+            <li>文案優化（更像品牌）</li>
+            <li>CTA / 私訊導向設計</li>
+            <li>案例/菜單/服務區塊整理</li>
+          </ul>
+        </div>
+
+        <div class="price">
+          <div class="tag">全包｜交給我們</div>
+          <h3>適合：什麼都不想管</h3>
+          <div class="money">NT$ 35,000 – 60,000</div>
+          <ul class="ul">
+            <li>架構＋文案＋視覺全包</li>
+            <li>表單 / 追蹤碼（可選）</li>
+            <li>交付可維護版本</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact">
+    <div class="wrap">
+      <h2>聯絡（直接幫你做「可私訊」的流程）</h2>
+      <p>
+        你只要填 30 秒，<br>
+        我就能告訴你：一頁式怎麼做會最容易成交。
+      </p>
+
+      <div class="form">
+        <div class="form-row">
+          <div>
+            <label for="industry">產業 / 類型</label>
+            <input id="industry" placeholder="例：酒吧、餐廳、接案設計、工作室…" />
+          </div>
+          <div>
+            <label for="goal">你最想達成什麼</label>
+            <select id="goal">
+              <option value="接到詢問">接到詢問</option>
+              <option value="建立官網形象">建立官網形象</option>
+              <option value="宣傳活動/新品">宣傳活動/新品</option>
+              <option value="接案作品入口">接案作品入口</option>
+            </select>
+          </div>
+        </div>
+
+        <label for="content">你目前有哪些素材（可簡短）</label>
+        <textarea id="content" placeholder="例：有 IG、有菜單、有 Logo、有地址…"></textarea>
+
+        <label for="style">希望風格</label>
+        <input id="style" placeholder="例：極簡、森林感、偏高端、比較年輕…" />
+
+        <div style="display:flex;gap:12px;flex-wrap:wrap;margin-top:18px;">
+          <button class="btn primary" id="sendLine" type="button">一鍵丟 Line（預填訊息）</button>
+          <a class="btn" href="#pricing">我先看方案再說</a>
+        </div>
+
+        <div class="hint">
+          ※ 你按「一鍵丟 Line」會自動帶出一段整理好的需求文字，讓你更容易被快速報價。
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="wrap">
+      © <span id="y"></span> 一頁工事｜不把網站做大，只把一頁做好。
+    </div>
+  </footer>
+
+  <!-- FLOAT CTA -->
+  <div class="float" aria-label="浮動聯絡按鈕">
+    <a class="btn" href="#pricing">看方案</a>
+    <button class="btn primary" id="floatLine" type="button">Line 一鍵詢問</button>
   </div>
-</footer>
+
+  <script>
+    document.getElementById("y").textContent = new Date().getFullYear();
+
+    // ✅ 重要：把這裡換成你的 LINE 連結（或官方帳號連結）
+    // 方式A：一般個人Line，先用 line.me 也可；之後可換成你的官方帳號/連結
+    const LINE_BASE = "https://line.me/R/oaMessage/@YOURID/?"; // ←把 @YOURID 換成你的
+
+    function buildMessage(){
+      const industry = document.getElementById("industry").value.trim() || "（未填）";
+      const goal = document.getElementById("goal").value;
+      const content = document.getElementById("content").value.trim() || "（未填）";
+      const style = document.getElementById("style").value.trim() || "（未填）";
+
+      return [
+        "我想做一頁式官網，想請你報價與建議：",
+        "—",
+        `產業/類型：${industry}`,
+        `目標：${goal}`,
+        `目前素材：${content}`,
+        `希望風格：${style}`,
+        "—",
+        "我希望是高質感、並且能讓客人更容易私訊的版本。"
+      ].join("\n");
+    }
+
+    function openLine(){
+      const msg = encodeURIComponent(buildMessage());
+      // 若你沒有 OA 連結，暫時先用 URL 直接跳轉，之後再換你的真正連結
+      window.open(LINE_BASE + msg, "_blank");
+    }
+
+    document.getElementById("sendLine").addEventListener("click", openLine);
+    document.getElementById("floatLine").addEventListener("click", openLine);
+  </script>
 
 </body>
 </html>
