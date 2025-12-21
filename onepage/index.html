@@ -4,452 +4,199 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>一頁工事｜一頁式網站設計</title>
-  <meta name="description" content="一頁工事專做一頁式網站：把複雜的想法濃縮成一頁就能成交的網站。適合創業者、店家、個人品牌。">
-  <meta name="robots" content="index,follow" />
-
-  <!-- Open Graph -->
-  <meta property="og:title" content="一頁工事｜一頁式網站設計" />
-  <meta property="og:description" content="一頁，就夠你用。專注把一頁網站做好，讓客人看得懂、願意聯絡你。" />
-  <meta property="og:type" content="website" />
-  <meta property="og:locale" content="zh_TW" />
+  <meta name="description" content="一頁工事，專門替你把一頁網站做好。" />
 
   <style>
     :root{
-      --bg:#0b0c10;
-      --card:#0f1117;
-      --text:#e8e8ea;
-      --muted:#a7abb7;
-      --line:rgba(255,255,255,.10);
+      --bg:#111111;
+      --text:#eaeaea;
+      --muted:#8a8a8a;
       --accent:#ffffff;
-      --shadow: 0 18px 50px rgba(0,0,0,.45);
-      --radius: 18px;
-      --max: 1080px;
+      --max:1100px;
     }
+
     *{box-sizing:border-box}
-    html,body{height:100%}
     body{
       margin:0;
-      font-family: ui-sans-serif, system-ui, -apple-system, "Segoe UI", "Noto Sans TC", "PingFang TC", "Microsoft JhengHei", Arial, sans-serif;
-      background: radial-gradient(900px 500px at 20% 0%, rgba(255,255,255,.08), transparent 60%),
-                  radial-gradient(700px 500px at 90% 20%, rgba(255,255,255,.05), transparent 60%),
-                  var(--bg);
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI",
+                   "PingFang TC","Noto Sans TC","Microsoft JhengHei", sans-serif;
+      background:var(--bg);
       color:var(--text);
-      line-height:1.65;
+      line-height:1.7;
       letter-spacing:.2px;
     }
-    a{color:inherit;text-decoration:none}
-    .wrap{max-width:var(--max);margin:0 auto;padding:0 20px}
-    .topbar{
-      position:sticky; top:0; z-index:10;
-      backdrop-filter: blur(10px);
-      background: rgba(11,12,16,.55);
-      border-bottom:1px solid var(--line);
+
+    .wrap{
+      max-width:var(--max);
+      margin:0 auto;
+      padding:0 24px;
     }
-    .topbar-inner{
-      display:flex; align-items:center; justify-content:space-between;
-      padding:14px 0;
-      gap:14px;
+
+    /* Hero */
+    .hero{
+      min-height:90vh;
+      display:flex;
+      align-items:center;
     }
-    .brand{
-      display:flex; align-items:center; gap:10px; min-width:180px;
+
+    h1{
+      font-size:clamp(42px,8vw,88px);
+      font-weight:600;
+      margin:0 0 24px;
+      letter-spacing:-1px;
     }
-    .logo{
-      width:38px;height:38px;border:1px solid var(--line);
-      border-radius:12px; display:grid; place-items:center;
-      background: rgba(255,255,255,.04);
-      box-shadow: var(--shadow);
-      font-weight:700;
-    }
-    .brand-title{font-weight:700}
-    .brand-sub{color:var(--muted);font-size:12px;margin-top:2px}
-    .nav{display:none; gap:16px; color:var(--muted); font-size:14px}
-    .nav a{padding:6px 8px;border-radius:10px}
-    .nav a:hover{background:rgba(255,255,255,.06);color:var(--text)}
-    .btn{
-      display:inline-flex; align-items:center; justify-content:center;
-      gap:10px;
-      padding:12px 16px;
-      border-radius:14px;
-      border:1px solid var(--line);
-      background: rgba(255,255,255,.08);
-      color:var(--text);
-      font-weight:650;
-      box-shadow: var(--shadow);
-      cursor:pointer;
-      transition: transform .12s ease, background .12s ease;
-      white-space:nowrap;
-    }
-    .btn:hover{transform:translateY(-1px); background: rgba(255,255,255,.12);}
-    .btn.primary{
-      background: var(--accent);
-      color:#0b0c10;
-      border-color: transparent;
-    }
-    .btn.primary:hover{background: rgba(255,255,255,.92)}
-    header.hero{
-      padding:56px 0 28px;
-    }
-    .hero-grid{
-      display:grid; gap:18px;
-      grid-template-columns: 1fr;
-      align-items:stretch;
-    }
-    .hero-card{
-      border:1px solid var(--line);
-      background: rgba(255,255,255,.04);
-      border-radius: var(--radius);
-      padding:22px;
-      box-shadow: var(--shadow);
-    }
-    .kicker{color:var(--muted);font-size:13px}
-    h1{margin:10px 0 6px;font-size:34px;line-height:1.2}
-    .lead{color:var(--muted);font-size:16px;margin:0}
-    .cta-row{display:flex;gap:12px;flex-wrap:wrap;margin-top:18px}
-    .mini{
-      display:grid; grid-template-columns: 1fr;
-      gap:12px;
-      margin-top:18px;
-    }
-    .mini .chip{
-      border:1px solid var(--line);
-      border-radius:14px;
-      padding:12px 14px;
+
+    .subtitle{
+      font-size:16px;
       color:var(--muted);
-      background: rgba(255,255,255,.03);
+      max-width:420px;
+      margin-bottom:40px;
     }
 
-    section{padding:28px 0}
-    .section-title{font-size:20px;margin:0 0 10px}
-    .section-desc{color:var(--muted);margin:0 0 16px}
-    .grid{
-      display:grid; gap:14px;
-      grid-template-columns:1fr;
+    .btn{
+      display:inline-block;
+      padding:14px 28px;
+      border:1px solid var(--accent);
+      color:var(--bg);
+      background:var(--accent);
+      text-decoration:none;
+      font-weight:600;
+      transition:.2s;
     }
-    .card{
-      border:1px solid var(--line);
-      background: rgba(255,255,255,.03);
-      border-radius: var(--radius);
-      padding:18px;
+    .btn:hover{
+      background:transparent;
+      color:var(--accent);
     }
-    .card h3{margin:0 0 8px;font-size:16px}
-    .card p{margin:0;color:var(--muted)}
-    ul.clean{margin:0; padding-left:18px; color:var(--muted)}
-    ul.clean li{margin:8px 0}
 
-    .pricing{
-      display:grid; gap:14px;
-      grid-template-columns:1fr;
+    section{
+      padding:140px 0;
+      border-top:1px solid rgba(255,255,255,.06);
     }
-    .price{
-      padding:18px;
-      border-radius: var(--radius);
-      border:1px solid var(--line);
-      background: rgba(255,255,255,.04);
-      box-shadow: var(--shadow);
+
+    h2{
+      font-size:28px;
+      font-weight:500;
+      margin:0 0 24px;
     }
-    .price .tag{color:var(--muted); font-size:13px}
-    .price h3{margin:8px 0 6px;font-size:18px}
-    .money{font-size:22px; font-weight:800; margin:10px 0}
-    .money span{font-size:14px; color:var(--muted); font-weight:600}
-    .hr{height:1px;background:var(--line);margin:14px 0}
-    .faq details{
-      border:1px solid var(--line);
-      border-radius: 16px;
-      padding:14px 16px;
-      background: rgba(255,255,255,.03);
+
+    p{
+      margin:0;
+      color:var(--muted);
+      max-width:520px;
     }
-    details + details{margin-top:10px}
-    summary{cursor:pointer; font-weight:650}
-    details p{margin:10px 0 0; color:var(--muted)}
+
+    .grid-3{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+      gap:48px;
+      margin-top:48px;
+    }
+
+    .item h3{
+      font-size:18px;
+      font-weight:500;
+      margin-bottom:12px;
+    }
 
     footer{
-      padding:30px 0 46px;
-      border-top: 1px solid var(--line);
+      padding:80px 0;
+      border-top:1px solid rgba(255,255,255,.06);
       color:var(--muted);
+      font-size:14px;
     }
-    .foot-grid{
-      display:grid; gap:14px;
-      grid-template-columns:1fr;
-      align-items:start;
-    }
-    .contact a{display:inline-block; padding:8px 10px; border-radius:12px; border:1px solid var(--line); margin:6px 8px 0 0;}
-    .contact a:hover{background:rgba(255,255,255,.06); color:var(--text)}
-    .tiny{font-size:12px;color:rgba(167,171,183,.85)}
 
-    /* Desktop */
-    @media (min-width: 860px){
-      .nav{display:flex}
-      h1{font-size:44px}
-      .hero-grid{grid-template-columns: 1.2fr .8fr}
-      .mini{grid-template-columns: 1fr}
-      .grid{grid-template-columns: repeat(3, 1fr)}
-      .pricing{grid-template-columns: repeat(3, 1fr)}
-      .foot-grid{grid-template-columns: 1.2fr .8fr}
+    @media(max-width:768px){
+      section{padding:96px 0;}
     }
   </style>
 </head>
 
 <body>
-  <!-- Topbar -->
-  <div class="topbar">
-    <div class="wrap topbar-inner">
-      <a class="brand" href="#top" aria-label="一頁工事首頁">
-        <div class="logo">一</div>
-        <div>
-          <div class="brand-title">一頁工事</div>
-          <div class="brand-sub">One-page website studio</div>
-        </div>
-      </a>
 
-      <nav class="nav" aria-label="網站導覽">
-        <a href="#about">定位</a>
-        <a href="#fit">適合誰</a>
-        <a href="#process">流程</a>
-        <a href="#pricing">方案</a>
-        <a href="#faq">FAQ</a>
-        <a href="#contact">聯絡</a>
-      </nav>
+<!-- HERO -->
+<div class="hero">
+  <div class="wrap">
+    <h1>一頁工事</h1>
+    <div class="subtitle">
+      專門替你，把一頁網站做好。<br>
+      不多、不吵、剛剛好。
+    </div>
+    <a class="btn" href="#contact">我想做一頁官網</a>
+  </div>
+</div>
 
-      <a class="btn primary" href="#contact">立即詢問</a>
+<!-- WHAT -->
+<section>
+  <div class="wrap">
+    <h2>我們在做什麼</h2>
+    <p>
+      把你的服務、品牌與重點，<br>
+      濃縮成一頁，讓客人看懂、願意聯絡你。
+    </p>
+  </div>
+</section>
+
+<!-- WHO -->
+<section>
+  <div class="wrap">
+    <h2>適合誰</h2>
+    <div class="grid-3">
+      <div class="item">
+        <h3>創業者</h3>
+        <p>需要一個正式但不複雜的入口。</p>
+      </div>
+      <div class="item">
+        <h3>店家</h3>
+        <p>想要比 IG 更像官網的存在。</p>
+      </div>
+      <div class="item">
+        <h3>接案者</h3>
+        <p>需要讓客戶快速理解你在做什麼。</p>
+      </div>
     </div>
   </div>
+</section>
 
-  <!-- Hero -->
-  <header id="top" class="hero">
-    <div class="wrap">
-      <div class="hero-grid">
-        <div class="hero-card">
-          <div class="kicker">專門幫你設計一頁式網站</div>
-          <h1>把複雜的想法<br/>濃縮成一頁就能成交的網站</h1>
-          <p class="lead">
-            一頁，就夠你用。<br/>
-            我們專做一頁式網站，讓創業者、店家、個人品牌快速擁有能對外使用的「官網」。
-          </p>
-
-          <div class="cta-row">
-            <!-- TODO：把下面 # 替換成你的 Line/IG 連結 -->
-            <a class="btn primary" href="#contact">我想做一頁官網</a>
-            <a class="btn" href="#pricing">先看方案</a>
-          </div>
-
-          <div class="mini">
-            <div class="chip">✅ 不做複雜、不灌頁數，只把一頁做好</div>
-            <div class="chip">✅ 手機優先設計，客人打開就看得懂</div>
-            <div class="chip">✅ 價格透明、可快速上線</div>
-          </div>
-        </div>
-
-        <div class="hero-card" style="display:flex;flex-direction:column;justify-content:space-between;">
-          <div>
-            <div class="kicker">這算不算官網？</div>
-            <h2 style="margin:10px 0 8px;font-size:22px;">是。</h2>
-            <p class="lead" style="font-size:15px;">
-              只要有專屬網址、清楚介紹你是誰、你在做什麼、客人怎麼聯絡你，<br/>
-              <b style="color:var(--text);">一頁式也可以是官網。</b>
-            </p>
-            <div class="hr"></div>
-            <p class="lead" style="font-size:15px;">
-              我們只是把不必要的頁面拿掉，留下真的會用到的那一頁。
-            </p>
-          </div>
-
-          <div class="cta-row" style="margin-top:16px;">
-            <a class="btn" href="#faq">看 FAQ</a>
-            <a class="btn" href="#process">看怎麼做</a>
-          </div>
-        </div>
+<!-- PROCESS -->
+<section>
+  <div class="wrap">
+    <h2>流程</h2>
+    <div class="grid-3">
+      <div class="item">
+        <h3>整理</h3>
+        <p>把你想說的話，變成客人聽得懂的。</p>
+      </div>
+      <div class="item">
+        <h3>設計</h3>
+        <p>手機優先、視覺節制、閱讀順。</p>
+      </div>
+      <div class="item">
+        <h3>上線</h3>
+        <p>快速交付，能直接使用。</p>
       </div>
     </div>
-  </header>
+  </div>
+</section>
 
-  <!-- About -->
-  <section id="about">
-    <div class="wrap">
-      <h2 class="section-title">一頁工事在做什麼？</h2>
-      <p class="section-desc">把你該講的內容，整理成客人看得懂、願意聯絡你的那一頁。</p>
+<!-- CONTACT -->
+<section id="contact">
+  <div class="wrap">
+    <h2>聯絡</h2>
+    <p>
+      如果你想做一頁官網，<br>
+      把需求丟給我就好。
+    </p>
+    <br><br>
+    <!-- 換成你自己的 -->
+    <a class="btn" href="https://line.me/">Line 聯絡</a>
+  </div>
+</section>
 
-      <div class="grid">
-        <div class="card">
-          <h3>一頁說清楚</h3>
-          <p>你是誰、你在做什麼、為什麼選你，全部放進一頁不打架。</p>
-        </div>
-        <div class="card">
-          <h3>一頁能成交</h3>
-          <p>用清楚的段落與 CTA，讓客人知道下一步該怎麼做。</p>
-        </div>
-        <div class="card">
-          <h3>一頁可上線</h3>
-          <p>不拖工期、不做多餘頁面，重點是「快、準、能用」。</p>
-        </div>
-      </div>
+<footer>
+  <div class="wrap">
+    © 一頁工事
+  </div>
+</footer>
 
-      <div class="card" style="margin-top:14px;">
-        <h3>一頁裡通常會包含</h3>
-        <ul class="clean">
-          <li>你是誰 / 品牌介紹</li>
-          <li>你提供什麼服務 / 產品</li>
-          <li>案例或作品（可選）</li>
-          <li>常見問題（減少來回）</li>
-          <li>聯絡方式（Line / IG / 表單）</li>
-        </ul>
-      </div>
-    </div>
-  </section>
-
-  <!-- Fit -->
-  <section id="fit">
-    <div class="wrap">
-      <h2 class="section-title">適合誰？</h2>
-      <p class="section-desc">如果你想要「像官網」但不想做複雜網站，你就很適合。</p>
-
-      <div class="card">
-        <ul class="clean">
-          <li>剛創業、還不想花大錢的人</li>
-          <li>店家想要一個正式入口（比 IG 更像官網）</li>
-          <li>自由工作者 / 接案者（需要承接詢問）</li>
-          <li>已經有 IG / Line，只差一個總入口的人</li>
-          <li>不想被網站公司綁住的人</li>
-        </ul>
-      </div>
-    </div>
-  </section>
-
-  <!-- Process -->
-  <section id="process">
-    <div class="wrap">
-      <h2 class="section-title">我們怎麼做？</h2>
-      <p class="section-desc">我們不是做給設計師看的，是做給「你的客人」看的。</p>
-
-      <div class="grid">
-        <div class="card">
-          <h3>1｜整理內容</h3>
-          <p>把你想講的東西，變成客人能理解的段落。</p>
-        </div>
-        <div class="card">
-          <h3>2｜設計版面</h3>
-          <p>手機優先，視覺乾淨，閱讀順序清楚。</p>
-        </div>
-        <div class="card">
-          <h3>3｜上線交付</h3>
-          <p>協助你上線並交付可用版本，後續也能自行更新。</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Pricing -->
-  <section id="pricing">
-    <div class="wrap">
-      <h2 class="section-title">服務方案</h2>
-      <p class="section-desc">價格可依需求調整，以下是你可以直接對外展示的方案架構。</p>
-
-      <div class="pricing">
-        <div class="price">
-          <div class="tag">基礎一頁式｜入門款</div>
-          <h3>適合：個人 / 接案者 / 剛創業</h3>
-          <div class="money">NT$＿＿＿＿ <span>/ 起</span></div>
-          <div class="hr"></div>
-          <ul class="clean">
-            <li>一頁式網站架構</li>
-            <li>手機版優化</li>
-            <li>基本內容整理</li>
-            <li>協助上線</li>
-          </ul>
-        </div>
-
-        <div class="price" style="border-color:rgba(255,255,255,.22); background:rgba(255,255,255,.06);">
-          <div class="tag">商用一頁式｜實戰款</div>
-          <h3>適合：店家 / 品牌 / 對外正式</h3>
-          <div class="money">NT$＿＿＿＿ <span>/ 起</span></div>
-          <div class="hr"></div>
-          <ul class="clean">
-            <li>客製化版面</li>
-            <li>完整文案優化</li>
-            <li>CTA（引導聯絡）設計</li>
-            <li>行動裝置優先</li>
-          </ul>
-        </div>
-
-        <div class="price">
-          <div class="tag">全包一頁式｜交給我們</div>
-          <h3>適合：什麼都不想管的人</h3>
-          <div class="money">NT$＿＿＿＿ <span>/ 起</span></div>
-          <div class="hr"></div>
-          <ul class="clean">
-            <li>架構＋文案＋視覺</li>
-            <li>上線設定</li>
-            <li>使用教學</li>
-            <li>交付可維護版本</li>
-          </ul>
-        </div>
-      </div>
-
-      <div class="card" style="margin-top:14px;">
-        <h3>小提醒</h3>
-        <p>如果你要我把「方案金額」也直接定死，我可以依你希望的市場定位（入門/中階/高單價）幫你做一套能成交的價格梯度。</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- FAQ -->
-  <section id="faq">
-    <div class="wrap">
-      <h2 class="section-title">FAQ</h2>
-      <p class="section-desc">先把客人會問的擋掉，你就不用一直回重複的問題。</p>
-
-      <div class="faq">
-        <details>
-          <summary>一頁真的夠用嗎？</summary>
-          <p>對多數創業者、店家、個人品牌來說夠，而且更有效。你要的不是頁面數，是「看得懂」跟「願意聯絡你」。</p>
-        </details>
-        <details>
-          <summary>之後可以再加頁嗎？</summary>
-          <p>可以。但通常你先把一頁做強，轉換率會比一開始就做很多頁更好。</p>
-        </details>
-        <details>
-          <summary>我不懂技術可以嗎？</summary>
-          <p>可以。我們會把上線與基本設定處理好，並提供你後續更新的方式。</p>
-        </details>
-      </div>
-    </div>
-  </section>
-
-  <!-- Contact -->
-  <section id="contact">
-    <div class="wrap">
-      <h2 class="section-title">聯絡一頁工事</h2>
-      <p class="section-desc">你只要把需求丟過來，我們就能把它變成一頁能用的網站。</p>
-
-      <div class="card contact">
-        <!-- TODO：把下面連結換成你自己的 -->
-        <a href="https://line.me/" target="_blank" rel="noopener">Line：＿＿＿＿（點我）</a>
-        <a href="https://instagram.com/" target="_blank" rel="noopener">IG：＿＿＿＿（點我）</a>
-        <a href="mailto:hello@example.com">Email：hello@example.com</a>
-
-        <div class="hr"></div>
-
-        <p style="margin:0;color:var(--muted);">
-          想直接開始？你可以用下面這句丟給我：<br/>
-          <b style="color:var(--text);">「我想做一頁式官網，產業是＿＿，主要服務＿＿，希望風格＿＿。」</b>
-        </p>
-      </div>
-    </div>
-  </section>
-
-  <footer>
-    <div class="wrap foot-grid">
-      <div>
-        <div style="font-weight:800;color:var(--text);">一頁工事</div>
-        <div class="tiny">不把網站做大，只把一頁做好。</div>
-      </div>
-      <div class="tiny" style="text-align:left;">
-        © <span id="y"></span> One Page Works. All rights reserved.
-      </div>
-    </div>
-  </footer>
-
-  <script>
-    document.getElementById("y").textContent = new Date().getFullYear();
-  </script>
 </body>
 </html>
