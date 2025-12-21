@@ -1,10 +1,10 @@
-<!doctype html><!doctype html>
+<!doctype html>
 <html lang="zh-Hant">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>一頁工事｜一頁式網站設計</title>
-<meta name="description" content="一頁工事，專門替你把一頁網站做好。乾淨白色系，森林感，高質感，能成交。">
+<title>一頁工事｜一頁式官網 NT$6,800</title>
+<meta name="description" content="一頁工事，專做 NT$6,800 一頁式官網。乾淨白色系、森林感、能對外使用、好成交。">
 
 <style>
 :root{
@@ -52,6 +52,7 @@ a{text-decoration:none;color:inherit}
   font-weight:600;
   background:var(--green);
   color:#fff;
+  white-space:nowrap;
 }
 
 /* Hero */
@@ -71,7 +72,7 @@ h1{
 }
 .hero p{
   color:var(--muted);
-  max-width:420px;
+  max-width:440px;
   margin-bottom:36px;
   font-size:16px;
 }
@@ -106,20 +107,23 @@ p{color:var(--muted);max-width:520px}
 .item p{margin:0}
 
 /* Pricing */
-.pricing{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
-  gap:32px;
-  margin-top:48px;
-}
 .price{
   background:var(--panel);
-  padding:32px;
+  padding:40px;
   border-radius:18px;
   border:1px solid var(--line);
+  max-width:520px;
 }
-.price b{display:block;margin-bottom:12px}
-.money{font-size:22px;font-weight:700}
+.money{
+  font-size:28px;
+  font-weight:700;
+  margin:16px 0;
+}
+.ul{
+  padding-left:18px;
+  color:var(--muted);
+}
+.ul li{margin:8px 0}
 
 /* Contact */
 .contact{
@@ -138,7 +142,6 @@ footer{
 /* Responsive */
 @media(max-width:860px){
   .hero-grid{grid-template-columns:1fr}
-  .nav{display:none}
 }
 @media(min-width:860px){
   .nav{display:flex}
@@ -148,15 +151,16 @@ footer{
 
 <body>
 
+<!-- TOP -->
 <div class="top">
   <div class="wrap inner">
     <div class="brand">一頁工事</div>
     <nav class="nav">
-      <a href="#work">我們在做什麼</a>
-      <a href="#pricing">方案</a>
+      <a href="#work">介紹</a>
+      <a href="#pricing">6800 方案</a>
       <a href="#contact">聯絡</a>
     </nav>
-    <a class="btn" href="#contact">立即詢問</a>
+    <a class="btn" href="#contact">6800 一頁官網</a>
   </div>
 </div>
 
@@ -166,10 +170,10 @@ footer{
     <div>
       <h1>一頁工事</h1>
       <p>
-        專門替你，把一頁網站做好。<br>
-        乾淨、安靜、讓客人放心私訊你。
+        專門製作 <b>NT$6,800</b> 的一頁式官網。<br>
+        乾淨白色系、森林感，讓你安心對外使用。
       </p>
-      <a class="btn" href="#contact">我想做一頁官網</a>
+      <a class="btn" href="#contact">我想做 NT$6,800 的一頁官網</a>
     </div>
     <img src="https://images.unsplash.com/photo-1470770841072-f978cf4d019e?auto=format&fit=crop&w=900&q=60">
   </div>
@@ -178,17 +182,17 @@ footer{
 <!-- WORK -->
 <section id="work">
   <div class="wrap">
-    <h2>我們在做什麼</h2>
-    <p>把你的品牌、服務與聯絡方式，用一頁整理好，讓人一看就懂。</p>
+    <h2>這個方案適合你嗎？</h2>
+    <p>如果你想要一個乾淨、好閱讀、能對外使用的官網入口，這一頁就夠了。</p>
 
     <div class="grid">
       <div class="item">
-        <h3>內容收斂</h3>
-        <p>只留下真正重要的。</p>
+        <h3>一頁就好</h3>
+        <p>不做多頁、不複雜。</p>
       </div>
       <div class="item">
         <h3>手機優先</h3>
-        <p>大多數客人，用手機看你。</p>
+        <p>大多數客人用手機看。</p>
       </div>
       <div class="item">
         <h3>安心感</h3>
@@ -201,23 +205,18 @@ footer{
 <!-- PRICING -->
 <section id="pricing">
   <div class="wrap">
-    <h2>方案</h2>
-    <div class="pricing">
-      <div class="price">
-        <b>入門</b>
-        <div class="money">NT$ 6,800 – 12,000</div>
-        <p>快速上線，一頁搞定。</p>
-      </div>
-      <div class="price">
-        <b>商用</b>
-        <div class="money">NT$ 15,000 – 28,000</div>
-        <p>文案與結構一起優化。</p>
-      </div>
-      <div class="price">
-        <b>全包</b>
-        <div class="money">NT$ 35,000+</div>
-        <p>什麼都不用想，交給我們。</p>
-      </div>
+    <h2>唯一方案</h2>
+    <div class="price">
+      <b>一頁式官網｜標準方案</b>
+      <div class="money">NT$ 6,800</div>
+      <ul class="ul">
+        <li>一頁式網站（手機優先）</li>
+        <li>白色系清爽版面（森林感）</li>
+        <li>內容協助整理</li>
+        <li>聯絡方式整合（擇一）</li>
+        <li>協助上線</li>
+      </ul>
+      <p>一頁，就夠你用。</p>
     </div>
   </div>
 </section>
@@ -225,513 +224,20 @@ footer{
 <!-- CONTACT -->
 <section id="contact" class="contact">
   <div class="wrap">
-    <h2>聯絡</h2>
-    <p>把需求丟給我，我會幫你判斷怎麼做最適合。</p>
+    <h2>開始製作</h2>
+    <p>
+      如果你可以接受 <b>NT$6,800</b> 的一頁式官網方案，<br>
+      直接用 Line 跟我說就好。
+    </p>
     <br>
-    <a class="btn" href="https://line.me/">用 Line 聯絡我</a>
+    <!-- 記得換成你自己的 Line 連結 -->
+    <a class="btn" href="https://line.me/">詢問 NT$6,800 一頁官網</a>
   </div>
 </section>
 
 <footer>
   © 一頁工事
 </footer>
-
-</body>
-</html>
-<html lang="zh-Hant">
-<head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>一頁工事｜一頁式網站設計</title>
-  <meta name="description" content="一頁工事，專門替你把一頁網站做好。高質感、能成交、最容易被私訊的一頁式官網。" />
-  <meta name="robots" content="index,follow" />
-
-  <style>
-    :root{
-      --bg:#0f1011;
-      --panel:#121314;
-      --panel2:rgba(255,255,255,.035);
-      --text:#f1f1f1;
-      --muted:rgba(241,241,241,.62);
-      --line:rgba(255,255,255,.10);
-      --line2:rgba(255,255,255,.07);
-      --accent:#ffffff;
-      --max:1100px;
-      --r:18px;
-      --shadow: 0 22px 80px rgba(0,0,0,.55);
-    }
-
-    *{box-sizing:border-box}
-    body{
-      margin:0;
-      font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang TC","Noto Sans TC","Microsoft JhengHei",sans-serif;
-      background:var(--bg);
-      color:var(--text);
-      line-height:1.7;
-      letter-spacing:.2px;
-      overflow-x:hidden;
-    }
-    a{color:inherit;text-decoration:none}
-    .wrap{max-width:var(--max);margin:0 auto;padding:0 24px}
-
-    /* ====== 質感材質：背景（紙感/顆粒/微光暈） ====== */
-    body::before{
-      content:"";
-      position:fixed; inset:0;
-      pointer-events:none;
-      z-index:-3;
-      background:
-        radial-gradient(900px 520px at 18% 6%, rgba(255,255,255,.10), transparent 60%),
-        radial-gradient(900px 520px at 82% 18%, rgba(255,255,255,.06), transparent 62%),
-        radial-gradient(1200px 680px at 50% 100%, rgba(255,255,255,.04), transparent 62%),
-        linear-gradient(180deg, rgba(255,255,255,.02), transparent 26%);
-      filter:saturate(0.92);
-    }
-
-    /* 顆粒噪點（不需圖片，SVG data URI） */
-    body::after{
-      content:"";
-      position:fixed; inset:0;
-      pointer-events:none;
-      z-index:-2;
-      opacity:.10;
-      mix-blend-mode: overlay;
-      background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='220' height='220'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='220' height='220' filter='url(%23n)' opacity='.55'/%3E%3C/svg%3E");
-      background-size:240px 240px;
-    }
-
-    /* ====== Topbar ====== */
-    .top{
-      position:sticky; top:0; z-index:50;
-      background:rgba(15,16,17,.62);
-      backdrop-filter: blur(14px);
-      -webkit-backdrop-filter: blur(14px);
-      border-bottom:1px solid var(--line2);
-    }
-    .top .inner{
-      display:flex; align-items:center; justify-content:space-between;
-      padding:14px 0;
-      gap:14px;
-    }
-    .brand{display:flex; gap:12px; align-items:center}
-    .mark{
-      width:36px;height:36px;
-      border:1px solid var(--line2);
-      display:grid;place-items:center;
-      background:linear-gradient(180deg, rgba(255,255,255,.08), rgba(255,255,255,.02));
-      box-shadow: 0 10px 40px rgba(0,0,0,.35);
-      font-weight:800;
-      border-radius:12px;
-    }
-    .brand b{font-weight:650}
-    .brand small{display:block;color:var(--muted);font-size:12px;margin-top:2px}
-    .nav{display:none; gap:16px; color:var(--muted); font-size:14px}
-    .nav a{padding:6px 8px;border-radius:10px}
-    .nav a:hover{background:rgba(255,255,255,.05);color:var(--text)}
-
-    /* Buttons */
-    .btn{
-      display:inline-flex; align-items:center; justify-content:center;
-      padding:12px 18px;
-      border:1px solid var(--line2);
-      background:rgba(255,255,255,.02);
-      color:var(--text);
-      font-weight:650;
-      transition:.18s;
-      gap:10px;
-      white-space:nowrap;
-      border-radius:14px;
-    }
-    .btn:hover{background:rgba(255,255,255,.06)}
-    .btn.primary{
-      background:linear-gradient(180deg, rgba(255,255,255,1), rgba(255,255,255,.92));
-      color:#0f1011;
-      border-color:transparent;
-      box-shadow: 0 16px 40px rgba(0,0,0,.45);
-    }
-    .btn.primary:hover{
-      transform: translateY(-1px);
-    }
-
-    /* ====== Hero（材質感面板） ====== */
-    .hero{
-      min-height:88vh;
-      display:flex;
-      align-items:center;
-      padding:26px 0 34px;
-      border-bottom:1px solid var(--line2);
-      position:relative;
-    }
-    .hero-panel{
-      position:relative;
-      padding:34px 28px;
-      border:1px solid var(--line2);
-      border-radius: var(--r);
-      background:
-        radial-gradient(900px 420px at 20% 10%, rgba(255,255,255,.10), transparent 55%),
-        radial-gradient(900px 420px at 90% 30%, rgba(255,255,255,.06), transparent 60%),
-        linear-gradient(180deg, rgba(255,255,255,.05), rgba(255,255,255,.02));
-      box-shadow: var(--shadow);
-      overflow:hidden;
-      max-width:860px;
-    }
-    /* 面板內的細噪點，讓它像紙/塗層 */
-    .hero-panel::after{
-      content:"";
-      position:absolute; inset:0;
-      pointer-events:none;
-      opacity:.14;
-      mix-blend-mode: overlay;
-      background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='220' height='220'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.75' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='220' height='220' filter='url(%23n)' opacity='.45'/%3E%3C/svg%3E");
-      background-size:260px 260px;
-    }
-
-    h1{
-      font-size:clamp(44px,8vw,92px);
-      font-weight:620;
-      margin:0 0 16px;
-      letter-spacing:-1px;
-    }
-    .subtitle{
-      font-size:16px;
-      color:var(--muted);
-      max-width:560px;
-      margin:0 0 26px;
-    }
-    .hero-row{display:flex; gap:12px; flex-wrap:wrap}
-    .micro{
-      margin-top:18px;
-      color:rgba(241,241,241,.55);
-      font-size:13px;
-      max-width:560px;
-    }
-    .micro b{color:var(--text);font-weight:700}
-
-    /* ====== Section ====== */
-    section{
-      padding:120px 0;
-      border-top:1px solid var(--line2);
-      position:relative;
-    }
-    h2{font-size:28px;font-weight:520;margin:0 0 18px}
-    p{margin:0;color:var(--muted);max-width:600px}
-
-    .grid-3{
-      display:grid;
-      grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
-      gap:18px;
-      margin-top:34px;
-    }
-
-    /* 玻璃紙感卡片 */
-    .card{
-      position:relative;
-      border:1px solid var(--line2);
-      border-radius: var(--r);
-      padding:18px;
-      background:
-        linear-gradient(180deg, rgba(255,255,255,.04), rgba(255,255,255,.02));
-      box-shadow: 0 14px 60px rgba(0,0,0,.35);
-      overflow:hidden;
-    }
-    .card::after{
-      content:"";
-      position:absolute; inset:-1px;
-      pointer-events:none;
-      opacity:.10;
-      mix-blend-mode: overlay;
-      background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='220' height='220'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='220' height='220' filter='url(%23n)' opacity='.35'/%3E%3C/svg%3E");
-      background-size:260px 260px;
-    }
-
-    .card h3{margin:0 0 10px;font-size:16px;font-weight:720}
-    .card p{margin:0}
-
-    /* Pricing */
-    .pricing{
-      display:grid;
-      grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
-      gap:16px;
-      margin-top:34px;
-    }
-    .price .tag{color:rgba(241,241,241,.55);font-size:12px}
-    .price h3{margin:10px 0 8px;font-size:16px}
-    .money{font-size:22px;font-weight:800;margin:0 0 12px;color:var(--text)}
-    .ul{margin:0;padding-left:18px;color:var(--muted)}
-    .ul li{margin:8px 0}
-
-    /* Form */
-    .form{
-      margin-top:28px;
-      max-width:720px;
-    }
-    label{display:block;color:rgba(241,241,241,.55);font-size:13px;margin:14px 0 8px}
-    input, textarea, select{
-      width:100%;
-      padding:12px 12px;
-      background:rgba(0,0,0,.18);
-      border:1px solid var(--line2);
-      color:var(--text);
-      outline:none;
-      font-size:14px;
-      border-radius:14px;
-    }
-    textarea{min-height:110px;resize:vertical}
-    .form-row{display:grid;grid-template-columns:1fr;gap:12px}
-    .hint{color:rgba(241,241,241,.55);font-size:12px;margin-top:10px}
-
-    /* Floating CTA */
-    .float{
-      position:fixed;
-      right:16px;
-      bottom:16px;
-      z-index:99;
-      display:flex;
-      gap:10px;
-      flex-direction:column;
-    }
-    .float .btn{
-      background:rgba(15,16,17,.60);
-      backdrop-filter: blur(12px);
-      -webkit-backdrop-filter: blur(12px);
-      border-color:rgba(255,255,255,.14);
-    }
-
-    footer{
-      padding:76px 0;
-      border-top:1px solid var(--line2);
-      color:rgba(241,241,241,.55);
-      font-size:13px;
-    }
-
-    @media (min-width: 860px){
-      .nav{display:flex}
-      .form-row{grid-template-columns:1fr 1fr}
-      section{padding:130px 0}
-      .hero-panel{padding:42px 38px}
-      .grid-3{gap:18px}
-    }
-  </style>
-</head>
-
-<body>
-
-  <!-- TOP -->
-  <div class="top">
-    <div class="wrap inner">
-      <a class="brand" href="#top" aria-label="回到首頁">
-        <div class="mark">一</div>
-        <div>
-          <b>一頁工事</b>
-          <small>One-page website studio</small>
-        </div>
-      </a>
-
-      <nav class="nav" aria-label="導覽">
-        <a href="#work">我們做什麼</a>
-        <a href="#proof">案例</a>
-        <a href="#pricing">方案</a>
-        <a href="#contact">聯絡</a>
-      </nav>
-
-      <a class="btn primary" href="#contact">立即詢問</a>
-    </div>
-  </div>
-
-  <!-- HERO -->
-  <div class="hero" id="top">
-    <div class="wrap">
-      <div class="hero-panel">
-        <h1>一頁工事</h1>
-        <div class="subtitle">
-          專門替你，把一頁網站做好。<br>
-          <b style="color:var(--text);font-weight:700;">高質感、能成交、最容易被私訊。</b>
-        </div>
-
-        <div class="hero-row">
-          <a class="btn primary" href="#contact">我想做一頁官網</a>
-          <a class="btn" href="#pricing">先看方案</a>
-          <a class="btn" href="#proof">看案例</a>
-        </div>
-
-        <div class="micro">
-          你不需要很多頁，你只需要客人一眼看懂你在做什麼，然後 <b>按下聯絡</b>。
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- WORK -->
-  <section id="work">
-    <div class="wrap">
-      <h2>我們做什麼</h2>
-      <p>我們把你的服務、品牌重點、聯絡方式，用一頁整理好，讓客人看懂、願意找你。</p>
-
-      <div class="grid-3">
-        <div class="card">
-          <h3>內容收斂</h3>
-          <p>把你想講的話，整理成客人看得懂的順序。</p>
-        </div>
-        <div class="card">
-          <h3>手機優先</h3>
-          <p>大多數客人用手機看，你的網站要先為手機而生。</p>
-        </div>
-        <div class="card">
-          <h3>引導聯絡</h3>
-          <p>CTA、版面與段落都為「讓人私訊」服務。</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- PROOF -->
-  <section id="proof">
-    <div class="wrap">
-      <h2>案例（先放佔位，之後換你的）</h2>
-      <p>現在還沒案例也沒關係，先用「類型案例」呈現你會做什麼，照樣能成交。</p>
-
-      <div class="grid-3">
-        <div class="card">
-          <h3>餐酒館 / 店家入口頁</h3>
-          <p>方案、活動、地點、訂位、一鍵 Line。</p>
-        </div>
-        <div class="card">
-          <h3>個人接案 / 作品入口</h3>
-          <p>自介、服務、案例、報價、表單。</p>
-        </div>
-        <div class="card">
-          <h3>新品 / 宣傳轉換頁</h3>
-          <p>主打、優勢、FAQ、購買/聯絡。</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- PRICING -->
-  <section id="pricing">
-    <div class="wrap">
-      <h2>方案</h2>
-      <p>用「區間」呈現更像工作室定價，也能避免客人一開始就只看最低價。</p>
-
-      <div class="pricing">
-        <div class="card price">
-          <div class="tag">入門｜快速上線</div>
-          <h3>適合：剛起步 / 需要正式入口</h3>
-          <div class="money">NT$ 6,800 – 12,000</div>
-          <ul class="ul">
-            <li>一頁式版面（手機優先）</li>
-            <li>基礎內容整理</li>
-            <li>協助上線</li>
-          </ul>
-        </div>
-
-        <div class="card price" style="border-color:rgba(255,255,255,.16);">
-          <div class="tag">主力｜最容易成交</div>
-          <h3>適合：店家 / 對外正式</h3>
-          <div class="money">NT$ 15,000 – 28,000</div>
-          <ul class="ul">
-            <li>文案優化（更像品牌）</li>
-            <li>CTA / 私訊導向設計</li>
-            <li>案例/菜單/服務整理</li>
-          </ul>
-        </div>
-
-        <div class="card price">
-          <div class="tag">全包｜交給我們</div>
-          <h3>適合：什麼都不想管</h3>
-          <div class="money">NT$ 35,000 – 60,000</div>
-          <ul class="ul">
-            <li>架構＋文案＋視覺全包</li>
-            <li>表單 / 追蹤碼（可選）</li>
-            <li>交付可維護版本</li>
-          </ul>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- CONTACT -->
-  <section id="contact">
-    <div class="wrap">
-      <h2>聯絡</h2>
-      <p>填 30 秒，我就能給你一頁式「怎麼做會更好成交」的建議。</p>
-
-      <div class="card form">
-        <div class="form-row">
-          <div>
-            <label for="industry">產業 / 類型</label>
-            <input id="industry" placeholder="例：酒吧、餐廳、接案設計、工作室…" />
-          </div>
-          <div>
-            <label for="goal">你最想達成什麼</label>
-            <select id="goal">
-              <option value="接到詢問">接到詢問</option>
-              <option value="建立官網形象">建立官網形象</option>
-              <option value="宣傳活動/新品">宣傳活動/新品</option>
-              <option value="接案作品入口">接案作品入口</option>
-            </select>
-          </div>
-        </div>
-
-        <label for="content">你目前有哪些素材</label>
-        <textarea id="content" placeholder="例：有 IG、有菜單、有 Logo、有地址…"></textarea>
-
-        <label for="style">希望風格</label>
-        <input id="style" placeholder="例：極簡、森林感、偏高端、比較年輕…" />
-
-        <div style="display:flex;gap:12px;flex-wrap:wrap;margin-top:18px;">
-          <button class="btn primary" id="sendLine" type="button">一鍵丟 Line（預填訊息）</button>
-          <a class="btn" href="#pricing">我先看方案</a>
-        </div>
-
-        <div class="hint">※ 會自動帶出整理好的需求文字，方便你快速報價。</div>
-      </div>
-    </div>
-  </section>
-
-  <footer>
-    <div class="wrap">
-      © <span id="y"></span> 一頁工事｜不把網站做大，只把一頁做好。
-    </div>
-  </footer>
-
-  <div class="float" aria-label="浮動聯絡按鈕">
-    <a class="btn" href="#pricing">看方案</a>
-    <button class="btn primary" id="floatLine" type="button">Line 一鍵詢問</button>
-  </div>
-
-  <script>
-    document.getElementById("y").textContent = new Date().getFullYear();
-
-    // ✅ 把這裡換成你的 LINE OA（官方帳號）連結
-    const LINE_BASE = "https://line.me/R/oaMessage/@YOURID/?";
-
-    function buildMessage(){
-      const industry = (document.getElementById("industry").value || "").trim() || "（未填）";
-      const goal = document.getElementById("goal").value;
-      const content = (document.getElementById("content").value || "").trim() || "（未填）";
-      const style = (document.getElementById("style").value || "").trim() || "（未填）";
-
-      return [
-        "我想做一頁式官網，想請你報價與建議：",
-        "—",
-        `產業/類型：${industry}`,
-        `目標：${goal}`,
-        `目前素材：${content}`,
-        `希望風格：${style}`,
-        "—",
-        "我希望是高質感、並且能讓客人更容易私訊的版本。"
-      ].join("\n");
-    }
-
-    function openLine(){
-      const msg = encodeURIComponent(buildMessage());
-      window.open(LINE_BASE + msg, "_blank");
-    }
-
-    document.getElementById("sendLine").addEventListener("click", openLine);
-    document.getElementById("floatLine").addEventListener("click", openLine);
-  </script>
 
 </body>
 </html>
