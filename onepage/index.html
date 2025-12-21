@@ -9,14 +9,19 @@
 
   <style>
     :root{
-      --bg:#111111;
-      --panel:#141414;
-      --text:#eaeaea;
-      --muted:#8a8a8a;
-      --line:rgba(255,255,255,.08);
+      --bg:#0f1011;
+      --panel:#121314;
+      --panel2:rgba(255,255,255,.035);
+      --text:#f1f1f1;
+      --muted:rgba(241,241,241,.62);
+      --line:rgba(255,255,255,.10);
+      --line2:rgba(255,255,255,.07);
       --accent:#ffffff;
       --max:1100px;
+      --r:18px;
+      --shadow: 0 22px 80px rgba(0,0,0,.55);
     }
+
     *{box-sizing:border-box}
     body{
       margin:0;
@@ -25,127 +30,183 @@
       color:var(--text);
       line-height:1.7;
       letter-spacing:.2px;
+      overflow-x:hidden;
     }
     a{color:inherit;text-decoration:none}
     .wrap{max-width:var(--max);margin:0 auto;padding:0 24px}
 
-    /* Top */
+    /* ====== 質感材質：背景（紙感/顆粒/微光暈） ====== */
+    body::before{
+      content:"";
+      position:fixed; inset:0;
+      pointer-events:none;
+      z-index:-3;
+      background:
+        radial-gradient(900px 520px at 18% 6%, rgba(255,255,255,.10), transparent 60%),
+        radial-gradient(900px 520px at 82% 18%, rgba(255,255,255,.06), transparent 62%),
+        radial-gradient(1200px 680px at 50% 100%, rgba(255,255,255,.04), transparent 62%),
+        linear-gradient(180deg, rgba(255,255,255,.02), transparent 26%);
+      filter:saturate(0.92);
+    }
+
+    /* 顆粒噪點（不需圖片，SVG data URI） */
+    body::after{
+      content:"";
+      position:fixed; inset:0;
+      pointer-events:none;
+      z-index:-2;
+      opacity:.10;
+      mix-blend-mode: overlay;
+      background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='220' height='220'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='220' height='220' filter='url(%23n)' opacity='.55'/%3E%3C/svg%3E");
+      background-size:240px 240px;
+    }
+
+    /* ====== Topbar ====== */
     .top{
       position:sticky; top:0; z-index:50;
-      background:rgba(17,17,17,.72);
-      backdrop-filter: blur(10px);
-      border-bottom:1px solid var(--line);
+      background:rgba(15,16,17,.62);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      border-bottom:1px solid var(--line2);
     }
     .top .inner{
       display:flex; align-items:center; justify-content:space-between;
       padding:14px 0;
+      gap:14px;
     }
     .brand{display:flex; gap:12px; align-items:center}
     .mark{
-      width:34px;height:34px;border:1px solid var(--line);
+      width:36px;height:36px;
+      border:1px solid var(--line2);
       display:grid;place-items:center;
-      background:rgba(255,255,255,.02);
-      font-weight:700;
+      background:linear-gradient(180deg, rgba(255,255,255,.08), rgba(255,255,255,.02));
+      box-shadow: 0 10px 40px rgba(0,0,0,.35);
+      font-weight:800;
+      border-radius:12px;
     }
     .brand b{font-weight:650}
     .brand small{display:block;color:var(--muted);font-size:12px;margin-top:2px}
     .nav{display:none; gap:16px; color:var(--muted); font-size:14px}
     .nav a{padding:6px 8px;border-radius:10px}
-    .nav a:hover{background:rgba(255,255,255,.04);color:var(--text)}
+    .nav a:hover{background:rgba(255,255,255,.05);color:var(--text)}
 
     /* Buttons */
     .btn{
       display:inline-flex; align-items:center; justify-content:center;
       padding:12px 18px;
-      border:1px solid var(--line);
-      background:transparent;
+      border:1px solid var(--line2);
+      background:rgba(255,255,255,.02);
       color:var(--text);
-      font-weight:600;
+      font-weight:650;
       transition:.18s;
       gap:10px;
       white-space:nowrap;
+      border-radius:14px;
     }
     .btn:hover{background:rgba(255,255,255,.06)}
     .btn.primary{
-      background:var(--accent);
-      color:var(--bg);
+      background:linear-gradient(180deg, rgba(255,255,255,1), rgba(255,255,255,.92));
+      color:#0f1011;
       border-color:transparent;
+      box-shadow: 0 16px 40px rgba(0,0,0,.45);
     }
     .btn.primary:hover{
-      background:transparent;
-      color:var(--accent);
-      border-color:var(--accent);
+      transform: translateY(-1px);
     }
 
-    /* Hero */
+    /* ====== Hero（材質感面板） ====== */
     .hero{
       min-height:88vh;
       display:flex;
       align-items:center;
-      border-bottom:1px solid var(--line);
+      padding:26px 0 34px;
+      border-bottom:1px solid var(--line2);
+      position:relative;
     }
+    .hero-panel{
+      position:relative;
+      padding:34px 28px;
+      border:1px solid var(--line2);
+      border-radius: var(--r);
+      background:
+        radial-gradient(900px 420px at 20% 10%, rgba(255,255,255,.10), transparent 55%),
+        radial-gradient(900px 420px at 90% 30%, rgba(255,255,255,.06), transparent 60%),
+        linear-gradient(180deg, rgba(255,255,255,.05), rgba(255,255,255,.02));
+      box-shadow: var(--shadow);
+      overflow:hidden;
+      max-width:860px;
+    }
+    /* 面板內的細噪點，讓它像紙/塗層 */
+    .hero-panel::after{
+      content:"";
+      position:absolute; inset:0;
+      pointer-events:none;
+      opacity:.14;
+      mix-blend-mode: overlay;
+      background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='220' height='220'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.75' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='220' height='220' filter='url(%23n)' opacity='.45'/%3E%3C/svg%3E");
+      background-size:260px 260px;
+    }
+
     h1{
       font-size:clamp(44px,8vw,92px);
-      font-weight:600;
-      margin:0 0 18px;
+      font-weight:620;
+      margin:0 0 16px;
       letter-spacing:-1px;
     }
     .subtitle{
       font-size:16px;
       color:var(--muted);
-      max-width:520px;
-      margin:0 0 28px;
+      max-width:560px;
+      margin:0 0 26px;
     }
     .hero-row{display:flex; gap:12px; flex-wrap:wrap}
     .micro{
       margin-top:18px;
-      color:var(--muted);
+      color:rgba(241,241,241,.55);
       font-size:13px;
       max-width:560px;
     }
-    .micro b{color:var(--text);font-weight:650}
+    .micro b{color:var(--text);font-weight:700}
 
+    /* ====== Section ====== */
     section{
       padding:120px 0;
-      border-top:1px solid var(--line);
+      border-top:1px solid var(--line2);
+      position:relative;
     }
-    h2{font-size:28px;font-weight:500;margin:0 0 18px}
-    p{margin:0;color:var(--muted);max-width:560px}
+    h2{font-size:28px;font-weight:520;margin:0 0 18px}
+    p{margin:0;color:var(--muted);max-width:600px}
 
     .grid-3{
       display:grid;
       grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
-      gap:42px;
-      margin-top:40px;
-    }
-    .item{
-      padding-top:6px;
-    }
-    .item h3{margin:0 0 10px;font-size:16px;font-weight:650}
-    .item p{margin:0}
-
-    /* Proof */
-    .proof{
-      display:grid;
-      grid-template-columns:1fr;
-      gap:16px;
+      gap:18px;
       margin-top:34px;
     }
-    .proof-card{
-      border:1px solid var(--line);
-      background:rgba(255,255,255,.02);
+
+    /* 玻璃紙感卡片 */
+    .card{
+      position:relative;
+      border:1px solid var(--line2);
+      border-radius: var(--r);
       padding:18px;
+      background:
+        linear-gradient(180deg, rgba(255,255,255,.04), rgba(255,255,255,.02));
+      box-shadow: 0 14px 60px rgba(0,0,0,.35);
+      overflow:hidden;
     }
-    .proof-card b{display:block;margin-bottom:8px}
-    .proof-card small{color:var(--muted)}
-    .pill{
-      display:inline-block;
-      padding:6px 10px;
-      border:1px solid var(--line);
-      color:var(--muted);
-      font-size:12px;
-      margin:10px 8px 0 0;
+    .card::after{
+      content:"";
+      position:absolute; inset:-1px;
+      pointer-events:none;
+      opacity:.10;
+      mix-blend-mode: overlay;
+      background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='220' height='220'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='220' height='220' filter='url(%23n)' opacity='.35'/%3E%3C/svg%3E");
+      background-size:260px 260px;
     }
+
+    .card h3{margin:0 0 10px;font-size:16px;font-weight:720}
+    .card p{margin:0}
 
     /* Pricing */
     .pricing{
@@ -154,38 +215,31 @@
       gap:16px;
       margin-top:34px;
     }
-    .price{
-      border:1px solid var(--line);
-      background:rgba(255,255,255,.02);
-      padding:18px;
-    }
-    .price .tag{color:var(--muted);font-size:12px}
+    .price .tag{color:rgba(241,241,241,.55);font-size:12px}
     .price h3{margin:10px 0 8px;font-size:16px}
-    .money{font-size:22px;font-weight:750;margin:0 0 12px;color:var(--text)}
+    .money{font-size:22px;font-weight:800;margin:0 0 12px;color:var(--text)}
     .ul{margin:0;padding-left:18px;color:var(--muted)}
     .ul li{margin:8px 0}
 
-    /* Quick form */
+    /* Form */
     .form{
-      border:1px solid var(--line);
-      background:rgba(255,255,255,.02);
-      padding:18px;
       margin-top:28px;
       max-width:720px;
     }
-    label{display:block;color:var(--muted);font-size:13px;margin:14px 0 8px}
+    label{display:block;color:rgba(241,241,241,.55);font-size:13px;margin:14px 0 8px}
     input, textarea, select{
       width:100%;
       padding:12px 12px;
-      background:transparent;
-      border:1px solid var(--line);
+      background:rgba(0,0,0,.18);
+      border:1px solid var(--line2);
       color:var(--text);
       outline:none;
       font-size:14px;
+      border-radius:14px;
     }
     textarea{min-height:110px;resize:vertical}
     .form-row{display:grid;grid-template-columns:1fr;gap:12px}
-    .hint{color:var(--muted);font-size:12px;margin-top:10px}
+    .hint{color:rgba(241,241,241,.55);font-size:12px;margin-top:10px}
 
     /* Floating CTA */
     .float{
@@ -198,27 +252,25 @@
       flex-direction:column;
     }
     .float .btn{
-      border-color:rgba(255,255,255,.18);
-      background:rgba(17,17,17,.75);
-      backdrop-filter: blur(10px);
-    }
-    .float .btn.primary{
-      background:var(--accent);
-      color:var(--bg);
+      background:rgba(15,16,17,.60);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-color:rgba(255,255,255,.14);
     }
 
     footer{
       padding:76px 0;
-      border-top:1px solid var(--line);
-      color:var(--muted);
+      border-top:1px solid var(--line2);
+      color:rgba(241,241,241,.55);
       font-size:13px;
     }
 
     @media (min-width: 860px){
       .nav{display:flex}
-      .proof{grid-template-columns:repeat(3,1fr)}
       .form-row{grid-template-columns:1fr 1fr}
       section{padding:130px 0}
+      .hero-panel{padding:42px 38px}
+      .grid-3{gap:18px}
     }
   </style>
 </head>
@@ -243,27 +295,29 @@
         <a href="#contact">聯絡</a>
       </nav>
 
-      <a class="btn primary" id="topCta" href="#contact">立即詢問</a>
+      <a class="btn primary" href="#contact">立即詢問</a>
     </div>
   </div>
 
   <!-- HERO -->
   <div class="hero" id="top">
     <div class="wrap">
-      <h1>一頁工事</h1>
-      <div class="subtitle">
-        專門替你，把一頁網站做好。<br>
-        <b style="color:var(--text);font-weight:650;">高質感、能成交、最容易被私訊。</b>
-      </div>
+      <div class="hero-panel">
+        <h1>一頁工事</h1>
+        <div class="subtitle">
+          專門替你，把一頁網站做好。<br>
+          <b style="color:var(--text);font-weight:700;">高質感、能成交、最容易被私訊。</b>
+        </div>
 
-      <div class="hero-row">
-        <a class="btn primary" href="#contact">我想做一頁官網</a>
-        <a class="btn" href="#pricing">先看方案</a>
-        <a class="btn" href="#proof">看案例</a>
-      </div>
+        <div class="hero-row">
+          <a class="btn primary" href="#contact">我想做一頁官網</a>
+          <a class="btn" href="#pricing">先看方案</a>
+          <a class="btn" href="#proof">看案例</a>
+        </div>
 
-      <div class="micro">
-        你不需要很多頁，你只需要客人一眼看懂你在做什麼，然後 <b>按下聯絡</b>。
+        <div class="micro">
+          你不需要很多頁，你只需要客人一眼看懂你在做什麼，然後 <b>按下聯絡</b>。
+        </div>
       </div>
     </div>
   </div>
@@ -272,21 +326,18 @@
   <section id="work">
     <div class="wrap">
       <h2>我們做什麼</h2>
-      <p>
-        我們把你的服務、品牌重點、聯絡方式，<br>
-        用一頁整理好，讓客人看懂、願意找你。
-      </p>
+      <p>我們把你的服務、品牌重點、聯絡方式，用一頁整理好，讓客人看懂、願意找你。</p>
 
       <div class="grid-3">
-        <div class="item">
+        <div class="card">
           <h3>內容收斂</h3>
           <p>把你想講的話，整理成客人看得懂的順序。</p>
         </div>
-        <div class="item">
+        <div class="card">
           <h3>手機優先</h3>
           <p>大多數客人用手機看，你的網站要先為手機而生。</p>
         </div>
-        <div class="item">
+        <div class="card">
           <h3>引導聯絡</h3>
           <p>CTA、版面與段落都為「讓人私訊」服務。</p>
         </div>
@@ -298,32 +349,20 @@
   <section id="proof">
     <div class="wrap">
       <h2>案例（先放佔位，之後換你的）</h2>
-      <p>就算你現在還沒有很多案例，也可以先用「類型案例」呈現你會做什麼。</p>
+      <p>現在還沒案例也沒關係，先用「類型案例」呈現你會做什麼，照樣能成交。</p>
 
-      <div class="proof">
-        <div class="proof-card">
-          <b>餐酒館 / 店家入口頁</b>
-          <small>方案、活動、地點、訂位、一鍵 Line</small>
-          <div>
-            <span class="pill">重點清楚</span>
-            <span class="pill">一鍵詢問</span>
-          </div>
+      <div class="grid-3">
+        <div class="card">
+          <h3>餐酒館 / 店家入口頁</h3>
+          <p>方案、活動、地點、訂位、一鍵 Line。</p>
         </div>
-        <div class="proof-card">
-          <b>個人接案 / 作品展示頁</b>
-          <small>自介、服務、案例、報價、表單</small>
-          <div>
-            <span class="pill">信任感</span>
-            <span class="pill">可成交</span>
-          </div>
+        <div class="card">
+          <h3>個人接案 / 作品入口</h3>
+          <p>自介、服務、案例、報價、表單。</p>
         </div>
-        <div class="proof-card">
-          <b>品牌新品 / 宣傳頁</b>
-          <small>主打、優勢、FAQ、購買/聯絡</small>
-          <div>
-            <span class="pill">轉換導向</span>
-            <span class="pill">短而有力</span>
-          </div>
+        <div class="card">
+          <h3>新品 / 宣傳轉換頁</h3>
+          <p>主打、優勢、FAQ、購買/聯絡。</p>
         </div>
       </div>
     </div>
@@ -332,11 +371,11 @@
   <!-- PRICING -->
   <section id="pricing">
     <div class="wrap">
-      <h2>方案（讓客人不敢亂殺價的寫法）</h2>
-      <p>你要的是「價差合理」與「看起來值得」。這裡我用區間式，讓你更好收錢。</p>
+      <h2>方案</h2>
+      <p>用「區間」呈現更像工作室定價，也能避免客人一開始就只看最低價。</p>
 
       <div class="pricing">
-        <div class="price">
+        <div class="card price">
           <div class="tag">入門｜快速上線</div>
           <h3>適合：剛起步 / 需要正式入口</h3>
           <div class="money">NT$ 6,800 – 12,000</div>
@@ -347,18 +386,18 @@
           </ul>
         </div>
 
-        <div class="price" style="border-color:rgba(255,255,255,.18);background:rgba(255,255,255,.04);">
+        <div class="card price" style="border-color:rgba(255,255,255,.16);">
           <div class="tag">主力｜最容易成交</div>
           <h3>適合：店家 / 對外正式</h3>
           <div class="money">NT$ 15,000 – 28,000</div>
           <ul class="ul">
             <li>文案優化（更像品牌）</li>
             <li>CTA / 私訊導向設計</li>
-            <li>案例/菜單/服務區塊整理</li>
+            <li>案例/菜單/服務整理</li>
           </ul>
         </div>
 
-        <div class="price">
+        <div class="card price">
           <div class="tag">全包｜交給我們</div>
           <h3>適合：什麼都不想管</h3>
           <div class="money">NT$ 35,000 – 60,000</div>
@@ -375,13 +414,10 @@
   <!-- CONTACT -->
   <section id="contact">
     <div class="wrap">
-      <h2>聯絡（直接幫你做「可私訊」的流程）</h2>
-      <p>
-        你只要填 30 秒，<br>
-        我就能告訴你：一頁式怎麼做會最容易成交。
-      </p>
+      <h2>聯絡</h2>
+      <p>填 30 秒，我就能給你一頁式「怎麼做會更好成交」的建議。</p>
 
-      <div class="form">
+      <div class="card form">
         <div class="form-row">
           <div>
             <label for="industry">產業 / 類型</label>
@@ -398,7 +434,7 @@
           </div>
         </div>
 
-        <label for="content">你目前有哪些素材（可簡短）</label>
+        <label for="content">你目前有哪些素材</label>
         <textarea id="content" placeholder="例：有 IG、有菜單、有 Logo、有地址…"></textarea>
 
         <label for="style">希望風格</label>
@@ -406,12 +442,10 @@
 
         <div style="display:flex;gap:12px;flex-wrap:wrap;margin-top:18px;">
           <button class="btn primary" id="sendLine" type="button">一鍵丟 Line（預填訊息）</button>
-          <a class="btn" href="#pricing">我先看方案再說</a>
+          <a class="btn" href="#pricing">我先看方案</a>
         </div>
 
-        <div class="hint">
-          ※ 你按「一鍵丟 Line」會自動帶出一段整理好的需求文字，讓你更容易被快速報價。
-        </div>
+        <div class="hint">※ 會自動帶出整理好的需求文字，方便你快速報價。</div>
       </div>
     </div>
   </section>
@@ -422,7 +456,6 @@
     </div>
   </footer>
 
-  <!-- FLOAT CTA -->
   <div class="float" aria-label="浮動聯絡按鈕">
     <a class="btn" href="#pricing">看方案</a>
     <button class="btn primary" id="floatLine" type="button">Line 一鍵詢問</button>
@@ -431,15 +464,14 @@
   <script>
     document.getElementById("y").textContent = new Date().getFullYear();
 
-    // ✅ 重要：把這裡換成你的 LINE 連結（或官方帳號連結）
-    // 方式A：一般個人Line，先用 line.me 也可；之後可換成你的官方帳號/連結
-    const LINE_BASE = "https://line.me/R/oaMessage/@YOURID/?"; // ←把 @YOURID 換成你的
+    // ✅ 把這裡換成你的 LINE OA（官方帳號）連結
+    const LINE_BASE = "https://line.me/R/oaMessage/@YOURID/?";
 
     function buildMessage(){
-      const industry = document.getElementById("industry").value.trim() || "（未填）";
+      const industry = (document.getElementById("industry").value || "").trim() || "（未填）";
       const goal = document.getElementById("goal").value;
-      const content = document.getElementById("content").value.trim() || "（未填）";
-      const style = document.getElementById("style").value.trim() || "（未填）";
+      const content = (document.getElementById("content").value || "").trim() || "（未填）";
+      const style = (document.getElementById("style").value || "").trim() || "（未填）";
 
       return [
         "我想做一頁式官網，想請你報價與建議：",
@@ -455,7 +487,6 @@
 
     function openLine(){
       const msg = encodeURIComponent(buildMessage());
-      // 若你沒有 OA 連結，暫時先用 URL 直接跳轉，之後再換你的真正連結
       window.open(LINE_BASE + msg, "_blank");
     }
 
