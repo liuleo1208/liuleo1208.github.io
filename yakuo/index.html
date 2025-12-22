@@ -1,129 +1,413 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="zh-Hant">
 <head>
-<meta charset="UTF-8">
-<title>野酌 YAKUO｜露天酒吧</title>
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<style>
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, "Noto Sans TC", sans-serif;
-  background-color: #0f1411;
-  color: #eaeaea;
-  line-height: 1.8;
-}
-section {
-  padding: 80px 20px;
-  max-width: 900px;
-  margin: auto;
-}
-.hero {
-  text-align: center;
-  padding-top: 120px;
-}
-.hero h1 {
-  font-size: 48px;
-  letter-spacing: 6px;
-}
-.hero p {
-  opacity: 0.8;
-}
-.btn {
-  display: inline-block;
-  margin-top: 30px;
-  padding: 14px 36px;
-  border: 1px solid #eaeaea;
-  color: #eaeaea;
-  text-decoration: none;
-}
-.btn:hover {
-  background: #eaeaea;
-  color: #0f1411;
-}
-h2 {
-  border-left: 4px solid #6b7d6e;
-  padding-left: 12px;
-  margin-bottom: 20px;
-}
-footer {
-  text-align: center;
-  padding: 40px;
-  font-size: 14px;
-  opacity: 0.6;
-}
-</style>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>野酌 YACHO｜森林系戶外酒吧</title>
+  <meta name="description" content="野酌 YACHO：森林系戶外酒吧。自由暢飲、自助調酒、輕社交體驗。全預約制，另開放場地租借/包場面議。" />
+  <style>
+    :root{
+      --bg:#0b1410;
+      --card:rgba(255,255,255,.06);
+      --line:rgba(255,255,255,.12);
+      --text:rgba(255,255,255,.92);
+      --muted:rgba(255,255,255,.68);
+      --accent:#9fe6a0;
+      --accent2:#ffd28a;
+      --shadow: 0 10px 30px rgba(0,0,0,.35);
+      --radius:18px;
+      --max:1080px;
+    }
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      font-family: ui-sans-serif, system-ui, -apple-system, "PingFang TC", "Microsoft JhengHei", "Noto Sans TC", Arial, sans-serif;
+      color:var(--text);
+      background:
+        radial-gradient(1200px 700px at 20% 0%, rgba(159,230,160,.22), transparent 55%),
+        radial-gradient(900px 600px at 80% 10%, rgba(255,210,138,.16), transparent 55%),
+        radial-gradient(800px 600px at 50% 100%, rgba(159,230,160,.10), transparent 60%),
+        var(--bg);
+      line-height:1.7;
+    }
+    a{color:inherit}
+    .wrap{max-width:var(--max); margin:0 auto; padding:0 18px}
+    header{
+      position:sticky; top:0; z-index:20;
+      backdrop-filter: blur(10px);
+      background: linear-gradient(to bottom, rgba(11,20,16,.86), rgba(11,20,16,.55));
+      border-bottom:1px solid var(--line);
+    }
+    .nav{
+      display:flex; align-items:center; justify-content:space-between;
+      padding:12px 0;
+      gap:12px;
+    }
+    .brand{
+      display:flex; align-items:center; gap:10px; min-width:190px;
+      font-weight:800; letter-spacing:.5px;
+    }
+    .dot{
+      width:10px; height:10px; border-radius:999px;
+      background: radial-gradient(circle at 30% 30%, var(--accent), rgba(159,230,160,.2));
+      box-shadow:0 0 18px rgba(159,230,160,.35);
+    }
+    .menu{
+      display:flex; gap:14px; flex-wrap:wrap; justify-content:flex-end;
+      font-size:14px; color:var(--muted);
+    }
+    .menu a{ text-decoration:none; padding:8px 10px; border-radius:999px; border:1px solid transparent}
+    .menu a:hover{ border-color:var(--line); color:var(--text)}
+    .hero{
+      padding:42px 0 22px;
+    }
+    .heroGrid{
+      display:grid;
+      grid-template-columns: 1.2fr .8fr;
+      gap:16px;
+      align-items:stretch;
+    }
+    @media (max-width: 860px){
+      .heroGrid{grid-template-columns:1fr}
+      .brand{min-width:auto}
+    }
+    .card{
+      background:var(--card);
+      border:1px solid var(--line);
+      border-radius:var(--radius);
+      box-shadow:var(--shadow);
+    }
+    .heroMain{ padding:26px 22px}
+    .kicker{
+      display:inline-flex; gap:8px; align-items:center;
+      font-size:13px; color:var(--muted);
+      border:1px solid var(--line);
+      padding:6px 10px;
+      border-radius:999px;
+      background:rgba(0,0,0,.15);
+    }
+    h1{ margin:14px 0 10px; font-size:40px; line-height:1.15 }
+    @media (max-width: 520px){ h1{font-size:34px} }
+    .sub{ color:var(--muted); font-size:16px; margin:0 0 18px}
+    .chips{ display:flex; flex-wrap:wrap; gap:8px; margin:14px 0 18px}
+    .chip{
+      font-size:13px; color:rgba(255,255,255,.78);
+      border:1px solid var(--line);
+      padding:6px 10px;
+      border-radius:999px;
+      background:rgba(0,0,0,.10);
+    }
+    .ctaRow{ display:flex; flex-wrap:wrap; gap:10px; margin-top:10px}
+    .btn{
+      text-decoration:none;
+      display:inline-flex; align-items:center; justify-content:center; gap:10px;
+      padding:12px 14px;
+      border-radius:14px;
+      border:1px solid var(--line);
+      background:rgba(0,0,0,.22);
+      color:var(--text);
+      font-weight:700;
+      transition: transform .08s ease, border-color .15s ease, background .15s ease;
+    }
+    .btn:hover{ transform: translateY(-1px); border-color:rgba(255,255,255,.22) }
+    .btn.primary{
+      background: linear-gradient(135deg, rgba(159,230,160,.20), rgba(255,210,138,.12));
+      border-color: rgba(159,230,160,.35);
+    }
+    .btn.primary:hover{ border-color: rgba(159,230,160,.55) }
+    .heroSide{ padding:18px 18px}
+    .sideTitle{ font-weight:800; margin:2px 0 10px}
+    .kv{ display:grid; gap:10px; margin-top:10px}
+    .kv .row{
+      display:flex; align-items:flex-start; justify-content:space-between; gap:12px;
+      padding:10px 12px;
+      border-radius:14px;
+      border:1px solid var(--line);
+      background:rgba(0,0,0,.12);
+      color:rgba(255,255,255,.85);
+      font-size:14px;
+    }
+    .kv .row span{ color:var(--muted); font-weight:600}
+    section{ padding:20px 0 }
+    .sectionTitle{
+      font-size:22px; margin:0 0 12px;
+      letter-spacing:.2px;
+    }
+    .grid2{ display:grid; grid-template-columns:1fr 1fr; gap:14px}
+    @media (max-width: 860px){ .grid2{grid-template-columns:1fr} }
+    .box{ padding:18px 18px}
+    .box p{ margin:0 0 10px; color:rgba(255,255,255,.84)}
+    .list{ margin:10px 0 0; padding-left:18px; color:rgba(255,255,255,.84)}
+    .list li{ margin:6px 0 }
+    .price{
+      display:grid; gap:10px; margin-top:10px
+    }
+    .price .tier{
+      padding:14px 14px;
+      border-radius:16px;
+      border:1px solid var(--line);
+      background:rgba(0,0,0,.14);
+    }
+    .tier strong{ font-size:18px }
+    .tier .note{ color:var(--muted); font-size:13px; margin-top:6px }
+    .badge{
+      display:inline-flex; gap:6px; align-items:center;
+      font-size:12px; padding:4px 8px;
+      border-radius:999px;
+      border:1px solid rgba(159,230,160,.35);
+      background:rgba(159,230,160,.10);
+      color:rgba(255,255,255,.86);
+      margin-left:8px;
+      vertical-align:middle;
+    }
+    .footCta{
+      padding:22px 18px;
+      text-align:center;
+    }
+    .muted{ color:var(--muted) }
+    footer{
+      padding:18px 0 34px;
+      border-top:1px solid var(--line);
+      margin-top:18px;
+      color:var(--muted);
+      font-size:13px;
+    }
+    .hr{ height:1px; background:var(--line); margin:12px 0 }
+    .mini{ font-size:13px; color:var(--muted) }
+    .anchor{ position:relative; top:-72px }
+  </style>
 </head>
 
 <body>
+  <header>
+    <div class="wrap">
+      <div class="nav">
+        <div class="brand">
+          <div class="dot"></div>
+          <div>野酌 YACHO</div>
+        </div>
+        <nav class="menu" aria-label="主選單">
+          <a href="#about">概念</a>
+          <a href="#how">怎麼玩</a>
+          <a href="#pricing">收費</a>
+          <a href="#venue">場地</a>
+          <a href="#rental">場地租借</a>
+          <a href="#reserve">預約</a>
+        </nav>
+      </div>
+    </div>
+  </header>
 
-<section class="hero">
-  <h1>野酌</h1>
-  <p>在城市邊緣，替夜晚留一杯酒</p>
-  <a href="#about" class="btn">了解野酌</a>
-</section>
+  <main class="wrap">
+    <div class="hero">
+      <div class="heroGrid">
+        <div class="card heroMain">
+          <div class="kicker">🌲 森林系戶外酒吧｜自由交流・氛圍導向</div>
+          <h1>在森林裡，把夜晚喝慢一點</h1>
+          <p class="sub">野酌是一場 <b>戶外 × 森林 × 社交 × Chill</b> 的體驗。不是酒吧而已——是一個讓人放鬆、自然交流的地方。</p>
 
-<section id="about">
-  <h2>關於野酌</h2>
-  <p>
-    野酌是一間露天風格酒吧，沒有過度裝飾，<br>
-    只有夜風、木桌、燈串與剛好的微醺。<br><br>
-    我們相信，喝酒不是為了熱鬧，<br>
-    而是讓人慢下來。
-  </p>
-</section>
+          <div class="chips">
+            <div class="chip">自由調酒</div>
+            <div class="chip">啤酒/調酒暢飲</div>
+            <div class="chip">全預約制</div>
+            <div class="chip">最多 50 人</div>
+            <div class="chip">投影設備</div>
+            <div class="chip">場地租借（面議）</div>
+          </div>
 
-<section>
-  <h2>營業方式</h2>
-  <p>
-    ・露天座位 / 森林系氛圍<br>
-    ・每桌獨立空間，可自由聊天<br>
-    ・輕音樂 / 投影播放 / 無干擾社交
-  </p>
-</section>
+          <div class="ctaRow">
+            <!-- ✅ 把這裡換成你的 LINE 連結（line.me/ti/p/... 或官方帳號連結） -->
+            <a class="btn primary" href="#reserve">立即預約</a>
+            <a class="btn" href="#rental">場地租借洽詢</a>
+            <a class="btn" href="#pricing">看收費方案</a>
+          </div>
 
-<section>
-  <h2>主打方案</h2>
-  <p>
-    🍺 990 暢飲方案<br>
-    ・指定酒款無限暢飲<br>
-    ・適合朋友聚會 / 慢聊整晚<br><br>
-    🔥 主題夜活動<br>
-    ・野酌夜聊<br>
-    ・駐唱 / 特別企劃
-  </p>
-</section>
+          <div class="hr"></div>
+          <div class="mini">＊地點：竹南／頭份區（預約後提供）｜不接現場散客｜每日滿 5 人即開場</div>
+        </div>
 
-<section>
-  <h2>場地租借</h2>
-  <p>
-    ・適合包場聚會 / 私人活動 / 主題企劃<br>
-    ・可搭配酒水方案與現場配置<br>
-    ・人數與使用時段彈性調整<br><br>
-    📌 場地租借方案：<strong>面議</strong>
-  </p>
-</section>
+        <aside class="card heroSide">
+          <div class="sideTitle">快速資訊</div>
+          <div class="kv">
+            <div class="row"><b>收費</b><span>每人 NT$990 / 120 分鐘</span></div>
+            <div class="row"><b>續桌</b><span>NT$390 / 120 分鐘</span></div>
+            <div class="row"><b>水煙</b><span>NT$1,300（四人同行可免費一壺）</span></div>
+            <div class="row"><b>時間</b><span>11:00 – 23:00</span></div>
+            <div class="row"><b>人數</b><span>最多 50 人</span></div>
+            <div class="row"><b>模式</b><span>全預約制（不接現場）</span></div>
+          </div>
+        </aside>
+      </div>
+    </div>
 
-<section>
-  <h2>營業資訊</h2>
-  <p>
-    📍 地點：＿＿＿＿＿＿＿<br>
-    🕗 時間：18:00 – 02:00<br>
-    📅 營業日：週＿＿～週＿＿
-  </p>
-</section>
+    <span id="about" class="anchor"></span>
+    <section>
+      <h2 class="sectionTitle">為什麼是野酌？</h2>
+      <div class="grid2">
+        <div class="card box">
+          <p><b>我們不賣酒，我們賣的是——</b> 在城市邊緣，被夜色與燈串包圍的放鬆時刻。</p>
+          <ul class="list">
+            <li>🌿 森林系造景：植栽、綠意、原木、露營風</li>
+            <li>✨ 氛圍加持：燈串光影、低音量音樂、戶外夜色</li>
+            <li>🍸 自助調酒：濃淡自己決定，新手也能玩</li>
+            <li>☎️ 輕社交設計：更容易跟陌生人聊天</li>
+          </ul>
+        </div>
+        <div class="card box">
+          <p><b>野酌六大要素</b>（你來一次就懂）</p>
+          <ul class="list">
+            <li><b>自由</b>：自行選酒、調酒，沒壓力</li>
+            <li><b>放鬆</b>：戶外＋燈串＋綠植＝自動慢下來</li>
+            <li><b>戶外</b>：風吹、夜色、燈光都是體驗的一部分</li>
+            <li><b>社交</b>：酒精是媒介，氛圍才是核心</li>
+            <li><b>透明</b>：消費清楚、不額外加收</li>
+            <li><b>可複製</b>：流程、設備、動線標準化，適合擴張</li>
+          </ul>
+        </div>
+      </div>
+    </section>
 
-<section>
-  <h2>聯絡 / 訂位</h2>
-  <p>
-    IG：@________<br>
-    LINE：________<br>
-    私訊即可訂位
-  </p>
-</section>
+    <span id="how" class="anchor"></span>
+    <section>
+      <h2 class="sectionTitle">野酌怎麼玩？</h2>
+      <div class="grid2">
+        <div class="card box">
+          <p><b>自助調酒＝體驗升級</b></p>
+          <p class="muted">你不是來「被服務」，你是今晚的調酒師。</p>
+          <ul class="list">
+            <li>提供基酒、果汁、氣泡水、糖漿等配料</li>
+            <li>現場有酒譜配方板：照表調也好喝</li>
+            <li>味道可控：濃淡自己調整，降低客訴</li>
+            <li>聊天破冰：調酒區自然互動</li>
+          </ul>
+        </div>
+        <div class="card box">
+          <p><b>為什麼全預約制？</b>（為了更好玩）</p>
+          <ul class="list">
+            <li>控管人流，避免擁擠與吵雜</li>
+            <li>更容易聊天、認識人</li>
+            <li>提前準備酒水與耗材，品質更穩</li>
+            <li>席位有限＝價值感與體驗感更強</li>
+          </ul>
+          <p class="mini">＊每日滿 5 人即開場</p>
+        </div>
+      </div>
+    </section>
 
-<footer>
-  野酌 YAKUO © All Rights Reserved
-</footer>
+    <span id="pricing" class="anchor"></span>
+    <section>
+      <h2 class="sectionTitle">收費方式（透明、不推銷）</h2>
+      <div class="card box">
+        <div class="price">
+          <div class="tier">
+            <strong>每人 NT$990</strong><span class="badge">120 分鐘</span>
+            <div class="note">包含：啤酒暢飲、調酒暢飲（自助）、無酒精飲品、基本調酒教學、投影設備、輕社交交流設計</div>
+          </div>
+          <div class="tier">
+            <strong>續桌 NT$390</strong><span class="badge">120 分鐘</span>
+            <div class="note">延長停留時間，更 Chill、更好聊</div>
+          </div>
+          <div class="tier">
+            <strong>水煙 NT$1,300</strong>
+            <div class="note">四人同行可免費一壺（依現場規則為主）</div>
+          </div>
+        </div>
+      </div>
+    </section>
 
+    <span id="venue" class="anchor"></span>
+    <section>
+      <h2 class="sectionTitle">場地資訊</h2>
+      <div class="grid2">
+        <div class="card box">
+          <ul class="list">
+            <li><b>地點</b>：竹南／頭份區（預約後提供）</li>
+            <li><b>容納</b>：最多 50 人</li>
+            <li><b>營業時間</b>：11:00 – 23:00</li>
+            <li><b>模式</b>：全預約制（不接現場散客）</li>
+          </ul>
+        </div>
+        <div class="card box">
+          <p><b>適合誰？</b></p>
+          <ul class="list">
+            <li>不想去吵雜酒吧的人</li>
+            <li>朋友聚會、慶生、放鬆小酌</li>
+            <li>喜歡戶外、露營、森林氛圍</li>
+            <li>想認識新朋友，但不想太刻意</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <span id="rental" class="anchor"></span>
+    <section>
+      <h2 class="sectionTitle">場地租借｜活動包場・彈性使用</h2>
+      <div class="grid2">
+        <div class="card box">
+          <p><b>野酌不只是喝酒的地方</b>，也是一個可以被好好使用的森林系戶外空間。</p>
+          <p class="muted">我們開放場地租借／包場使用（可搭配酒水方案），依需求客製規劃。</p>
+          <p><b>適合舉辦：</b></p>
+          <ul class="list">
+            <li>🎂 生日派對 / 慶生聚會</li>
+            <li>🥂 私人包場 / 小型派對</li>
+            <li>🏕️ 露營風主題活動</li>
+            <li>🎶 音樂分享 / 小型表演</li>
+            <li>🧑‍🤝‍🧑 社群聚會 / 品牌活動</li>
+            <li>📸 拍攝 / 形象拍照</li>
+          </ul>
+        </div>
+        <div class="card box">
+          <p><b>場地特色</b></p>
+          <ul class="list">
+            <li>🌲 森林系造景、植栽、燈串氛圍</li>
+            <li>🪵 原木桌椅、露營風配置</li>
+            <li>🍸 可搭配自助調酒 / 暢飲方案</li>
+            <li>🎥 投影設備可使用</li>
+            <li>👥 空間彈性調整，最多 50 人</li>
+          </ul>
+          <div class="hr"></div>
+          <p><b>租借方式</b></p>
+          <ul class="list">
+            <li>可依時段 / 人數 / 使用需求彈性調整</li>
+            <li>活動內容可事前討論配置</li>
+            <li><b>價格與細節採面議</b>（保留彈性與談判空間）</li>
+          </ul>
+
+          <div class="ctaRow" style="margin-top:14px;">
+            <!-- ✅ 把 href 換成你的 LINE 洽詢連結 -->
+            <a class="btn primary" href="#reserve">我要租借 / 包場洽詢</a>
+            <a class="btn" href="#pricing">搭配暢飲方案</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <span id="reserve" class="anchor"></span>
+    <section>
+      <h2 class="sectionTitle">預約方式</h2>
+      <div class="card footCta">
+        <p style="margin:0 0 8px;"><b>⚠️ 全預約制｜席位有限｜滿即關閉預約</b></p>
+        <p class="muted" style="margin:0 0 14px;">私訊／LINE 預約，提供：日期、時間、人數（如需場地租借也可一併說明需求）</p>
+        <div class="ctaRow" style="justify-content:center;">
+          <!-- ✅ 把這裡換成你的 LINE 連結 -->
+          <a class="btn primary" href="https://line.me/" target="_blank" rel="noopener">LINE 立即預約</a>
+          <a class="btn" href="https://line.me/" target="_blank" rel="noopener">場地租借面議</a>
+        </div>
+        <div class="hr"></div>
+        <div class="mini">野酌 YACHO｜森林裡的自由暢飲體驗</div>
+      </div>
+    </section>
+
+    <footer>
+      <div class="wrap">
+        <div>© <span id="y"></span> 野酌 YACHO. All rights reserved.</div>
+        <div class="mini" style="margin-top:6px;">＊本頁為一頁式介紹頁；內容與方案以現場公告及洽談為準。</div>
+      </div>
+    </footer>
+  </main>
+
+  <script>
+    document.getElementById('y').textContent = new Date().getFullYear();
+  </script>
 </body>
 </html>
