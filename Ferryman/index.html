@@ -1,133 +1,499 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="zh-Hant">
 <head>
-<meta charset="UTF-8">
-<title>擺渡人｜990 調酒暢飲・自助調酒體驗</title>
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<style>
-body{
-  margin:0;
-  font-family:-apple-system,BlinkMacSystemFont,"Noto Sans TC",sans-serif;
-  background:#0f1411;
-  color:#eaeaea;
-  line-height:1.8;
-}
-section{
-  max-width:900px;
-  margin:auto;
-  padding:80px 20px;
-}
-h1,h2{
-  letter-spacing:4px;
-}
-.hero{
-  text-align:center;
-  padding-top:120px;
-}
-.hero h1{
-  font-size:48px;
-}
-.hero p{
-  opacity:.8;
-}
-.btn{
-  display:inline-block;
-  margin-top:30px;
-  padding:14px 36px;
-  border:1px solid #eaeaea;
-  text-decoration:none;
-  color:#eaeaea;
-}
-.block{
-  margin-top:40px;
-}
-.price{
-  font-size:32px;
-  margin:20px 0;
-}
-footer{
-  text-align:center;
-  padding:40px;
-  font-size:14px;
-  opacity:.6;
-}
-</style>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Web Design Studio｜作品集</title>
+  <meta name="description" content="高質感一頁式作品集網站：滑動動畫、視差背景、作品預覽、聯絡區塊。" />
+  <style>
+    :root{
+      --bg:#070a10;
+      --card:rgba(255,255,255,.06);
+      --line:rgba(255,255,255,.12);
+      --text:rgba(255,255,255,.92);
+      --muted:rgba(255,255,255,.68);
+      --accent:#9fe6ff;
+      --accent2:#ffd28a;
+      --shadow: 0 18px 50px rgba(0,0,0,.45);
+      --radius:20px;
+      --max:1100px;
+    }
+    *{ box-sizing:border-box; }
+    html{ scroll-behavior:smooth; }
+    body{
+      margin:0;
+      font-family: ui-sans-serif, system-ui, -apple-system, "PingFang TC", "Microsoft JhengHei", "Noto Sans TC", Arial, sans-serif;
+      color:var(--text);
+      background:
+        radial-gradient(1200px 700px at 15% -10%, rgba(159,230,255,.20), transparent 60%),
+        radial-gradient(900px 600px at 85% 0%, rgba(255,210,138,.14), transparent 60%),
+        radial-gradient(800px 700px at 50% 120%, rgba(159,230,255,.10), transparent 60%),
+        var(--bg);
+      overflow-x:hidden;
+      line-height:1.7;
+    }
+    a{ color:inherit; text-decoration:none; }
+    .wrap{ max-width:var(--max); margin:0 auto; padding:0 18px; }
+
+    /* Top Nav */
+    header{
+      position:sticky; top:0; z-index:50;
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      background: linear-gradient(to bottom, rgba(7,10,16,.82), rgba(7,10,16,.40));
+      border-bottom:1px solid var(--line);
+    }
+    .nav{
+      display:flex; align-items:center; justify-content:space-between;
+      padding:12px 0; gap:10px;
+    }
+    .brand{
+      display:flex; align-items:center; gap:10px;
+      font-weight:900; letter-spacing:.4px;
+    }
+    .logoDot{
+      width:10px; height:10px; border-radius:999px;
+      background: radial-gradient(circle at 30% 30%, var(--accent), rgba(159,230,255,.2));
+      box-shadow:0 0 18px rgba(159,230,255,.35);
+    }
+    .menu{
+      display:flex; flex-wrap:wrap; justify-content:flex-end;
+      gap:10px; font-size:14px; color:var(--muted);
+    }
+    .menu a{
+      padding:8px 10px; border-radius:999px;
+      border:1px solid transparent;
+    }
+    .menu a:hover{ border-color:var(--line); color:var(--text); }
+
+    /* Hero */
+    .hero{ padding:44px 0 10px; position:relative; }
+    .heroGrid{
+      display:grid; grid-template-columns: 1.2fr .8fr; gap:16px;
+      align-items:stretch;
+    }
+    @media (max-width: 900px){ .heroGrid{ grid-template-columns:1fr; } }
+
+    .card{
+      background:var(--card);
+      border:1px solid var(--line);
+      border-radius:var(--radius);
+      box-shadow:var(--shadow);
+    }
+    .heroMain{ padding:26px 22px; position:relative; overflow:hidden; }
+    .kicker{
+      display:inline-flex; gap:8px; align-items:center;
+      font-size:13px; color:var(--muted);
+      border:1px solid var(--line);
+      padding:6px 10px; border-radius:999px;
+      background:rgba(0,0,0,.16);
+    }
+    h1{ margin:14px 0 10px; font-size:44px; line-height:1.12; }
+    @media (max-width: 520px){ h1{ font-size:36px; } }
+    .sub{ color:var(--muted); font-size:16px; margin:0 0 18px; }
+    .chips{ display:flex; flex-wrap:wrap; gap:8px; margin:14px 0 18px; }
+    .chip{
+      font-size:13px; color:rgba(255,255,255,.80);
+      border:1px solid var(--line);
+      padding:6px 10px; border-radius:999px;
+      background:rgba(0,0,0,.10);
+    }
+    .ctaRow{ display:flex; flex-wrap:wrap; gap:10px; margin-top:12px; }
+    .btn{
+      display:inline-flex; align-items:center; justify-content:center; gap:10px;
+      padding:12px 14px; border-radius:14px;
+      border:1px solid var(--line);
+      background:rgba(0,0,0,.20);
+      color:var(--text); font-weight:800;
+      transition: transform .10s ease, border-color .15s ease, background .15s ease;
+      cursor:pointer;
+    }
+    .btn:hover{ transform: translateY(-1px); border-color:rgba(255,255,255,.22); }
+    .btn.primary{
+      background: linear-gradient(135deg, rgba(159,230,255,.18), rgba(255,210,138,.10));
+      border-color: rgba(159,230,255,.38);
+    }
+    .btn.primary:hover{ border-color: rgba(159,230,255,.60); }
+
+    .heroSide{ padding:18px; }
+    .sideTitle{ font-weight:900; margin:2px 0 10px; }
+    .kv{ display:grid; gap:10px; }
+    .kv .row{
+      display:flex; align-items:flex-start; justify-content:space-between; gap:12px;
+      padding:10px 12px; border-radius:14px;
+      border:1px solid var(--line);
+      background:rgba(0,0,0,.10);
+      font-size:14px;
+    }
+    .kv .row span{ color:var(--muted); font-weight:700; text-align:right; }
+
+    /* Parallax glow */
+    .glow{
+      position:absolute; inset:-40px -40px auto auto;
+      width:420px; height:420px; border-radius:50%;
+      background: radial-gradient(circle at 30% 30%, rgba(159,230,255,.22), transparent 60%);
+      filter: blur(2px);
+      transform: translate3d(0,0,0);
+      pointer-events:none;
+      opacity:.9;
+    }
+
+    /* Sections */
+    section{ padding:26px 0; }
+    .sectionTitle{ font-size:22px; margin:0 0 12px; letter-spacing:.2px; }
+    .grid2{ display:grid; grid-template-columns:1fr 1fr; gap:14px; }
+    @media (max-width: 900px){ .grid2{ grid-template-columns:1fr; } }
+    .box{ padding:18px; }
+    .muted{ color:var(--muted); }
+    .list{ margin:10px 0 0; padding-left:18px; color:rgba(255,255,255,.84); }
+    .list li{ margin:6px 0; }
+
+    /* Portfolio */
+    .projects{
+      display:grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap:14px;
+    }
+    @media (max-width: 980px){ .projects{ grid-template-columns:repeat(2,1fr);} }
+    @media (max-width: 560px){ .projects{ grid-template-columns:1fr;} }
+    .proj{
+      padding:14px;
+      cursor:pointer;
+      transition: transform .12s ease, border-color .15s ease;
+      position:relative;
+      overflow:hidden;
+    }
+    .proj:hover{ transform: translateY(-2px); border-color:rgba(255,255,255,.22); }
+    .thumb{
+      height:160px;
+      border-radius:16px;
+      border:1px solid var(--line);
+      background:
+        linear-gradient(135deg, rgba(159,230,255,.18), rgba(255,210,138,.10)),
+        radial-gradient(600px 220px at 20% 0%, rgba(255,255,255,.10), transparent 60%);
+      position:relative;
+      overflow:hidden;
+    }
+    .thumb::after{
+      content:"";
+      position:absolute; inset:-40%;
+      background: radial-gradient(circle at 20% 20%, rgba(255,255,255,.20), transparent 40%);
+      transform: rotate(25deg);
+      opacity:.55;
+    }
+    .proj h3{ margin:12px 0 6px; font-size:16px; }
+    .tagRow{ display:flex; flex-wrap:wrap; gap:6px; }
+    .tag{
+      font-size:12px; color:rgba(255,255,255,.78);
+      border:1px solid var(--line);
+      padding:4px 8px; border-radius:999px;
+      background:rgba(0,0,0,.10);
+    }
+
+    /* Reveal animations */
+    .reveal{ opacity:0; transform: translateY(18px); transition: opacity .7s ease, transform .7s ease; }
+    .reveal.show{ opacity:1; transform: translateY(0); }
+
+    /* Modal */
+    .modal{
+      position:fixed; inset:0;
+      display:none;
+      align-items:center; justify-content:center;
+      background: rgba(0,0,0,.55);
+      z-index:999;
+      padding:18px;
+    }
+    .modal.open{ display:flex; }
+    .modalCard{
+      width:min(960px, 100%);
+      background: rgba(10,14,20,.92);
+      border:1px solid rgba(255,255,255,.14);
+      border-radius: 22px;
+      box-shadow: 0 30px 90px rgba(0,0,0,.6);
+      overflow:hidden;
+    }
+    .modalTop{
+      display:flex; align-items:center; justify-content:space-between;
+      padding:14px 16px;
+      border-bottom:1px solid rgba(255,255,255,.12);
+    }
+    .modalTop b{ font-size:14px; }
+    .close{
+      border:1px solid rgba(255,255,255,.16);
+      background:rgba(0,0,0,.25);
+      color:var(--text);
+      padding:8px 10px;
+      border-radius:12px;
+      font-weight:800;
+      cursor:pointer;
+    }
+    .modalBody{ padding:16px; }
+    .mock{
+      height:280px;
+      border-radius:18px;
+      border:1px solid rgba(255,255,255,.14);
+      background:
+        radial-gradient(900px 420px at 20% 0%, rgba(159,230,255,.18), transparent 60%),
+        radial-gradient(900px 420px at 80% 20%, rgba(255,210,138,.12), transparent 60%),
+        linear-gradient(135deg, rgba(255,255,255,.06), rgba(0,0,0,.12));
+    }
+    footer{
+      padding:18px 0 34px;
+      border-top:1px solid var(--line);
+      margin-top:18px;
+      color:var(--muted);
+      font-size:13px;
+    }
+    .hr{ height:1px; background:var(--line); margin:12px 0; }
+    .anchor{ position:relative; top:-76px; }
+
+    /* Reduced motion */
+    @media (prefers-reduced-motion: reduce){
+      html{ scroll-behavior:auto; }
+      .reveal{ transition:none; }
+      .btn, .proj{ transition:none; }
+    }
+  </style>
 </head>
+
 <body>
+<header>
+  <div class="wrap">
+    <div class="nav">
+      <div class="brand">
+        <div class="logoDot"></div>
+        <div>WebDesign Studio</div>
+      </div>
+      <nav class="menu" aria-label="主選單">
+        <a href="#about">介紹</a>
+        <a href="#services">服務</a>
+        <a href="#work">作品</a>
+        <a href="#process">流程</a>
+        <a href="#contact">聯絡</a>
+      </nav>
+    </div>
+  </div>
+</header>
 
-<section class="hero">
-  <h1>擺渡人</h1>
-  <p>990 調酒暢飲 × 自助調酒體驗</p>
-  <a href="#reserve" class="btn">立即預約</a>
-</section>
+<main class="wrap">
+  <div class="hero">
+    <div class="heroGrid">
+      <section class="card heroMain reveal">
+        <div class="glow" id="glow"></div>
+        <div class="kicker">⚡ 高質感一頁式｜滑動動畫｜作品預覽｜手機友善</div>
+        <h1>把「好看」做成<br/>能成交的網站</h1>
+        <p class="sub">如果你喜歡 Manus 那種順滑的視覺與互動感，我也能用純前端幫你做出同級效果：視差、Reveal、卡片互動、彈窗作品集、流暢導覽。</p>
 
-<section>
-  <h2>一杯酒，擺渡一種狀態</h2>
-  <p>
-    擺渡人不是酒吧，也不是夜店。<br>
-    是一個讓你慢下來、自己動手、自然聊天的地方。
-  </p>
-</section>
+        <div class="chips">
+          <div class="chip">Parallax 視差</div>
+          <div class="chip">Scroll Reveal</div>
+          <div class="chip">玻璃導覽列</div>
+          <div class="chip">作品 Modal</div>
+          <div class="chip">一頁式成交</div>
+          <div class="chip">GitHub Pages 可上線</div>
+        </div>
 
-<section>
-  <h2>🍸 990 元全包含</h2>
-  <div class="price">120 分鐘自由調酒暢飲</div>
-  <p>
-    ✔ 調酒暢飲<br>
-    ✔ 自助調酒教學體驗<br>
-    ✔ 基酒、配料自由搭配<br>
-    ✔ 濃淡自己決定
-  </p>
-</section>
+        <div class="ctaRow">
+          <a class="btn primary" href="#work">看作品效果</a>
+          <a class="btn" href="#contact">我要做一頁式</a>
+        </div>
 
-<section>
-  <h2>🧪 自助調酒體驗流程</h2>
-  <p>
-    STEP 1｜選基酒（伏特加、琴酒、蘭姆、威士忌、龍舌蘭）<br>
-    STEP 2｜照酒譜或自由發揮<br>
-    STEP 3｜完成屬於你的作品
-  </p>
-</section>
-  <section>
-  <h2>🍸 新手也能輕鬆完成的調酒酒單</h2>
-  <p>現場提供酒譜教學，新手也能 3 分鐘完成一杯</p>
+        <div class="hr"></div>
+        <div class="muted" style="font-size:13px;">
+          ＊這份是「可直接上線」的範本，你只要替換：標題、文案、圖片、連結，就能變成你的品牌網站。
+        </div>
+      </section>
 
-  <h3>Gin 琴酒</h3>
-  <p>Gin Tonic｜Gin Soda</p>
+      <aside class="card heroSide reveal">
+        <div class="sideTitle">快速亮點</div>
+        <div class="kv">
+          <div class="row"><b>交付</b><span>1 份 index.html（可擴充多頁）</span></div>
+          <div class="row"><b>效果</b><span>滑動動畫、視差、Modal 作品</span></div>
+          <div class="row"><b>速度</b><span>不靠重框架，載入更快</span></div>
+          <div class="row"><b>上線</b><span>GitHub Pages / Netlify</span></div>
+        </div>
+      </aside>
+    </div>
+  </div>
 
-  <h3>Vodka 伏特加</h3>
-  <p>Screwdriver｜Vodka Lime</p>
+  <span id="about" class="anchor"></span>
+  <section class="reveal">
+    <h2 class="sectionTitle">介紹</h2>
+    <div class="grid2">
+      <div class="card box">
+        <p><b>你看到的「高級感」通常來自三件事：</b></p>
+        <ul class="list">
+          <li>留白與版面比例（看起來不擠）</li>
+          <li>細緻動態（進場/滑動/互動）</li>
+          <li>一致的字級與色彩（視覺乾淨）</li>
+        </ul>
+      </div>
+      <div class="card box">
+        <p class="muted">我可以把這套效果直接套到你的品牌（例如：野酌/一頁工事/成家栗室），並把 CTA、表單、LINE 按鈕、作品集全部做成「真的能用」。</p>
+      </div>
+    </div>
+  </section>
 
-  <h3>Rum 蘭姆酒</h3>
-  <p>Cuba Libre｜Rum Pineapple</p>
+  <span id="services" class="anchor"></span>
+  <section class="reveal">
+    <h2 class="sectionTitle">服務</h2>
+    <div class="grid2">
+      <div class="card box">
+        <p><b>一頁式網站（成交頁）</b></p>
+        <ul class="list">
+          <li>品牌定位文案＋排版</li>
+          <li>CTA 設計（LINE/表單/電話）</li>
+          <li>行動版優化</li>
+        </ul>
+      </div>
+      <div class="card box">
+        <p><b>作品集/品牌官網</b></p>
+        <ul class="list">
+          <li>作品卡片＋彈窗預覽</li>
+          <li>動畫與互動（不影響速度）</li>
+          <li>可擴充多頁</li>
+        </ul>
+      </div>
+    </div>
+  </section>
 
-  <h3>Whisky 威士忌</h3>
-  <p>Highball｜Whisky Cola</p>
+  <span id="work" class="anchor"></span>
+  <section class="reveal">
+    <h2 class="sectionTitle">作品（點卡片會跳出預覽）</h2>
 
-  <h3>Tequila 龍舌蘭</h3>
-  <p>Tequila Sunrise（簡化）｜Tequila Soda</p>
-</section>
+    <div class="projects">
+      <div class="card proj" data-title="森林系戶外酒吧｜一頁式成交頁" data-desc="氛圍導向、收費清楚、預約 CTA、場地租借區塊。">
+        <div class="thumb"></div>
+        <h3>森林系戶外酒吧</h3>
+        <div class="tagRow">
+          <span class="tag">One-page</span><span class="tag">CTA</span><span class="tag">Mobile</span>
+        </div>
+      </div>
 
-<section>
-  <h2>⏰ 消費說明</h2>
-  <p>
-    每人 990 元 / 120 分鐘<br>
-    續時加購 390 元<br>
-    全預約制，滿 5 人開場
-  </p>
-</section>
+      <div class="card proj" data-title="品牌作品集｜高級感版面" data-desc="玻璃導覽列、滑動 Reveal、作品 Modal、乾淨視覺。">
+        <div class="thumb"></div>
+        <h3>品牌作品集</h3>
+        <div class="tagRow">
+          <span class="tag">Portfolio</span><span class="tag">Modal</span><span class="tag">Smooth</span>
+        </div>
+      </div>
 
-<section id="reserve">
-  <h2>📩 預約方式</h2>
-  <p>
-    請私訊 LINE 預約<br>
-    提供人數與時段即可
-  </p>
-</section>
+      <div class="card proj" data-title="活動頁｜倒數與表單" data-desc="適合節慶活動、快閃、套餐推廣，加上倒數與快速表單。">
+        <div class="thumb"></div>
+        <h3>活動推廣頁</h3>
+        <div class="tagRow">
+          <span class="tag">Campaign</span><span class="tag">Form</span><span class="tag">Fast</span>
+        </div>
+      </div>
+    </div>
+  </section>
 
-<footer>
-  擺渡人 The Ferryman｜今晚，擺渡一下自己
-</footer>
+  <span id="process" class="anchor"></span>
+  <section class="reveal">
+    <h2 class="sectionTitle">流程（你會覺得很順）</h2>
+    <div class="grid2">
+      <div class="card box">
+        <ul class="list">
+          <li><b>1</b> 你的需求（要賣什麼/要誰買）</li>
+          <li><b>2</b> 版面與文案（先成交再好看）</li>
+          <li><b>3</b> 動態與細節（滑動、互動、手機版）</li>
+          <li><b>4</b> 上線（GitHub Pages / Netlify）</li>
+        </ul>
+      </div>
+      <div class="card box">
+        <p class="muted">你如果想做「跟 Manus 一樣」：我會用同級的視覺節奏做出來，然後把你真正需要的 CTA、LINE、表單、作品集全部做成可用。</p>
+      </div>
+    </div>
+  </section>
 
+  <span id="contact" class="anchor"></span>
+  <section class="reveal">
+    <h2 class="sectionTitle">聯絡</h2>
+    <div class="card box">
+      <p style="margin:0 0 8px;"><b>把你的品牌/方案丟給我，我就能改成你的版本。</b></p>
+      <p class="muted" style="margin:0 0 14px;">（例如：野酌 990 暢飲＋場地租借／一頁工事 6800 成交頁）</p>
+      <div class="ctaRow">
+        <!-- 你把這裡換成你的 LINE/IG/表單 -->
+        <a class="btn primary" href="https://line.me/" target="_blank" rel="noopener">LINE 洽詢</a>
+        <a class="btn" href="#about">回到頂部</a>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="wrap">
+      <div>© <span id="y"></span> WebDesign Studio. All rights reserved.</div>
+      <div class="muted" style="margin-top:6px; font-size:13px;">＊此頁為前端範本，可直接部署到 GitHub Pages。</div>
+    </div>
+  </footer>
+</main>
+
+<!-- Modal -->
+<div class="modal" id="modal" aria-hidden="true">
+  <div class="modalCard" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+    <div class="modalTop">
+      <b id="modalTitle">作品預覽</b>
+      <button class="close" id="closeBtn">關閉</button>
+    </div>
+    <div class="modalBody">
+      <div class="mock"></div>
+      <div style="margin-top:12px;">
+        <div class="muted" id="modalDesc">—</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  // year
+  document.getElementById('y').textContent = new Date().getFullYear();
+
+  // glow parallax (mouse)
+  const glow = document.getElementById('glow');
+  window.addEventListener('mousemove', (e) => {
+    const x = (e.clientX / window.innerWidth - 0.5) * 30;
+    const y = (e.clientY / window.innerHeight - 0.5) * 30;
+    glow.style.transform = `translate(${x}px, ${y}px)`;
+  }, { passive:true });
+
+  // scroll reveal
+  const io = new IntersectionObserver((entries)=>{
+    entries.forEach(en=>{
+      if(en.isIntersecting){
+        en.target.classList.add('show');
+        io.unobserve(en.target);
+      }
+    });
+  }, { threshold: 0.12 });
+  document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+
+  // portfolio modal
+  const modal = document.getElementById('modal');
+  const modalTitle = document.getElementById('modalTitle');
+  const modalDesc = document.getElementById('modalDesc');
+  const closeBtn = document.getElementById('closeBtn');
+
+  function openModal(title, desc){
+    modalTitle.textContent = title;
+    modalDesc.textContent = desc;
+    modal.classList.add('open');
+    modal.setAttribute('aria-hidden','false');
+    document.body.style.overflow='hidden';
+  }
+  function closeModal(){
+    modal.classList.remove('open');
+    modal.setAttribute('aria-hidden','true');
+    document.body.style.overflow='';
+  }
+
+  document.querySelectorAll('.proj').forEach(card=>{
+    card.addEventListener('click', ()=>{
+      openModal(card.dataset.title || '作品預覽', card.dataset.desc || '');
+    });
+  });
+  closeBtn.addEventListener('click', closeModal);
+  modal.addEventListener('click', (e)=>{ if(e.target === modal) closeModal(); });
+  window.addEventListener('keydown', (e)=>{ if(e.key === 'Escape') closeModal(); });
+</script>
 </body>
 </html>
