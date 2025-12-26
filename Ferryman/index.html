@@ -1,602 +1,158 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="vi">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Chọn Đồ Cá Nhân | Curated Picks</title>
-  <meta name="description" content="Trang chọn đồ cá nhân (giọng Nam): ít mà chất. Tư vấn 1-1, gợi ý theo nhu cầu, hỗ trợ đặt hàng. Liên hệ Zalo/Facebook/WhatsApp." />
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Nhà Hàng Việt | Hương Vị Quê Nhà</title>
 
-  <style>
-    :root{
-      --bg:#070a10;
-      --card:rgba(255,255,255,.06);
-      --line:rgba(255,255,255,.12);
-      --text:rgba(255,255,255,.92);
-      --muted:rgba(255,255,255,.68);
-      --accent:#9fe6ff;
-      --accent2:#ffd28a;
-      --shadow: 0 18px 50px rgba(0,0,0,.45);
-      --radius:20px;
-      --max:1100px;
-    }
-    *{ box-sizing:border-box; }
-    html{ scroll-behavior:smooth; }
-    body{
-      margin:0;
-      font-family: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
-      color:var(--text);
-      background:
-        radial-gradient(1200px 700px at 15% -10%, rgba(159,230,255,.20), transparent 60%),
-        radial-gradient(900px 600px at 85% 0%, rgba(255,210,138,.14), transparent 60%),
-        radial-gradient(800px 700px at 50% 120%, rgba(159,230,255,.10), transparent 60%),
-        var(--bg);
-      overflow-x:hidden;
-      line-height:1.7;
-    }
-    a{ color:inherit; text-decoration:none; }
-    .wrap{ max-width:var(--max); margin:0 auto; padding:0 18px; }
+<style>
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  background: #fffaf4;
+  color: #333;
+  line-height: 1.8;
+}
 
-    /* Top Nav */
-    header{
-      position:sticky; top:0; z-index:50;
-      backdrop-filter: blur(12px);
-      -webkit-backdrop-filter: blur(12px);
-      background: linear-gradient(to bottom, rgba(7,10,16,.82), rgba(7,10,16,.40));
-      border-bottom:1px solid var(--line);
-    }
-    .nav{
-      display:flex; align-items:center; justify-content:space-between;
-      padding:12px 0; gap:10px;
-    }
-    .brand{
-      display:flex; align-items:center; gap:10px;
-      font-weight:900; letter-spacing:.3px;
-    }
-    .logoDot{
-      width:10px; height:10px; border-radius:999px;
-      background: radial-gradient(circle at 30% 30%, var(--accent), rgba(159,230,255,.2));
-      box-shadow:0 0 18px rgba(159,230,255,.35);
-    }
-    .menu{
-      display:flex; flex-wrap:wrap; justify-content:flex-end;
-      gap:10px; font-size:14px; color:var(--muted);
-    }
-    .menu a{
-      padding:8px 10px; border-radius:999px;
-      border:1px solid transparent;
-    }
-    .menu a:hover{ border-color:var(--line); color:var(--text); }
+section {
+  padding: 80px 20px;
+  max-width: 900px;
+  margin: auto;
+}
 
-    /* Hero */
-    .hero{ padding:44px 0 12px; position:relative; }
-    .heroGrid{
-      display:grid; grid-template-columns: 1.2fr .8fr; gap:16px;
-      align-items:stretch;
-    }
-    @media (max-width: 900px){ .heroGrid{ grid-template-columns:1fr; } }
+.hero {
+  background: linear-gradient(rgba(0,0,0,.4), rgba(0,0,0,.4)),
+  url("https://images.unsplash.com/photo-1604908177522-402c2e9b5a6c?auto=format&fit=crop&w=1600&q=80")
+  center/cover;
+  color: #fff;
+  text-align: center;
+  padding: 120px 20px;
+}
 
-    .card{
-      background:var(--card);
-      border:1px solid var(--line);
-      border-radius:var(--radius);
-      box-shadow:var(--shadow);
-    }
-    .heroMain{ padding:26px 22px; position:relative; overflow:hidden; }
-    .kicker{
-      display:inline-flex; gap:8px; align-items:center;
-      font-size:13px; color:var(--muted);
-      border:1px solid var(--line);
-      padding:6px 10px; border-radius:999px;
-      background:rgba(0,0,0,.16);
-    }
-    h1{ margin:14px 0 10px; font-size:44px; line-height:1.12; }
-    @media (max-width: 520px){ h1{ font-size:36px; } }
-    .sub{ color:var(--muted); font-size:16px; margin:0 0 18px; }
+.hero h1 {
+  font-size: 48px;
+  letter-spacing: 3px;
+}
 
-    .chips{ display:flex; flex-wrap:wrap; gap:8px; margin:14px 0 18px; }
-    .chip{
-      font-size:13px; color:rgba(255,255,255,.80);
-      border:1px solid var(--line);
-      padding:6px 10px; border-radius:999px;
-      background:rgba(0,0,0,.10);
-    }
+.hero p {
+  font-size: 18px;
+  opacity: .9;
+}
 
-    .ctaRow{ display:flex; flex-wrap:wrap; gap:10px; margin-top:12px; }
-    .btn{
-      display:inline-flex; align-items:center; justify-content:center; gap:10px;
-      padding:12px 14px; border-radius:14px;
-      border:1px solid var(--line);
-      background:rgba(0,0,0,.20);
-      color:var(--text); font-weight:800;
-      transition: transform .10s ease, border-color .15s ease, background .15s ease;
-      cursor:pointer;
-    }
-    .btn:hover{ transform: translateY(-1px); border-color:rgba(255,255,255,.22); }
-    .btn.primary{
-      background: linear-gradient(135deg, rgba(159,230,255,.18), rgba(255,210,138,.10));
-      border-color: rgba(159,230,255,.38);
-    }
-    .btn.primary:hover{ border-color: rgba(159,230,255,.60); }
+.btn {
+  display: inline-block;
+  margin-top: 30px;
+  padding: 14px 36px;
+  background: #d35400;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 30px;
+}
 
-    .heroSide{ padding:18px; }
-    .sideTitle{ font-weight:900; margin:2px 0 10px; }
-    .kv{ display:grid; gap:10px; }
-    .kv .row{
-      display:flex; align-items:flex-start; justify-content:space-between; gap:12px;
-      padding:10px 12px; border-radius:14px;
-      border:1px solid var(--line);
-      background:rgba(0,0,0,.10);
-      font-size:14px;
-    }
-    .kv .row span{ color:var(--muted); font-weight:700; text-align:right; }
+.features {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px,1fr));
+  gap: 30px;
+}
 
-    /* Parallax glow */
-    .glow{
-      position:absolute; inset:-60px -60px auto auto;
-      width:460px; height:460px; border-radius:50%;
-      background: radial-gradient(circle at 30% 30%, rgba(159,230,255,.22), transparent 60%);
-      filter: blur(2px);
-      transform: translate3d(0,0,0);
-      pointer-events:none;
-      opacity:.95;
-    }
+.card {
+  background: #fff;
+  border-radius: 12px;
+  padding: 30px;
+  box-shadow: 0 6px 16px rgba(0,0,0,.08);
+}
 
-    /* Sections */
-    section{ padding:26px 0; }
-    .sectionTitle{ font-size:22px; margin:0 0 12px; letter-spacing:.2px; }
-    .grid2{ display:grid; grid-template-columns:1fr 1fr; gap:14px; }
-    @media (max-width: 900px){ .grid2{ grid-template-columns:1fr; } }
+.menu {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px,1fr));
+  gap: 20px;
+}
 
-    .box{ padding:18px; }
-    .muted{ color:var(--muted); }
-    .list{ margin:10px 0 0; padding-left:18px; color:rgba(255,255,255,.84); }
-    .list li{ margin:6px 0; }
+.menu div {
+  background: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0,0,0,.08);
+}
 
-    /* Picks */
-    .picks{
-      display:grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap:14px;
-    }
-    @media (max-width: 980px){ .picks{ grid-template-columns:repeat(2,1fr);} }
-    @media (max-width: 560px){ .picks{ grid-template-columns:1fr;} }
-
-    .pick{
-      padding:14px;
-      transition: transform .12s ease, border-color .15s ease;
-      cursor:pointer;
-      position:relative;
-      overflow:hidden;
-    }
-    .pick:hover{ transform: translateY(-2px); border-color:rgba(255,255,255,.22); }
-
-    .thumb{
-      height:160px;
-      border-radius:16px;
-      border:1px solid var(--line);
-      background:
-        linear-gradient(135deg, rgba(159,230,255,.18), rgba(255,210,138,.10)),
-        radial-gradient(600px 220px at 20% 0%, rgba(255,255,255,.10), transparent 60%);
-      position:relative;
-      overflow:hidden;
-    }
-    .thumb::after{
-      content:"";
-      position:absolute; inset:-40%;
-      background: radial-gradient(circle at 20% 20%, rgba(255,255,255,.20), transparent 40%);
-      transform: rotate(25deg);
-      opacity:.55;
-    }
-    .pick h3{ margin:12px 0 6px; font-size:16px; }
-    .tagRow{ display:flex; flex-wrap:wrap; gap:6px; }
-    .tag{
-      font-size:12px; color:rgba(255,255,255,.78);
-      border:1px solid var(--line);
-      padding:4px 8px; border-radius:999px;
-      background:rgba(0,0,0,.10);
-    }
-
-    /* Reveal animations */
-    .reveal{ opacity:0; transform: translateY(18px); transition: opacity .7s ease, transform .7s ease; }
-    .reveal.show{ opacity:1; transform: translateY(0); }
-
-    /* Modal */
-    .modal{
-      position:fixed; inset:0;
-      display:none;
-      align-items:center; justify-content:center;
-      background: rgba(0,0,0,.55);
-      z-index:999;
-      padding:18px;
-    }
-    .modal.open{ display:flex; }
-    .modalCard{
-      width:min(980px, 100%);
-      background: rgba(10,14,20,.92);
-      border:1px solid rgba(255,255,255,.14);
-      border-radius: 22px;
-      box-shadow: 0 30px 90px rgba(0,0,0,.6);
-      overflow:hidden;
-    }
-    .modalTop{
-      display:flex; align-items:center; justify-content:space-between;
-      padding:14px 16px;
-      border-bottom:1px solid rgba(255,255,255,.12);
-    }
-    .modalTop b{ font-size:14px; }
-    .close{
-      border:1px solid rgba(255,255,255,.16);
-      background:rgba(0,0,0,.25);
-      color:var(--text);
-      padding:8px 10px;
-      border-radius:12px;
-      font-weight:800;
-      cursor:pointer;
-    }
-    .modalBody{ padding:16px; }
-    .mock{
-      height:300px;
-      border-radius:18px;
-      border:1px solid rgba(255,255,255,.14);
-      background:
-        radial-gradient(900px 420px at 20% 0%, rgba(159,230,255,.18), transparent 60%),
-        radial-gradient(900px 420px at 80% 20%, rgba(255,210,138,.12), transparent 60%),
-        linear-gradient(135deg, rgba(255,255,255,.06), rgba(0,0,0,.12));
-    }
-
-    .anchor{ position:relative; top:-76px; }
-    .hr{ height:1px; background:var(--line); margin:12px 0; }
-    footer{
-      padding:18px 0 34px;
-      border-top:1px solid var(--line);
-      margin-top:18px;
-      color:var(--muted);
-      font-size:13px;
-    }
-
-    /* Reduced motion */
-    @media (prefers-reduced-motion: reduce){
-      html{ scroll-behavior:auto; }
-      .reveal{ transition:none; }
-      .btn, .pick{ transition:none; }
-    }
-  </style>
+footer {
+  background: #f4e3d1;
+  text-align: center;
+  padding: 40px 20px;
+}
+</style>
 </head>
 
 <body>
-<header>
-  <div class="wrap">
-    <div class="nav">
-      <div class="brand">
-        <div class="logoDot"></div>
-        <div>Chọn Đồ Cá Nhân</div>
-      </div>
-      <nav class="menu" aria-label="Menu">
-        <a href="#about">Giới thiệu</a>
-        <a href="#categories">Danh mục</a>
-        <a href="#picks">Món đang hot</a>
-        <a href="#process">Cách làm</a>
-        <a href="#faq">Hỏi nhanh</a>
-        <a href="#contact">Liên hệ</a>
-      </nav>
-    </div>
-  </div>
-</header>
 
-<main class="wrap">
-  <!-- HERO -->
-  <div class="hero">
-    <div class="heroGrid">
-      <section class="card heroMain reveal">
-        <div class="glow" id="glow"></div>
-        <div class="kicker">✨ Ít mà chất · Chọn kỹ từng món · Tư vấn 1-1</div>
-        <h1>Chọn đồ theo gu<br/>xài lâu mới đã</h1>
-        <p class="sub">
-          Đây không phải shop bán đại trà nha. Mình chỉ gom lại những món <b>đáng tiền</b>, <b>dễ xài</b>,
-          <b>nhìn sạch đẹp</b> — kiểu mua một lần xài hoài mà không hối hận.
-        </p>
-
-        <div class="chips">
-          <div class="chip">Chất lượng rõ ràng</div>
-          <div class="chip">Gu tối giản</div>
-          <div class="chip">Gợi ý theo nhu cầu</div>
-          <div class="chip">Hỗ trợ đặt hàng</div>
-          <div class="chip">Minh bạch – nói thẳng</div>
-        </div>
-
-        <div class="ctaRow">
-          <!-- ✅ Sửa link bên dưới thành link thật của bạn -->
-          <a class="btn primary" href="#contact">Nhắn mình liền</a>
-          <a class="btn" href="#picks">Xem danh sách chọn lọc</a>
-        </div>
-
-        <div class="hr"></div>
-        <div class="muted" style="font-size:13px;">
-          * Tip: Nếu bạn muốn mình chọn theo budget/gu của bạn, cứ nhắn “<b>tư vấn 1-1</b>” là được.
-        </div>
-      </section>
-
-      <aside class="card heroSide reveal">
-        <div class="sideTitle">Thông tin nhanh</div>
-        <div class="kv">
-          <div class="row"><b>Phong cách</b><span>Tối giản – tinh tế</span></div>
-          <div class="row"><b>Hình thức</b><span>Tư vấn trực tiếp (1-1)</span></div>
-          <div class="row"><b>Dịch vụ</b><span>Gợi ý + Hỗ trợ đặt hàng</span></div>
-          <div class="row"><b>Phù hợp</b><span>Quà tặng / dùng hằng ngày</span></div>
-          <div class="row"><b>Liên hệ</b><span>Zalo / Facebook / WhatsApp</span></div>
-        </div>
-      </aside>
-    </div>
-  </div>
-
-  <!-- ABOUT -->
-  <span id="about" class="anchor"></span>
-  <section class="reveal">
-    <h2 class="sectionTitle">Giới thiệu</h2>
-    <div class="grid2">
-      <div class="card box">
-        <p>
-          Mình làm <b>chọn đồ cá nhân</b> (personal curator). Nói đơn giản: mình lọc dùm bạn
-          những món đồ <b>đáng mua</b>, <b>dễ xài</b> và <b>đúng gu</b>.
-        </p>
-        <ul class="list">
-          <li>Không chạy theo số lượng — ưu tiên giá trị</li>
-          <li>Nói thật, tư vấn thẳng — không “đẩy sale”</li>
-          <li>Mỗi món lên danh sách đều có lý do</li>
-        </ul>
-      </div>
-      <div class="card box">
-        <p><b>Mình chọn đồ dựa trên:</b></p>
-        <ul class="list">
-          <li>Chất lượng tốt, nguồn gốc rõ ràng</li>
-          <li>Thiết kế sạch, xài lâu không lỗi thời</li>
-          <li>Trải nghiệm thực tế / review kỹ trước khi giới thiệu</li>
-          <li>Phù hợp đời sống hiện đại, dễ phối</li>
-        </ul>
-      </div>
-    </div>
-  </section>
-
-  <!-- CATEGORIES -->
-  <span id="categories" class="anchor"></span>
-  <section class="reveal">
-    <h2 class="sectionTitle">Danh mục chọn lọc</h2>
-    <div class="grid2">
-      <div class="card box">
-        <ul class="list">
-          <li>👜 Phụ kiện & đồ dùng cá nhân</li>
-          <li>🏠 Đồ gia dụng / trang trí góc nhỏ</li>
-          <li>🎁 Quà tặng tinh tế</li>
-          <li>🌿 Lifestyle: mùi hương / chăm sóc / đồ chill</li>
-        </ul>
-        <p class="muted" style="margin:10px 0 0;">
-          Danh sách sẽ cập nhật theo mùa, theo trend và theo “món nào thật sự đáng”.
-        </p>
-      </div>
-      <div class="card box">
-        <p><b>Bạn muốn mình chọn theo yêu cầu riêng?</b></p>
-        <ul class="list">
-          <li>Chọn theo budget (VD: 300k / 1tr / 3tr…)</li>
-          <li>Chọn theo gu (tối giản / nữ tính / mạnh mẽ…)</li>
-          <li>Chọn theo mục đích (tặng sinh nhật / tự thưởng / đi làm…)</li>
-        </ul>
-        <div class="ctaRow" style="margin-top:14px;">
-          <a class="btn primary" href="#contact">Nhắn “chọn theo yêu cầu”</a>
-          <a class="btn" href="#process">Xem cách làm</a>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- PICKS -->
-  <span id="picks" class="anchor"></span>
-  <section class="reveal">
-    <h2 class="sectionTitle">Danh sách chọn lọc (bấm để xem chi tiết)</h2>
-
-    <div class="picks">
-      <div class="card pick" data-title="Món #1 — Phụ kiện cá nhân" data-desc="Gợi ý: đồ xài hằng ngày, bền, đẹp, dễ phối. (Bạn thay nội dung món thật ở đây.)">
-        <div class="thumb"></div>
-        <h3>Món #1 — Phụ kiện cá nhân</h3>
-        <div class="tagRow">
-          <span class="tag">Bền</span><span class="tag">Dễ phối</span><span class="tag">Tối giản</span>
-        </div>
-      </div>
-
-      <div class="card pick" data-title="Món #2 — Đồ cho không gian sống" data-desc="Gợi ý: nâng mood căn phòng, nhìn sạch, xài lâu. (Bạn thay nội dung món thật ở đây.)">
-        <div class="thumb"></div>
-        <h3>Món #2 — Góc sống</h3>
-        <div class="tagRow">
-          <span class="tag">Mood</span><span class="tag">Clean</span><span class="tag">Chill</span>
-        </div>
-      </div>
-
-      <div class="card pick" data-title="Món #3 — Quà tặng tinh tế" data-desc="Gợi ý: dễ tặng, không sợ ‘sai gu’, pack đẹp. (Bạn thay nội dung món thật ở đây.)">
-        <div class="thumb"></div>
-        <h3>Món #3 — Quà tặng</h3>
-        <div class="tagRow">
-          <span class="tag">Tinh tế</span><span class="tag">An toàn</span><span class="tag">Đẹp</span>
-        </div>
-      </div>
-
-      <div class="card pick" data-title="Món #4 — Lifestyle" data-desc="Gợi ý: mùi hương / chăm sóc / đồ dùng chill. (Bạn thay nội dung món thật ở đây.)">
-        <div class="thumb"></div>
-        <h3>Món #4 — Lifestyle</h3>
-        <div class="tagRow">
-          <span class="tag">Hương</span><span class="tag">Care</span><span class="tag">Relax</span>
-        </div>
-      </div>
-
-      <div class="card pick" data-title="Món #5 — Best value" data-desc="Gợi ý: ‘đáng tiền’ nhất trong tháng. (Bạn thay nội dung món thật ở đây.)">
-        <div class="thumb"></div>
-        <h3>Món #5 — Best value</h3>
-        <div class="tagRow">
-          <span class="tag">Đáng tiền</span><span class="tag">Hot</span><span class="tag">Recommend</span>
-        </div>
-      </div>
-
-      <div class="card pick" data-title="Món #6 — Theo yêu cầu" data-desc="Bạn đưa budget + mục đích, mình gợi ý 3–5 option phù hợp.">
-        <div class="thumb"></div>
-        <h3>Món #6 — Theo yêu cầu</h3>
-        <div class="tagRow">
-          <span class="tag">1-1</span><span class="tag">Budget</span><span class="tag">Gu</span>
-        </div>
-      </div>
-    </div>
-
-    <div class="muted" style="margin-top:12px; font-size:13px;">
-      * Bạn thay “Món #1…” bằng sản phẩm thật (tên + mô tả + giá + link). Nếu muốn, mình có thể làm luôn bản có hình ảnh thật.
-    </div>
-  </section>
-
-  <!-- PROCESS -->
-  <span id="process" class="anchor"></span>
-  <section class="reveal">
-    <h2 class="sectionTitle">Cách mình làm việc (rõ ràng, gọn)</h2>
-    <div class="grid2">
-      <div class="card box">
-        <ul class="list">
-          <li><b>1)</b> Bạn nhắn nhu cầu: budget + mục đích + gu</li>
-          <li><b>2)</b> Mình gửi 3–5 lựa chọn phù hợp (kèm lý do)</li>
-          <li><b>3)</b> Chốt món bạn thích, xác nhận thông tin</li>
-          <li><b>4)</b> Hỗ trợ đặt hàng / hướng dẫn mua</li>
-        </ul>
-      </div>
-      <div class="card box">
-        <p><b>Tụi mình nói chuyện kiểu dễ chịu nha:</b></p>
-        <ul class="list">
-          <li>Không ép mua</li>
-          <li>Không vòng vo</li>
-          <li>Ưu tiên món “xài sướng” hơn món “chụp hình đẹp”</li>
-        </ul>
-      </div>
-    </div>
-  </section>
-
-  <!-- FAQ -->
-  <span id="faq" class="anchor"></span>
-  <section class="reveal">
-    <h2 class="sectionTitle">Hỏi nhanh (FAQ)</h2>
-    <div class="grid2">
-      <div class="card box">
-        <p><b>Q: Đây là shop hả?</b><br/>
-          <span class="muted">A: Không nha. Đây là trang chọn đồ cá nhân — mình lọc & gợi ý, không bán đại trà.</span>
-        </p>
-        <p><b>Q: Giá có cố định không?</b><br/>
-          <span class="muted">A: Tuỳ món và tuỳ yêu cầu. Bạn đưa budget, mình gợi ý đúng tầm.</span>
-        </p>
-      </div>
-      <div class="card box">
-        <p><b>Q: Có nhận chọn đồ theo yêu cầu riêng không?</b><br/>
-          <span class="muted">A: Có chứ. Nhắn mình “chọn theo yêu cầu” + budget + mục đích là được.</span>
-        </p>
-        <p><b>Q: Mình ở xa thì sao?</b><br/>
-          <span class="muted">A: Vẫn tư vấn bình thường. Có thể hỗ trợ đặt hàng tuỳ trường hợp.</span>
-        </p>
-      </div>
-    </div>
-  </section>
-
-  <!-- CONTACT -->
-  <span id="contact" class="anchor"></span>
-  <section class="reveal">
-    <h2 class="sectionTitle">Liên hệ</h2>
-    <div class="card box">
-      <p style="margin:0 0 8px;"><b>Muốn xem danh sách chọn đồ mới nhất? Nhắn mình liền nha.</b></p>
-      <p class="muted" style="margin:0 0 14px;">
-        Gợi ý nhắn: “Tư vấn 1-1 — budget ___ — mục đích ___ — gu ___”.
-      </p>
-
-      <div class="ctaRow">
-        <!-- ✅ THAY LINK THẬT Ở ĐÂY -->
-        <a class="btn primary" href="https://zalo.me/" target="_blank" rel="noopener">Zalo</a>
-        <a class="btn" href="https://m.me/" target="_blank" rel="noopener">Facebook Messenger</a>
-        <a class="btn" href="https://wa.me/" target="_blank" rel="noopener">WhatsApp</a>
-      </div>
-
-      <div class="hr"></div>
-      <div class="muted" style="font-size:13px;">
-        * Bạn muốn mình gắn số Zalo/WhatsApp và link FB đúng của khách: thay các link ở trên là xong.
-      </div>
-    </div>
-  </section>
-
-  <footer>
-    <div class="wrap">
-      <div>© <span id="y"></span> Curated Picks. All rights reserved.</div>
-      <div class="muted" style="margin-top:6px; font-size:13px;">
-        * Trang one-page tối giản, tối ưu mobile. Có thể mở rộng thêm “Bảng giá / Review / Blog” nếu cần.
-      </div>
-    </div>
-  </footer>
-</main>
-
-<!-- Modal -->
-<div class="modal" id="modal" aria-hidden="true">
-  <div class="modalCard" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
-    <div class="modalTop">
-      <b id="modalTitle">Chi tiết</b>
-      <button class="close" id="closeBtn">Đóng</button>
-    </div>
-    <div class="modalBody">
-      <div class="mock"></div>
-      <div style="margin-top:12px;">
-        <div class="muted" id="modalDesc">—</div>
-      </div>
-    </div>
-  </div>
+<!-- HERO -->
+<div class="hero">
+  <h1>NHÀ HÀNG VIỆT</h1>
+  <p>Hương vị truyền thống – Đậm đà như cơm nhà</p>
+  <a href="#menu" class="btn">Xem Thực Đơn</a>
 </div>
 
-<script>
-  // year
-  document.getElementById('y').textContent = new Date().getFullYear();
+<!-- GIỚI THIỆU -->
+<section>
+  <h2>Giới Thiệu</h2>
+  <p>
+    Nhà Hàng Việt mang đến những món ăn thuần Việt, được nấu từ nguyên liệu tươi mỗi ngày.
+    Chúng tôi mong muốn mỗi bữa ăn tại đây đều gợi nhớ cảm giác ấm áp của bữa cơm gia đình.
+  </p>
+</section>
 
-  // glow parallax
-  const glow = document.getElementById('glow');
-  window.addEventListener('mousemove', (e) => {
-    const x = (e.clientX / window.innerWidth - 0.5) * 30;
-    const y = (e.clientY / window.innerHeight - 0.5) * 30;
-    if (glow) glow.style.transform = `translate(${x}px, ${y}px)`;
-  }, { passive:true });
+<!-- ĐIỂM NỔI BẬT -->
+<section>
+  <div class="features">
+    <div class="card">
+      <h3>🍜 Món Việt Truyền Thống</h3>
+      <p>Phở, bún, cơm phần – hương vị quen thuộc, dễ ăn mỗi ngày.</p>
+    </div>
+    <div class="card">
+      <h3>🥬 Nguyên Liệu Tươi</h3>
+      <p>Chọn nguyên liệu mới mỗi ngày, đảm bảo sạch và an toàn.</p>
+    </div>
+    <div class="card">
+      <h3>🏠 Không Gian Ấm Cúng</h3>
+      <p>Phù hợp đi ăn cùng gia đình, bạn bè hoặc đồng nghiệp.</p>
+    </div>
+  </div>
+</section>
 
-  // scroll reveal
-  const io = new IntersectionObserver((entries)=>{
-    entries.forEach(en=>{
-      if(en.isIntersecting){
-        en.target.classList.add('show');
-        io.unobserve(en.target);
-      }
-    });
-  }, { threshold: 0.12 });
-  document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+<!-- MENU -->
+<section id="menu">
+  <h2>Món Bán Chạy</h2>
+  <div class="menu">
+    <div>
+      <h4>Phở Bò</h4>
+      <p>Nước dùng ngọt thanh, thịt bò mềm.</p>
+    </div>
+    <div>
+      <h4>Bún Thịt Nướng</h4>
+      <p>Thơm ngon, dễ ăn, no lâu.</p>
+    </div>
+    <div>
+      <h4>Cơm Sườn</h4>
+      <p>Cơm nóng – sườn nướng đậm vị.</p>
+    </div>
+    <div>
+      <h4>Gỏi Cuốn</h4>
+      <p>Thanh mát, nhẹ bụng.</p>
+    </div>
+  </div>
+</section>
 
-  // modal for picks
-  const modal = document.getElementById('modal');
-  const modalTitle = document.getElementById('modalTitle');
-  const modalDesc = document.getElementById('modalDesc');
-  const closeBtn = document.getElementById('closeBtn');
+<!-- LIÊN HỆ -->
+<section>
+  <h2>Liên Hệ</h2>
+  <p>📍 Bình Dương</p>
+  <p>☎️ 0909 123 456</p>
+  <p>⏰ Mở cửa: 10:00 – 22:00</p>
+</section>
 
-  function openModal(title, desc){
-    modalTitle.textContent = title || "Chi tiết";
-    modalDesc.textContent = desc || "";
-    modal.classList.add('open');
-    modal.setAttribute('aria-hidden','false');
-    document.body.style.overflow='hidden';
-  }
-  function closeModal(){
-    modal.classList.remove('open');
-    modal.setAttribute('aria-hidden','true');
-    document.body.style.overflow='';
-  }
+<footer>
+  <p>© 2025 Nhà Hàng Việt – Hương Vị Quê Nhà</p>
+</footer>
 
-  document.querySelectorAll('.pick').forEach(card=>{
-    card.addEventListener('click', ()=>{
-      openModal(card.dataset.title, card.dataset.desc);
-    });
-  });
-
-  closeBtn.addEventListener('click', closeModal);
-  modal.addEventListener('click', (e)=>{ if(e.target === modal) closeModal(); });
-  window.addEventListener('keydown', (e)=>{ if(e.key === 'Escape') closeModal(); });
-</script>
 </body>
 </html>
