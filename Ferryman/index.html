@@ -1,10 +1,11 @@
 <!doctype html>
-<html lang="zh-Hant">
+<html lang="vi">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Web Design Studio｜作品集</title>
-  <meta name="description" content="高質感一頁式作品集網站：滑動動畫、視差背景、作品預覽、聯絡區塊。" />
+  <title>Chọn Đồ Cá Nhân | Curated Picks</title>
+  <meta name="description" content="Trang chọn đồ cá nhân (giọng Nam): ít mà chất. Tư vấn 1-1, gợi ý theo nhu cầu, hỗ trợ đặt hàng. Liên hệ Zalo/Facebook/WhatsApp." />
+
   <style>
     :root{
       --bg:#070a10;
@@ -22,7 +23,7 @@
     html{ scroll-behavior:smooth; }
     body{
       margin:0;
-      font-family: ui-sans-serif, system-ui, -apple-system, "PingFang TC", "Microsoft JhengHei", "Noto Sans TC", Arial, sans-serif;
+      font-family: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
       color:var(--text);
       background:
         radial-gradient(1200px 700px at 15% -10%, rgba(159,230,255,.20), transparent 60%),
@@ -49,7 +50,7 @@
     }
     .brand{
       display:flex; align-items:center; gap:10px;
-      font-weight:900; letter-spacing:.4px;
+      font-weight:900; letter-spacing:.3px;
     }
     .logoDot{
       width:10px; height:10px; border-radius:999px;
@@ -67,7 +68,7 @@
     .menu a:hover{ border-color:var(--line); color:var(--text); }
 
     /* Hero */
-    .hero{ padding:44px 0 10px; position:relative; }
+    .hero{ padding:44px 0 12px; position:relative; }
     .heroGrid{
       display:grid; grid-template-columns: 1.2fr .8fr; gap:16px;
       align-items:stretch;
@@ -91,6 +92,7 @@
     h1{ margin:14px 0 10px; font-size:44px; line-height:1.12; }
     @media (max-width: 520px){ h1{ font-size:36px; } }
     .sub{ color:var(--muted); font-size:16px; margin:0 0 18px; }
+
     .chips{ display:flex; flex-wrap:wrap; gap:8px; margin:14px 0 18px; }
     .chip{
       font-size:13px; color:rgba(255,255,255,.80);
@@ -98,6 +100,7 @@
       padding:6px 10px; border-radius:999px;
       background:rgba(0,0,0,.10);
     }
+
     .ctaRow{ display:flex; flex-wrap:wrap; gap:10px; margin-top:12px; }
     .btn{
       display:inline-flex; align-items:center; justify-content:center; gap:10px;
@@ -129,13 +132,13 @@
 
     /* Parallax glow */
     .glow{
-      position:absolute; inset:-40px -40px auto auto;
-      width:420px; height:420px; border-radius:50%;
+      position:absolute; inset:-60px -60px auto auto;
+      width:460px; height:460px; border-radius:50%;
       background: radial-gradient(circle at 30% 30%, rgba(159,230,255,.22), transparent 60%);
       filter: blur(2px);
       transform: translate3d(0,0,0);
       pointer-events:none;
-      opacity:.9;
+      opacity:.95;
     }
 
     /* Sections */
@@ -143,27 +146,30 @@
     .sectionTitle{ font-size:22px; margin:0 0 12px; letter-spacing:.2px; }
     .grid2{ display:grid; grid-template-columns:1fr 1fr; gap:14px; }
     @media (max-width: 900px){ .grid2{ grid-template-columns:1fr; } }
+
     .box{ padding:18px; }
     .muted{ color:var(--muted); }
     .list{ margin:10px 0 0; padding-left:18px; color:rgba(255,255,255,.84); }
     .list li{ margin:6px 0; }
 
-    /* Portfolio */
-    .projects{
+    /* Picks */
+    .picks{
       display:grid;
       grid-template-columns: repeat(3, 1fr);
       gap:14px;
     }
-    @media (max-width: 980px){ .projects{ grid-template-columns:repeat(2,1fr);} }
-    @media (max-width: 560px){ .projects{ grid-template-columns:1fr;} }
-    .proj{
+    @media (max-width: 980px){ .picks{ grid-template-columns:repeat(2,1fr);} }
+    @media (max-width: 560px){ .picks{ grid-template-columns:1fr;} }
+
+    .pick{
       padding:14px;
-      cursor:pointer;
       transition: transform .12s ease, border-color .15s ease;
+      cursor:pointer;
       position:relative;
       overflow:hidden;
     }
-    .proj:hover{ transform: translateY(-2px); border-color:rgba(255,255,255,.22); }
+    .pick:hover{ transform: translateY(-2px); border-color:rgba(255,255,255,.22); }
+
     .thumb{
       height:160px;
       border-radius:16px;
@@ -181,7 +187,7 @@
       transform: rotate(25deg);
       opacity:.55;
     }
-    .proj h3{ margin:12px 0 6px; font-size:16px; }
+    .pick h3{ margin:12px 0 6px; font-size:16px; }
     .tagRow{ display:flex; flex-wrap:wrap; gap:6px; }
     .tag{
       font-size:12px; color:rgba(255,255,255,.78);
@@ -205,7 +211,7 @@
     }
     .modal.open{ display:flex; }
     .modalCard{
-      width:min(960px, 100%);
+      width:min(980px, 100%);
       background: rgba(10,14,20,.92);
       border:1px solid rgba(255,255,255,.14);
       border-radius: 22px;
@@ -229,7 +235,7 @@
     }
     .modalBody{ padding:16px; }
     .mock{
-      height:280px;
+      height:300px;
       border-radius:18px;
       border:1px solid rgba(255,255,255,.14);
       background:
@@ -237,6 +243,9 @@
         radial-gradient(900px 420px at 80% 20%, rgba(255,210,138,.12), transparent 60%),
         linear-gradient(135deg, rgba(255,255,255,.06), rgba(0,0,0,.12));
     }
+
+    .anchor{ position:relative; top:-76px; }
+    .hr{ height:1px; background:var(--line); margin:12px 0; }
     footer{
       padding:18px 0 34px;
       border-top:1px solid var(--line);
@@ -244,14 +253,12 @@
       color:var(--muted);
       font-size:13px;
     }
-    .hr{ height:1px; background:var(--line); margin:12px 0; }
-    .anchor{ position:relative; top:-76px; }
 
     /* Reduced motion */
     @media (prefers-reduced-motion: reduce){
       html{ scroll-behavior:auto; }
       .reveal{ transition:none; }
-      .btn, .proj{ transition:none; }
+      .btn, .pick{ transition:none; }
     }
   </style>
 </head>
@@ -262,168 +269,263 @@
     <div class="nav">
       <div class="brand">
         <div class="logoDot"></div>
-        <div>WebDesign Studio</div>
+        <div>Chọn Đồ Cá Nhân</div>
       </div>
-      <nav class="menu" aria-label="主選單">
-        <a href="#about">介紹</a>
-        <a href="#services">服務</a>
-        <a href="#work">作品</a>
-        <a href="#process">流程</a>
-        <a href="#contact">聯絡</a>
+      <nav class="menu" aria-label="Menu">
+        <a href="#about">Giới thiệu</a>
+        <a href="#categories">Danh mục</a>
+        <a href="#picks">Món đang hot</a>
+        <a href="#process">Cách làm</a>
+        <a href="#faq">Hỏi nhanh</a>
+        <a href="#contact">Liên hệ</a>
       </nav>
     </div>
   </div>
 </header>
 
 <main class="wrap">
+  <!-- HERO -->
   <div class="hero">
     <div class="heroGrid">
       <section class="card heroMain reveal">
         <div class="glow" id="glow"></div>
-        <div class="kicker">⚡ 高質感一頁式｜滑動動畫｜作品預覽｜手機友善</div>
-        <h1>把「好看」做成<br/>能成交的網站</h1>
-        <p class="sub">如果你喜歡 Manus 那種順滑的視覺與互動感，我也能用純前端幫你做出同級效果：視差、Reveal、卡片互動、彈窗作品集、流暢導覽。</p>
+        <div class="kicker">✨ Ít mà chất · Chọn kỹ từng món · Tư vấn 1-1</div>
+        <h1>Chọn đồ theo gu<br/>xài lâu mới đã</h1>
+        <p class="sub">
+          Đây không phải shop bán đại trà nha. Mình chỉ gom lại những món <b>đáng tiền</b>, <b>dễ xài</b>,
+          <b>nhìn sạch đẹp</b> — kiểu mua một lần xài hoài mà không hối hận.
+        </p>
 
         <div class="chips">
-          <div class="chip">Parallax 視差</div>
-          <div class="chip">Scroll Reveal</div>
-          <div class="chip">玻璃導覽列</div>
-          <div class="chip">作品 Modal</div>
-          <div class="chip">一頁式成交</div>
-          <div class="chip">GitHub Pages 可上線</div>
+          <div class="chip">Chất lượng rõ ràng</div>
+          <div class="chip">Gu tối giản</div>
+          <div class="chip">Gợi ý theo nhu cầu</div>
+          <div class="chip">Hỗ trợ đặt hàng</div>
+          <div class="chip">Minh bạch – nói thẳng</div>
         </div>
 
         <div class="ctaRow">
-          <a class="btn primary" href="#work">看作品效果</a>
-          <a class="btn" href="#contact">我要做一頁式</a>
+          <!-- ✅ Sửa link bên dưới thành link thật của bạn -->
+          <a class="btn primary" href="#contact">Nhắn mình liền</a>
+          <a class="btn" href="#picks">Xem danh sách chọn lọc</a>
         </div>
 
         <div class="hr"></div>
         <div class="muted" style="font-size:13px;">
-          ＊這份是「可直接上線」的範本，你只要替換：標題、文案、圖片、連結，就能變成你的品牌網站。
+          * Tip: Nếu bạn muốn mình chọn theo budget/gu của bạn, cứ nhắn “<b>tư vấn 1-1</b>” là được.
         </div>
       </section>
 
       <aside class="card heroSide reveal">
-        <div class="sideTitle">快速亮點</div>
+        <div class="sideTitle">Thông tin nhanh</div>
         <div class="kv">
-          <div class="row"><b>交付</b><span>1 份 index.html（可擴充多頁）</span></div>
-          <div class="row"><b>效果</b><span>滑動動畫、視差、Modal 作品</span></div>
-          <div class="row"><b>速度</b><span>不靠重框架，載入更快</span></div>
-          <div class="row"><b>上線</b><span>GitHub Pages / Netlify</span></div>
+          <div class="row"><b>Phong cách</b><span>Tối giản – tinh tế</span></div>
+          <div class="row"><b>Hình thức</b><span>Tư vấn trực tiếp (1-1)</span></div>
+          <div class="row"><b>Dịch vụ</b><span>Gợi ý + Hỗ trợ đặt hàng</span></div>
+          <div class="row"><b>Phù hợp</b><span>Quà tặng / dùng hằng ngày</span></div>
+          <div class="row"><b>Liên hệ</b><span>Zalo / Facebook / WhatsApp</span></div>
         </div>
       </aside>
     </div>
   </div>
 
+  <!-- ABOUT -->
   <span id="about" class="anchor"></span>
   <section class="reveal">
-    <h2 class="sectionTitle">介紹</h2>
+    <h2 class="sectionTitle">Giới thiệu</h2>
     <div class="grid2">
       <div class="card box">
-        <p><b>你看到的「高級感」通常來自三件事：</b></p>
+        <p>
+          Mình làm <b>chọn đồ cá nhân</b> (personal curator). Nói đơn giản: mình lọc dùm bạn
+          những món đồ <b>đáng mua</b>, <b>dễ xài</b> và <b>đúng gu</b>.
+        </p>
         <ul class="list">
-          <li>留白與版面比例（看起來不擠）</li>
-          <li>細緻動態（進場/滑動/互動）</li>
-          <li>一致的字級與色彩（視覺乾淨）</li>
+          <li>Không chạy theo số lượng — ưu tiên giá trị</li>
+          <li>Nói thật, tư vấn thẳng — không “đẩy sale”</li>
+          <li>Mỗi món lên danh sách đều có lý do</li>
         </ul>
       </div>
       <div class="card box">
-        <p class="muted">我可以把這套效果直接套到你的品牌（例如：野酌/一頁工事/成家栗室），並把 CTA、表單、LINE 按鈕、作品集全部做成「真的能用」。</p>
+        <p><b>Mình chọn đồ dựa trên:</b></p>
+        <ul class="list">
+          <li>Chất lượng tốt, nguồn gốc rõ ràng</li>
+          <li>Thiết kế sạch, xài lâu không lỗi thời</li>
+          <li>Trải nghiệm thực tế / review kỹ trước khi giới thiệu</li>
+          <li>Phù hợp đời sống hiện đại, dễ phối</li>
+        </ul>
       </div>
     </div>
   </section>
 
-  <span id="services" class="anchor"></span>
+  <!-- CATEGORIES -->
+  <span id="categories" class="anchor"></span>
   <section class="reveal">
-    <h2 class="sectionTitle">服務</h2>
+    <h2 class="sectionTitle">Danh mục chọn lọc</h2>
     <div class="grid2">
       <div class="card box">
-        <p><b>一頁式網站（成交頁）</b></p>
         <ul class="list">
-          <li>品牌定位文案＋排版</li>
-          <li>CTA 設計（LINE/表單/電話）</li>
-          <li>行動版優化</li>
+          <li>👜 Phụ kiện & đồ dùng cá nhân</li>
+          <li>🏠 Đồ gia dụng / trang trí góc nhỏ</li>
+          <li>🎁 Quà tặng tinh tế</li>
+          <li>🌿 Lifestyle: mùi hương / chăm sóc / đồ chill</li>
         </ul>
+        <p class="muted" style="margin:10px 0 0;">
+          Danh sách sẽ cập nhật theo mùa, theo trend và theo “món nào thật sự đáng”.
+        </p>
       </div>
       <div class="card box">
-        <p><b>作品集/品牌官網</b></p>
+        <p><b>Bạn muốn mình chọn theo yêu cầu riêng?</b></p>
         <ul class="list">
-          <li>作品卡片＋彈窗預覽</li>
-          <li>動畫與互動（不影響速度）</li>
-          <li>可擴充多頁</li>
+          <li>Chọn theo budget (VD: 300k / 1tr / 3tr…)</li>
+          <li>Chọn theo gu (tối giản / nữ tính / mạnh mẽ…)</li>
+          <li>Chọn theo mục đích (tặng sinh nhật / tự thưởng / đi làm…)</li>
         </ul>
+        <div class="ctaRow" style="margin-top:14px;">
+          <a class="btn primary" href="#contact">Nhắn “chọn theo yêu cầu”</a>
+          <a class="btn" href="#process">Xem cách làm</a>
+        </div>
       </div>
     </div>
   </section>
 
-  <span id="work" class="anchor"></span>
+  <!-- PICKS -->
+  <span id="picks" class="anchor"></span>
   <section class="reveal">
-    <h2 class="sectionTitle">作品（點卡片會跳出預覽）</h2>
+    <h2 class="sectionTitle">Danh sách chọn lọc (bấm để xem chi tiết)</h2>
 
-    <div class="projects">
-      <div class="card proj" data-title="森林系戶外酒吧｜一頁式成交頁" data-desc="氛圍導向、收費清楚、預約 CTA、場地租借區塊。">
+    <div class="picks">
+      <div class="card pick" data-title="Món #1 — Phụ kiện cá nhân" data-desc="Gợi ý: đồ xài hằng ngày, bền, đẹp, dễ phối. (Bạn thay nội dung món thật ở đây.)">
         <div class="thumb"></div>
-        <h3>森林系戶外酒吧</h3>
+        <h3>Món #1 — Phụ kiện cá nhân</h3>
         <div class="tagRow">
-          <span class="tag">One-page</span><span class="tag">CTA</span><span class="tag">Mobile</span>
+          <span class="tag">Bền</span><span class="tag">Dễ phối</span><span class="tag">Tối giản</span>
         </div>
       </div>
 
-      <div class="card proj" data-title="品牌作品集｜高級感版面" data-desc="玻璃導覽列、滑動 Reveal、作品 Modal、乾淨視覺。">
+      <div class="card pick" data-title="Món #2 — Đồ cho không gian sống" data-desc="Gợi ý: nâng mood căn phòng, nhìn sạch, xài lâu. (Bạn thay nội dung món thật ở đây.)">
         <div class="thumb"></div>
-        <h3>品牌作品集</h3>
+        <h3>Món #2 — Góc sống</h3>
         <div class="tagRow">
-          <span class="tag">Portfolio</span><span class="tag">Modal</span><span class="tag">Smooth</span>
+          <span class="tag">Mood</span><span class="tag">Clean</span><span class="tag">Chill</span>
         </div>
       </div>
 
-      <div class="card proj" data-title="活動頁｜倒數與表單" data-desc="適合節慶活動、快閃、套餐推廣，加上倒數與快速表單。">
+      <div class="card pick" data-title="Món #3 — Quà tặng tinh tế" data-desc="Gợi ý: dễ tặng, không sợ ‘sai gu’, pack đẹp. (Bạn thay nội dung món thật ở đây.)">
         <div class="thumb"></div>
-        <h3>活動推廣頁</h3>
+        <h3>Món #3 — Quà tặng</h3>
         <div class="tagRow">
-          <span class="tag">Campaign</span><span class="tag">Form</span><span class="tag">Fast</span>
+          <span class="tag">Tinh tế</span><span class="tag">An toàn</span><span class="tag">Đẹp</span>
+        </div>
+      </div>
+
+      <div class="card pick" data-title="Món #4 — Lifestyle" data-desc="Gợi ý: mùi hương / chăm sóc / đồ dùng chill. (Bạn thay nội dung món thật ở đây.)">
+        <div class="thumb"></div>
+        <h3>Món #4 — Lifestyle</h3>
+        <div class="tagRow">
+          <span class="tag">Hương</span><span class="tag">Care</span><span class="tag">Relax</span>
+        </div>
+      </div>
+
+      <div class="card pick" data-title="Món #5 — Best value" data-desc="Gợi ý: ‘đáng tiền’ nhất trong tháng. (Bạn thay nội dung món thật ở đây.)">
+        <div class="thumb"></div>
+        <h3>Món #5 — Best value</h3>
+        <div class="tagRow">
+          <span class="tag">Đáng tiền</span><span class="tag">Hot</span><span class="tag">Recommend</span>
+        </div>
+      </div>
+
+      <div class="card pick" data-title="Món #6 — Theo yêu cầu" data-desc="Bạn đưa budget + mục đích, mình gợi ý 3–5 option phù hợp.">
+        <div class="thumb"></div>
+        <h3>Món #6 — Theo yêu cầu</h3>
+        <div class="tagRow">
+          <span class="tag">1-1</span><span class="tag">Budget</span><span class="tag">Gu</span>
         </div>
       </div>
     </div>
+
+    <div class="muted" style="margin-top:12px; font-size:13px;">
+      * Bạn thay “Món #1…” bằng sản phẩm thật (tên + mô tả + giá + link). Nếu muốn, mình có thể làm luôn bản có hình ảnh thật.
+    </div>
   </section>
 
+  <!-- PROCESS -->
   <span id="process" class="anchor"></span>
   <section class="reveal">
-    <h2 class="sectionTitle">流程（你會覺得很順）</h2>
+    <h2 class="sectionTitle">Cách mình làm việc (rõ ràng, gọn)</h2>
     <div class="grid2">
       <div class="card box">
         <ul class="list">
-          <li><b>1</b> 你的需求（要賣什麼/要誰買）</li>
-          <li><b>2</b> 版面與文案（先成交再好看）</li>
-          <li><b>3</b> 動態與細節（滑動、互動、手機版）</li>
-          <li><b>4</b> 上線（GitHub Pages / Netlify）</li>
+          <li><b>1)</b> Bạn nhắn nhu cầu: budget + mục đích + gu</li>
+          <li><b>2)</b> Mình gửi 3–5 lựa chọn phù hợp (kèm lý do)</li>
+          <li><b>3)</b> Chốt món bạn thích, xác nhận thông tin</li>
+          <li><b>4)</b> Hỗ trợ đặt hàng / hướng dẫn mua</li>
         </ul>
       </div>
       <div class="card box">
-        <p class="muted">你如果想做「跟 Manus 一樣」：我會用同級的視覺節奏做出來，然後把你真正需要的 CTA、LINE、表單、作品集全部做成可用。</p>
+        <p><b>Tụi mình nói chuyện kiểu dễ chịu nha:</b></p>
+        <ul class="list">
+          <li>Không ép mua</li>
+          <li>Không vòng vo</li>
+          <li>Ưu tiên món “xài sướng” hơn món “chụp hình đẹp”</li>
+        </ul>
       </div>
     </div>
   </section>
 
+  <!-- FAQ -->
+  <span id="faq" class="anchor"></span>
+  <section class="reveal">
+    <h2 class="sectionTitle">Hỏi nhanh (FAQ)</h2>
+    <div class="grid2">
+      <div class="card box">
+        <p><b>Q: Đây là shop hả?</b><br/>
+          <span class="muted">A: Không nha. Đây là trang chọn đồ cá nhân — mình lọc & gợi ý, không bán đại trà.</span>
+        </p>
+        <p><b>Q: Giá có cố định không?</b><br/>
+          <span class="muted">A: Tuỳ món và tuỳ yêu cầu. Bạn đưa budget, mình gợi ý đúng tầm.</span>
+        </p>
+      </div>
+      <div class="card box">
+        <p><b>Q: Có nhận chọn đồ theo yêu cầu riêng không?</b><br/>
+          <span class="muted">A: Có chứ. Nhắn mình “chọn theo yêu cầu” + budget + mục đích là được.</span>
+        </p>
+        <p><b>Q: Mình ở xa thì sao?</b><br/>
+          <span class="muted">A: Vẫn tư vấn bình thường. Có thể hỗ trợ đặt hàng tuỳ trường hợp.</span>
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
   <span id="contact" class="anchor"></span>
   <section class="reveal">
-    <h2 class="sectionTitle">聯絡</h2>
+    <h2 class="sectionTitle">Liên hệ</h2>
     <div class="card box">
-      <p style="margin:0 0 8px;"><b>把你的品牌/方案丟給我，我就能改成你的版本。</b></p>
-      <p class="muted" style="margin:0 0 14px;">（例如：野酌 990 暢飲＋場地租借／一頁工事 6800 成交頁）</p>
+      <p style="margin:0 0 8px;"><b>Muốn xem danh sách chọn đồ mới nhất? Nhắn mình liền nha.</b></p>
+      <p class="muted" style="margin:0 0 14px;">
+        Gợi ý nhắn: “Tư vấn 1-1 — budget ___ — mục đích ___ — gu ___”.
+      </p>
+
       <div class="ctaRow">
-        <!-- 你把這裡換成你的 LINE/IG/表單 -->
-        <a class="btn primary" href="https://line.me/" target="_blank" rel="noopener">LINE 洽詢</a>
-        <a class="btn" href="#about">回到頂部</a>
+        <!-- ✅ THAY LINK THẬT Ở ĐÂY -->
+        <a class="btn primary" href="https://zalo.me/" target="_blank" rel="noopener">Zalo</a>
+        <a class="btn" href="https://m.me/" target="_blank" rel="noopener">Facebook Messenger</a>
+        <a class="btn" href="https://wa.me/" target="_blank" rel="noopener">WhatsApp</a>
+      </div>
+
+      <div class="hr"></div>
+      <div class="muted" style="font-size:13px;">
+        * Bạn muốn mình gắn số Zalo/WhatsApp và link FB đúng của khách: thay các link ở trên là xong.
       </div>
     </div>
   </section>
 
   <footer>
     <div class="wrap">
-      <div>© <span id="y"></span> WebDesign Studio. All rights reserved.</div>
-      <div class="muted" style="margin-top:6px; font-size:13px;">＊此頁為前端範本，可直接部署到 GitHub Pages。</div>
+      <div>© <span id="y"></span> Curated Picks. All rights reserved.</div>
+      <div class="muted" style="margin-top:6px; font-size:13px;">
+        * Trang one-page tối giản, tối ưu mobile. Có thể mở rộng thêm “Bảng giá / Review / Blog” nếu cần.
+      </div>
     </div>
   </footer>
 </main>
@@ -432,8 +534,8 @@
 <div class="modal" id="modal" aria-hidden="true">
   <div class="modalCard" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
     <div class="modalTop">
-      <b id="modalTitle">作品預覽</b>
-      <button class="close" id="closeBtn">關閉</button>
+      <b id="modalTitle">Chi tiết</b>
+      <button class="close" id="closeBtn">Đóng</button>
     </div>
     <div class="modalBody">
       <div class="mock"></div>
@@ -448,12 +550,12 @@
   // year
   document.getElementById('y').textContent = new Date().getFullYear();
 
-  // glow parallax (mouse)
+  // glow parallax
   const glow = document.getElementById('glow');
   window.addEventListener('mousemove', (e) => {
     const x = (e.clientX / window.innerWidth - 0.5) * 30;
     const y = (e.clientY / window.innerHeight - 0.5) * 30;
-    glow.style.transform = `translate(${x}px, ${y}px)`;
+    if (glow) glow.style.transform = `translate(${x}px, ${y}px)`;
   }, { passive:true });
 
   // scroll reveal
@@ -467,15 +569,15 @@
   }, { threshold: 0.12 });
   document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
 
-  // portfolio modal
+  // modal for picks
   const modal = document.getElementById('modal');
   const modalTitle = document.getElementById('modalTitle');
   const modalDesc = document.getElementById('modalDesc');
   const closeBtn = document.getElementById('closeBtn');
 
   function openModal(title, desc){
-    modalTitle.textContent = title;
-    modalDesc.textContent = desc;
+    modalTitle.textContent = title || "Chi tiết";
+    modalDesc.textContent = desc || "";
     modal.classList.add('open');
     modal.setAttribute('aria-hidden','false');
     document.body.style.overflow='hidden';
@@ -486,11 +588,12 @@
     document.body.style.overflow='';
   }
 
-  document.querySelectorAll('.proj').forEach(card=>{
+  document.querySelectorAll('.pick').forEach(card=>{
     card.addEventListener('click', ()=>{
-      openModal(card.dataset.title || '作品預覽', card.dataset.desc || '');
+      openModal(card.dataset.title, card.dataset.desc);
     });
   });
+
   closeBtn.addEventListener('click', closeModal);
   modal.addEventListener('click', (e)=>{ if(e.target === modal) closeModal(); });
   window.addEventListener('keydown', (e)=>{ if(e.key === 'Escape') closeModal(); });
